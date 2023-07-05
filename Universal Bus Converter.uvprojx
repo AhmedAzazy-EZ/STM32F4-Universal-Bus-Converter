@@ -388,6 +388,11 @@
               <FileType>8</FileType>
               <FilePath>.\main.cpp</FilePath>
             </File>
+            <File>
+              <FileName>std_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\std_types.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -397,6 +402,16 @@
               <FileName>BASE_COM.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\BASE_COM.h</FilePath>
+            </File>
+            <File>
+              <FileName>COM_Generic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\COM_Generic.h</FilePath>
+            </File>
+            <File>
+              <FileName>BASE_COM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\BASE_COM.cpp</FilePath>
             </File>
           </Files>
         </Group>

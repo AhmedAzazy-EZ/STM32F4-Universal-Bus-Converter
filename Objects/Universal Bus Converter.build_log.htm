@@ -27,7 +27,25 @@ Project File Date:  07/05/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-".\Objects\Universal Bus Converter.axf" - 0 Error(s), 0 Warning(s).
+main.cpp(8): error: variable type 'BASE_COM' is an abstract class
+        BASE_COM myObj{};
+                 ^
+./BASE_COM.h(20): note: unimplemented pure virtual method 'Send' in 'BASE_COM'
+        virtual STD_Return_t Send() = 0;
+                             ^
+./BASE_COM.h(21): note: unimplemented pure virtual method 'Receive' in 'BASE_COM'
+        virtual STD_Return_t Receive() = 0;
+                             ^
+./BASE_COM.h(22): note: unimplemented pure virtual method 'Init' in 'BASE_COM'
+        virtual STD_Return_t Init() = 0;
+                             ^
+./BASE_COM.h(23): note: unimplemented pure virtual method 'Deinit' in 'BASE_COM'
+        virtual STD_Return_t Deinit() = 0;
+                             ^
+1 error generated.
+compiling main.cpp...
+compiling BASE_COM.cpp...
+".\Objects\Universal Bus Converter.axf" - 1 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -124,7 +142,8 @@ Package Vendor: Keil
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
       Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:02
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

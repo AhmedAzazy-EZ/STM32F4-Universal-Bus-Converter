@@ -16,11 +16,11 @@
 class BASE_COM
 {
 public :
-	virtual BASE_COM() = 0;
-	virtual Send() = 0;
-	virtual Receive() = 0;
-	virtual Init() = 0;
-	virtual Deinit() = 0;
+	BASE_COM();
+	virtual STD_Return_t Send() = 0;
+	virtual STD_Return_t Receive() = 0;
+	virtual STD_Return_t Init() = 0;
+	virtual STD_Return_t Deinit() = 0;
 
 	void Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number);
 	uint8_t pin_read();
