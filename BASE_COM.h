@@ -5,7 +5,8 @@
  *  Author: Ahmed Azazy
  */
 
-#pragma once
+#ifndef _BASE_COM_H_
+#define _BASE_COM_H_
 
 #ifdef __cplusplus
  extern "C" {
@@ -34,4 +35,5 @@ protected:
 #ifdef __cplusplus
  }
  
+#endif
 #endif
