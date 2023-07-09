@@ -12,10 +12,13 @@
  extern "C" {
 #endif
 
-class BASE_COM
+#include "COM_Generic.h"
+	 
+class BASE_COM_t
 {
 public :
-	BASE_COM();
+	static int Num_of_instances;
+	BASE_COM_t();
 	virtual STD_Return_t Send(char * data , uint32_t len) = 0;
 	virtual STD_Return_t Receive(char * user_buff , uint32_t len) = 0;
 

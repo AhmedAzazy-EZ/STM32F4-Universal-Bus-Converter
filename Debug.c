@@ -47,8 +47,7 @@ void print_DebugMsg(char * str)
 	#else
 	
 	
-	#endif
-	
+	#endif	
 }
 
 

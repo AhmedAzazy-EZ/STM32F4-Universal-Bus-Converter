@@ -28,20 +28,16 @@ Project File Date:  07/09/2023
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
 main.cpp(6): warning: In file included from...
-./BASE_COM.h(19): error: unknown type name 'STD_Return_t'
-        virtual STD_Return_t Send(char * data , uint32_t len) = 0;
-                ^
-./BASE_COM.h(20): error: unknown type name 'STD_Return_t'
-        virtual STD_Return_t Receive(char * user_buff , uint32_t len) = 0;
-                ^
-./BASE_COM.h(21): error: unknown type name 'STD_Return_t'
-        virtual STD_Return_t Deinit() = 0;
-                ^
-3 errors generated.
+./BASE_COM.h(15): warning: In file included from...
+./COM_Generic.h(23): warning: In file included from...
+./UART_COM.h(18): error: expected class name
+class UART_COM : public BASE_COM_t {
+                        ^
+1 error generated.
 compiling main.cpp...
-compiling BASE_COM.cpp...
 compiling UART_COM.cpp...
-".\Objects\Universal Bus Converter.axf" - 3 Error(s), 0 Warning(s).
+compiling BASE_COM.cpp...
+".\Objects\Universal Bus Converter.axf" - 1 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 

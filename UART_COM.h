@@ -9,13 +9,13 @@
 #ifndef _UART_COM_H_
 #define _UART_COM_H_
 
-#include "COM_Generic.h"
+#include "BASE_COM.h"
 
 #ifdef __cplusplus
  extern "C" {
 #endif	 
 	 
-class UART_COM : public BASE_COM
+class UART_COM : public BASE_COM_t
 {
 	
 public:
@@ -29,8 +29,6 @@ private :
 	uint32_t Rx_pinNumber; 
   //User has to get this value from the datasheet of the target
 	uint8_t Alternate_Function; 
-	
-	
 };
 	 
 	 

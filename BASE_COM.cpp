@@ -8,20 +8,20 @@
 #include "COM_Generic.h"
 
 
-void BASE_COM::Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number)
+void BASE_COM_t::Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number)
 {
 	port = Myport;
 	pin_Number = My_pin_Number;
 }
 
 
-uint8_t BASE_COM::pin_read()
+uint8_t BASE_COM_t::pin_read()
 {
 	return (uint8_t)HAL_GPIO_ReadPin(port, pin_Number);
 }
 
 
-void BASE_COM::GPIO_clock_Enable(GPIO_TypeDef  * Myport)
+void BASE_COM_t::GPIO_clock_Enable(GPIO_TypeDef  * Myport)
 {
 	
 	switch((uint32_t)Myport)

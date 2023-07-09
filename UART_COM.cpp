@@ -10,6 +10,9 @@
 UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDef * GPIO_contr , uint32_t Tx_pinNum , uint32_t Rx_pinNum , uint8_t AF)
 {
 	
+	uart_handler = new UART_HandleTypeDef;
+	memset(uart_handler, 0, sizeof(UART_HandleTypeDef));
+	
 	UART_COM::uart_low_level_init(GPIO_contr);
 	GPIO_InitTypeDef _GPIO = {0};
 	_GPIO.Pin=	(1<<Tx_pinNum) | (1<<Rx_pinNum);
@@ -19,8 +22,6 @@ UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDe
 	_GPIO.Speed = GPIO_SPEED_HIGH;
 	HAL_GPIO_Init(GPIO_contr , &_GPIO);
 	
-	uart_handler = new UART_HandleTypeDef;
-	memset(uart_handler, 0, sizeof(UART_HandleTypeDef));
 	uart_handler->Instance = uart_contr;
 	uart_handler->Init.BaudRate = baud_rate;
 	uart_handler->Init.WordLength = UART_WORDLENGTH_8B;
