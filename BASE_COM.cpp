@@ -50,3 +50,9 @@ void BASE_COM_t::GPIO_clock_Enable(GPIO_TypeDef  * Myport)
 	}
 
 }
+
+
+BASE_COM_t::~BASE_COM_t()
+{
+
+}

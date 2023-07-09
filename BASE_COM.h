@@ -19,6 +19,7 @@ class BASE_COM_t
 public :
 	static int Num_of_instances;
 	BASE_COM_t();
+	~BASE_COM_t();
 	virtual STD_Return_t Send(char * data , uint32_t len) = 0;
 	virtual STD_Return_t Receive(char * user_buff , uint32_t len) = 0;
 
