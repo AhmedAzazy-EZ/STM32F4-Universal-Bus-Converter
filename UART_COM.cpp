@@ -5,7 +5,11 @@
  *  Author: Ahmed Azazy
  */
 
-#include "COM_Generic.h"
+#include <stm32f4xx_hal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "UART_COM.h"
 
 UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDef * GPIO_contr , uint32_t Tx_pinNum , uint32_t Rx_pinNum , uint8_t AF)
 {
@@ -70,4 +74,14 @@ void UART_COM::uart_low_level_init(GPIO_TypeDef * GPIO_contr)
 			break;			
 	}
 	
+}
+
+
+STD_Return_t UART_COM::Send(char * data , uint32_t len)
+{
+	return STD_OK;
+}
+STD_Return_t UART_COM::Receive(char * user_buff , uint32_t len)
+{
+	return STD_OK;
 }

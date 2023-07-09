@@ -11,13 +11,13 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-
-#include "COM_Generic.h"
+	 
+#include "std_types.h"
 	 
 class BASE_COM_t
 {
 public :
-	static int Num_of_instances;
+//	static int Num_of_instances;
 	BASE_COM_t();
 	~BASE_COM_t();
 	virtual STD_Return_t Send(char * data , uint32_t len) = 0;

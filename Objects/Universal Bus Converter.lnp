@@ -2,6 +2,7 @@
 ".\objects\main.o"
 ".\objects\debug.o"
 ".\objects\base_com.o"
+".\objects\uart_com.o"
 ".\objects\stm32f4xx_hal.o"
 ".\objects\stm32f4xx_hal_can.o"
 ".\objects\stm32f4xx_hal_cortex.o"
