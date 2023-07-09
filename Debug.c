@@ -20,7 +20,7 @@ void Debug_Init(void)
 	GPIO_InitTypeDef _GPIO = {0};
 	
 	
-	_GPIO.Pin=	(1<<DEBUX_TX_PIN_NUMBER) | (1 << DEBUG_RX_PIN_NUMBER);
+	_GPIO.Pin=	(1<<DEBUX_TX_PIN_NUMBER);
 	_GPIO.Mode = GPIO_MODE_AF_PP  ;
 	_GPIO.Pull = GPIO_NOPULL;
 	_GPIO.Alternate = GPIO_AF8_UART4;
@@ -33,7 +33,7 @@ void Debug_Init(void)
 	Debug_uart.Init.WordLength = UART_WORDLENGTH_8B;
 	Debug_uart.Init.StopBits = USART_STOPBITS_1;
 	Debug_uart.Init.Parity = USART_PARITY_NONE ;
-	Debug_uart.Init.Mode = USART_MODE_TX | USART_MODE_RX;
+	Debug_uart.Init.Mode = USART_MODE_TX;
 	NVIC_EnableIRQ(UART4_IRQn);
 	HAL_UART_Init(&Debug_uart);	
 }
@@ -43,11 +43,6 @@ void print_DebugMsg(char * str)
 	#if DEBUG_ENABLED == 1
 	if(Debug_uart.gState != HAL_UART_STATE_BUSY_TX){
 		HAL_UART_Transmit_IT(&Debug_uart , (uint8_t *) str , strlen(str));
-		dummy++;
-	}
-	else 
-	{
-		dummy = 0;
 	}
 	#else
 	

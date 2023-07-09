@@ -11,10 +11,16 @@
  extern "C" {
 #endif
 	 
-	 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>	 
 #include "stm32f4xx_hal.h"
 #include "std_types.h"
 #include "Debug.h"
+#include "BASE_COM.h"
+#include "UART_COM.h"
 	 
 #ifdef __cplusplus
  }
