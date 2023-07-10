@@ -25,6 +25,7 @@ public:
 	~UART_COM();
 	STD_Return_t Send(char * data , uint32_t len) override;
 	STD_Return_t Receive(char * user_buff , uint32_t len)override;
+	void Interrupt_handler();
 private :
 	void uart_low_level_init(GPIO_TypeDef * GPIO_contr);
   GPIO_TypeDef * GPIO_Controller;
@@ -32,7 +33,6 @@ private :
 	uint32_t Tx_pinNumber;
 	uint32_t Rx_pinNumber; 
   //User has to get this value from the datasheet of the target
-	uint8_t Alternate_Function; 
 };
 	 
 	 

@@ -50,13 +50,8 @@ void print_DebugMsg(char * str)
 	#endif	
 }
 
+//void UART4_IRQHandler()
+//{
+//	HAL_UART_IRQHandler(&Debug_uart);
+//}
 
-void SysTick_Handler()
-{
-	HAL_IncTick();
-}
-
-void UART4_IRQHandler()
-{
-	HAL_UART_IRQHandler(&Debug_uart);
-}

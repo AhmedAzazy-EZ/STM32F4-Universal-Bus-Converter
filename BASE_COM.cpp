@@ -7,6 +7,10 @@
 
 #include "COM_Generic.h"
 
+BASE_COM_t::BASE_COM_t()
+{
+
+}
 
 void BASE_COM_t::Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number)
 {

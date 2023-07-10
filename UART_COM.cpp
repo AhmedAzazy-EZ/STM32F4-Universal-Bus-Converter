@@ -16,8 +16,10 @@ UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDe
 	
 	uart_handler = new UART_HandleTypeDef;
 	memset(uart_handler, 0, sizeof(UART_HandleTypeDef));
-	
+	uart_handler->Instance = uart_contr;
 	UART_COM::uart_low_level_init(GPIO_contr);
+	
+	
 	GPIO_InitTypeDef _GPIO = {0};
 	_GPIO.Pin=	(1<<Tx_pinNum) | (1<<Rx_pinNum);
 	_GPIO.Mode = GPIO_MODE_AF_PP  ;
@@ -26,7 +28,7 @@ UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDe
 	_GPIO.Speed = GPIO_SPEED_HIGH;
 	HAL_GPIO_Init(GPIO_contr , &_GPIO);
 	
-	uart_handler->Instance = uart_contr;
+
 	uart_handler->Init.BaudRate = baud_rate;
 	uart_handler->Init.WordLength = UART_WORDLENGTH_8B;
 	uart_handler->Init.StopBits = USART_STOPBITS_1;
@@ -76,9 +78,13 @@ void UART_COM::uart_low_level_init(GPIO_TypeDef * GPIO_contr)
 	
 }
 
-
+void UART_COM::Interrupt_handler()
+{
+	HAL_UART_IRQHandler(uart_handler);
+}
 STD_Return_t UART_COM::Send(char * data , uint32_t len)
 {
+	HAL_UART_Transmit_IT(uart_handler , (uint8_t *)data , len);
 	return STD_OK;
 }
 STD_Return_t UART_COM::Receive(char * user_buff , uint32_t len)
