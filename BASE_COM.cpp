@@ -9,7 +9,7 @@
 
 BASE_COM_t::BASE_COM_t()
 {
-
+	BASE_COM_t::Num_of_instances++;
 }
 
 void BASE_COM_t::Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number)

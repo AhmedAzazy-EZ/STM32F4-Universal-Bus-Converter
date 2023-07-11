@@ -11,8 +11,8 @@
 char generic_buffer[500];
 int generic_int;
 	 
-UART_COM * My_UART;
-
+//UART_COM * My_UART;
+UART_COM My_UART{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 int main(void)
 {
 		
@@ -20,14 +20,14 @@ int main(void)
 	HAL_InitTick(0); 
 	//Debug_Init();
 	
-	My_UART = new UART_COM{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
+//	My_UART = new UART_COM{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 	
 	while(1)
 	{
 		generic_int++;
 		memset(generic_buffer , 0 , 500);
 		sprintf(generic_buffer , "Yoooo %d\n" , generic_int);
-		My_UART->Send(generic_buffer , strlen(generic_buffer));
+		My_UART.Send(generic_buffer , strlen(generic_buffer));
 		//print_DebugMsg(generic_buffer);	
 		HAL_Delay(1000);
 	}
@@ -46,7 +46,7 @@ void HardFault_Handler (void)
 
 void UART4_IRQHandler()
 {
-	My_UART->Interrupt_handler();
+	My_UART.Interrupt_handler();
 }
 
 void SysTick_Handler()
