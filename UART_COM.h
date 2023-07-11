@@ -24,11 +24,12 @@ public:
 	UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDef * GPIO_contr , uint32_t Tx_pinNum , uint32_t Rx_pinNum , uint8_t AF);
 	~UART_COM();
 	STD_Return_t Send(char * data , uint32_t len) override;
-	STD_Return_t Receive(char * user_buff , uint32_t len)override;
+	STD_Return_t Receive()override;
+	void Receive_callback();
 	void Interrupt_handler();
+	UART_HandleTypeDef * Get_UART_HandleTypeDef();
 private :
 	void uart_low_level_init(GPIO_TypeDef * GPIO_contr);
-  GPIO_TypeDef * GPIO_Controller;
 	UART_HandleTypeDef * uart_handler;
 	uint32_t Tx_pinNumber;
 	uint32_t Rx_pinNumber; 

@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "UART_COM.h"
+#include "COM_Generic.h"
 
 UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDef * GPIO_contr , uint32_t Tx_pinNum , uint32_t Rx_pinNum , uint8_t AF)
 {
@@ -23,7 +24,7 @@ UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDe
 	GPIO_InitTypeDef _GPIO = {0};
 	_GPIO.Pin=	(1<<Tx_pinNum) | (1<<Rx_pinNum);
 	_GPIO.Mode = GPIO_MODE_AF_PP  ;
-	_GPIO.Pull = GPIO_NOPULL;
+	_GPIO.Pull = GPIO_PULLUP;
 	_GPIO.Alternate = AF;
 	_GPIO.Speed = GPIO_SPEED_HIGH;
 	HAL_GPIO_Init(GPIO_contr , &_GPIO);
@@ -35,12 +36,13 @@ UART_COM::UART_COM(uint32_t baud_rate , USART_TypeDef * uart_contr , GPIO_TypeDe
 	uart_handler->Init.Parity = USART_PARITY_NONE;
 	uart_handler->Init.Mode = USART_MODE_TX | USART_MODE_RX;
 	HAL_UART_Init(uart_handler);	
-	
+	Receive();
 }
 
 UART_COM::~UART_COM()
 {
 	delete uart_handler;
+	delete this;
 }
 
 void UART_COM::uart_low_level_init(GPIO_TypeDef * GPIO_contr)
@@ -78,6 +80,16 @@ void UART_COM::uart_low_level_init(GPIO_TypeDef * GPIO_contr)
 	
 }
 
+UART_HandleTypeDef * UART_COM::Get_UART_HandleTypeDef()
+{
+	return uart_handler;
+}
+
+void UART_COM::Receive_callback()
+{
+	Receive();
+}
+
 void UART_COM::Interrupt_handler()
 {
 	HAL_UART_IRQHandler(uart_handler);
@@ -87,7 +99,8 @@ STD_Return_t UART_COM::Send(char * data , uint32_t len)
 	HAL_UART_Transmit_IT(uart_handler , (uint8_t *)data , len);
 	return STD_OK;
 }
-STD_Return_t UART_COM::Receive(char * user_buff , uint32_t len)
+STD_Return_t UART_COM::Receive()
 {
+	HAL_UART_Receive_IT(uart_handler , &receive_buffer[++receive_buffer_tracker%COM_BUFFER_MAX_LENGTH] , 1);
 	return STD_OK;
 }

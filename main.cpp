@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <vector>
 #include <stm32f446xx.h>
 #include "stm32f4xx_hal.h"
 #include "BASE_COM.h"
@@ -8,11 +9,14 @@
 #include "Debug.h"
 
 
+extern std::vector<BASE_COM_t *> COM_ABSTRACT;
+
 char generic_buffer[500];
 int generic_int;
 	 
-//UART_COM * My_UART;
 UART_COM My_UART{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
+
+
 int main(void)
 {
 		
@@ -20,7 +24,6 @@ int main(void)
 	HAL_InitTick(0); 
 	//Debug_Init();
 	
-//	My_UART = new UART_COM{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 	
 	while(1)
 	{
@@ -52,6 +55,14 @@ void UART4_IRQHandler()
 void SysTick_Handler()
 {
 	HAL_IncTick();
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart == My_UART.Get_UART_HandleTypeDef())
+	{
+		My_UART.Receive_callback();
+	}
 }
 	 
 #ifdef __cplusplus

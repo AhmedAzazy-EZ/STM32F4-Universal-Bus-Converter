@@ -8,19 +8,17 @@
 #ifndef _BASE_COM_H_
 #define _BASE_COM_H_
 
-#ifdef __cplusplus
- extern "C" {
-#endif
-	 
+extern "C" {	 
 #include "std_types.h"
-	 
+}
+
 class BASE_COM_t
 {
 public :
 	BASE_COM_t();
 	~BASE_COM_t();
 	virtual STD_Return_t Send(char * data , uint32_t len) = 0;
-	virtual STD_Return_t Receive(char * user_buff , uint32_t len) = 0;
+	virtual STD_Return_t Receive() = 0;
 
 	void Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number);
 	uint8_t pin_read();
@@ -29,13 +27,9 @@ public :
 protected:
 	uint32_t pin_Number;
 	GPIO_TypeDef  *port;
+	uint32_t receive_buffer_tracker = 0;
+	uint8_t receive_buffer[500];
 };
 
-
-
-
-#ifdef __cplusplus
- }
  
-#endif
 #endif

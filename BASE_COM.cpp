@@ -6,10 +6,17 @@
  */
 
 #include "COM_Generic.h"
+#include <vector>
+
+using namespace std;
+
+vector<BASE_COM_t *> COM_ABSTRACT;
+int BASE_COM_t::Num_of_instances = 0;
 
 BASE_COM_t::BASE_COM_t()
 {
-	BASE_COM_t::Num_of_instances++;
+	COM_ABSTRACT.push_back(this);
+	Num_of_instances++;	
 }
 
 void BASE_COM_t::Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number)
