@@ -19,7 +19,8 @@ public :
 	~BASE_COM_t();
 	virtual STD_Return_t Send(char * data , uint32_t len) = 0;
 	virtual STD_Return_t Receive() = 0;
-
+	virtual void Receive_callback() = 0;
+	virtual void Interrupt_handler()=0;
 	void Pin_setter(GPIO_TypeDef  * Myport , uint32_t My_pin_Number);
 	uint8_t pin_read();
 	void GPIO_clock_Enable(GPIO_TypeDef  * Myport);

@@ -83,9 +83,9 @@ I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM3
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x61110710)
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x61110710)
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h)(0x61110710)
-I (BASE_COM.h)(0x64ADB346)
+I (BASE_COM.h)(0x64ADE30E)
 I (std_types.h)(0x64AD0D9C)
-I (UART_COM.h)(0x64ADE11C)
+I (UART_COM.h)(0x64ADE2CE)
 I (Debug.h)(0x64A99198)
 F (.\std_types.h)(0x64AD0D9C)()
 F (.\Debug.c)(0x64AC5B54)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/debug.o -MD)
@@ -128,7 +128,7 @@ I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM3
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h)(0x61110710)
 F (.\Debug.h)(0x64A99198)()
 F (.\test.h)(0x64AD09A2)()
-F (.\BASE_COM.h)(0x64ADB346)()
+F (.\BASE_COM.h)(0x64ADE30E)()
 F (.\BASE_COM.cpp)(0x64ADAD7A)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/base_com.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (COM_Generic.h)(0x64ADB2E6)
@@ -186,8 +186,8 @@ I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM3
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h)(0x61110710)
 I (std_types.h)(0x64AD0D9C)
 I (Debug.h)(0x64A99198)
-I (BASE_COM.h)(0x64ADB346)
-I (UART_COM.h)(0x64ADE11C)
+I (BASE_COM.h)(0x64ADE30E)
+I (UART_COM.h)(0x64ADE2CE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\vector)(0x5D7F0710)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\iosfwd)(0x5C43F13C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\wchar.h)(0x5C43F13A)
@@ -217,8 +217,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\climits)(0x5C43F13A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\limits.h)(0x5C43F13C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x5DB393F0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__split_buffer)(0x5D52ADE0)
-F (.\UART_COM.h)(0x64ADE11C)()
-F (.\UART_COM.cpp)(0x64ADE188)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/uart_com.o -MD)
+F (.\UART_COM.h)(0x64ADE2CE)()
+F (.\UART_COM.cpp)(0x64ADE246)(-xc++ -std=c++17 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/uart_com.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x61110710)
 I (RTE\Device\STM32F446RETx\stm32f4xx_hal_conf.h)(0x64ADDE40)
@@ -272,8 +272,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\limits)(0x5D1ABA4E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5C43F13A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\string.h)(0x5C43F13A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5DB393F0)
-I (UART_COM.h)(0x64ADE11C)
-I (BASE_COM.h)(0x64ADB346)
+I (UART_COM.h)(0x64ADE2CE)
+I (BASE_COM.h)(0x64ADE30E)
 I (std_types.h)(0x64AD0D9C)
 I (COM_Generic.h)(0x64ADB2E6)
 I (Debug.h)(0x64A99198)
