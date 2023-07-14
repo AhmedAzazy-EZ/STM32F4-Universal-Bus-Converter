@@ -23,7 +23,7 @@ int main(void)
 	
 	HAL_Init();
 	HAL_InitTick(0); 		
-	
+	//register observers
 	My_UART4.obsrvables_tracking.push_back(My_UART5.attatch(&My_UART4 , &My_UART5));
 	My_UART5.obsrvables_tracking.push_back(My_UART4.attatch(&My_UART5 , &My_UART4));
 	
