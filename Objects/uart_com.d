@@ -51,5 +51,35 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__undef_macros \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h UART_COM.h BASE_COM.h \
-  std_types.h COM_Generic.h Debug.h \
+  std_types.h observer_pattern.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\vector \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\iosfwd \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\wchar.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\wchar.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__bit_reference \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\bit \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__debug \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\algorithm \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\initializer_list \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstring \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\utility \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__tuple \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstdint \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\memory \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\typeinfo \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\exception \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstdlib \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\new \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\iterator \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__functional_base \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\tuple \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdexcept \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cassert \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\assert.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\functional \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\climits \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\limits.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\limits.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__split_buffer \
+  COM_Generic.h Debug.h \
   C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f446xx.h

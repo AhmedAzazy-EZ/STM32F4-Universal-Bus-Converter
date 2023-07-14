@@ -34,7 +34,7 @@ void Debug_Init(void)
 	Debug_uart.Init.StopBits = USART_STOPBITS_1;
 	Debug_uart.Init.Parity = USART_PARITY_NONE ;
 	Debug_uart.Init.Mode = USART_MODE_TX;
-	NVIC_EnableIRQ(UART4_IRQn);
+	NVIC_EnableIRQ(UART5_IRQn);
 	HAL_UART_Init(&Debug_uart);	
 }
 

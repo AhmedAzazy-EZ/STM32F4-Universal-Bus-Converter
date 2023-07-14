@@ -53,7 +53,7 @@
   C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h \
   std_types.h Debug.h \
   C:\Users\ESLAM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f446xx.h \
-  BASE_COM.h UART_COM.h \
+  BASE_COM.h observer_pattern.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\vector \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\iosfwd \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\wchar.h \
@@ -82,4 +82,5 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\climits \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\limits.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\limits.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__split_buffer
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__split_buffer \
+  UART_COM.h

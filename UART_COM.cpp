@@ -48,7 +48,7 @@ UART_COM::~UART_COM()
 void UART_COM::uart_low_level_init(GPIO_TypeDef * GPIO_contr)
 {
 	
-	UART_COM::GPIO_clock_Enable(GPIO_contr);
+	GPIO_clock_Enable(GPIO_contr);
 	switch((uint32_t)uart_handler->Instance)
 	{
 	
@@ -85,11 +85,6 @@ UART_HandleTypeDef * UART_COM::Get_UART_HandleTypeDef()
 	return uart_handler;
 }
 
-void UART_COM::Receive_callback()
-{
-	Receive();
-}
-
 void UART_COM::Interrupt_handler()
 {
 	HAL_UART_IRQHandler(uart_handler);
@@ -97,10 +92,22 @@ void UART_COM::Interrupt_handler()
 STD_Return_t UART_COM::Send(char * data , uint32_t len)
 {
 	HAL_UART_Transmit_IT(uart_handler , (uint8_t *)data , len);
-	return STD_OK;
+	OnGoingTx = true;
+	return true;
 }
 STD_Return_t UART_COM::Receive()
 {
 	HAL_UART_Receive_IT(uart_handler , &receive_buffer[++receive_tracker%COM_BUFFER_MAX_LENGTH] , 1);
-	return STD_OK;
+	Notify_observers(this);
+	return true;
+}
+
+void UART_COM::Receive_callback()
+{
+	Receive();
+}
+
+void UART_COM::Send_callback()
+{
+	OnGoingTx = false;
 }

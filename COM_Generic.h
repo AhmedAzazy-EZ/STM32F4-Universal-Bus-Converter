@@ -19,14 +19,13 @@
 #include "stm32f4xx_hal.h"
 #include "std_types.h"
 #include "Debug.h"
+#ifdef __cplusplus
+ }
+#endif
 #include "BASE_COM.h"
 #include "UART_COM.h"
 	 
 	 
 #define COM_BUFFER_MAX_LENGTH (500)
 	 
-#ifdef __cplusplus
- }
- 
-#endif
 #endif

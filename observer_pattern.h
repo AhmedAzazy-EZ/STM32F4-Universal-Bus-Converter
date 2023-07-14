@@ -1,32 +1,42 @@
 #ifndef _OBSERVER_PATTERN_H_
 #define _OBSERVER_PATTERN_H_
 
-
-#ifndef __cplusplus
-#define __cplusplus
-#endif
-
-#include "COM_Generic.h"
 #include <vector>
 
+class BASE_COM_t;
+
+class send_handle
+{
+public:
+	send_handle(BASE_COM_t * source);
+	~send_handle();
+	unsigned int data_received_tracker;
+	unsigned int data_to_be_sent_tracker;
+	BASE_COM_t * Source_COM;
+};
 
 class observer
 {
 public :
-	void notify(BASE_COM_t * )
-}
+	observer();
+  ~observer();
+	void notify(BASE_COM_t * source , int receive_tracker);
+	
+		std::vector<send_handle *> obsrvables_tracking;
+};
 
 
 class subject
 {
 public:
-		
-		void attatch(BASE_COM_t * Observer);
-		void detachattatch(BASE_COM_t * Observer);
+		subject();
+    ~subject();
+		send_handle * attatch(BASE_COM_t * attatch , BASE_COM_t * to);
+		std::vector<BASE_COM_t *> _observers;
+		//void detachattatch(BASE_COM_t * Observer);
 protected:
-	void notify();
+	void Notify_observers(BASE_COM_t * source);
 private :
-	std::vector<BASE_COM_t *> _observers;
 };
 
 

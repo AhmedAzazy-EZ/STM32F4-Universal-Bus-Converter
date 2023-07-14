@@ -21,12 +21,12 @@
 	 
 	 
 	 
-#define DEBUG_UART_CONTROLLER ((USART_TypeDef *)(UART4))
-#define DEBUG_PORT ((GPIO_TypeDef *)(GPIOA)) 	 
-#define DEBUG_UART_ENABLE_CLOCK __UART4_CLK_ENABLE
+#define DEBUG_UART_CONTROLLER ((USART_TypeDef *)(UART5))
+#define DEBUG_PORT ((GPIO_TypeDef *)(GPIOC)) 	 
+#define DEBUG_UART_ENABLE_CLOCK __UART5_CLK_ENABLE
 #define DEBUG_PORT_ENABLE_CLOCK __GPIOA_CLK_ENABLE
-#define DEBUX_TX_PIN_NUMBER ((int)(0))
-#define DEBUG_RX_PIN_NUMBER ((int)(1))
+#define DEBUX_TX_PIN_NUMBER ((int)(12))
+#define DEBUG_RX_PIN_NUMBER ((int)(13))
 
 
 

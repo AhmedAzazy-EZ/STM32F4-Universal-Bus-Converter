@@ -63,6 +63,21 @@ void BASE_COM_t::GPIO_clock_Enable(GPIO_TypeDef  * Myport)
 }
 
 
+void BASE_COM_t::poll()
+{
+	if(!OnGoingTx)
+	{
+		for(send_handle * item : obsrvables_tracking)
+		{
+			if(item->data_to_be_sent_tracker < item->data_received_tracker)
+			{
+				Send((char *)&item->Source_COM->receive_buffer[item->data_to_be_sent_tracker++] , 1);
+				return;
+			}
+		}
+	}
+}
+
 BASE_COM_t::~BASE_COM_t()
 {
 
