@@ -101,6 +101,6 @@ STD_Return_t UART_COM::Send(char * data , uint32_t len)
 }
 STD_Return_t UART_COM::Receive()
 {
-	HAL_UART_Receive_IT(uart_handler , &receive_buffer[++receive_buffer_tracker%COM_BUFFER_MAX_LENGTH] , 1);
+	HAL_UART_Receive_IT(uart_handler , &receive_buffer[++receive_tracker%COM_BUFFER_MAX_LENGTH] , 1);
 	return STD_OK;
 }

@@ -328,7 +328,7 @@
             <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>5</v6Lang>
-            <v6LangP>8</v6LangP>
+            <v6LangP>7</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -436,6 +436,21 @@
               <FileName>COM_Generic.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\COM_Generic.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Observer Pattern</GroupName>
+          <Files>
+            <File>
+              <FileName>observer_pattern.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\observer_pattern.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>observer_pattern.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\observer_pattern.h</FilePath>
             </File>
           </Files>
         </Group>

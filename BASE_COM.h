@@ -28,8 +28,9 @@ public :
 protected:
 	uint32_t pin_Number;
 	GPIO_TypeDef  *port;
-	uint32_t receive_buffer_tracker = 0;
+	uint32_t receive_tracker = 0;
 	uint8_t receive_buffer[500];
+	
 };
 
  
