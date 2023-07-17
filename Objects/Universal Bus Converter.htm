@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Universal Bus Converter.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Universal Bus Converter.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130100: Last Updated: Sat Jul 15 01:17:00 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sun Jul 16 10:45:46 2023
 <BR><P>
 <H3>Maximum Stack Usage =       1456 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -13,12 +13,6 @@ __rt_entry_main &rArr; main &rArr; subject::attatch(BASE_COM_t*, BASE_COM_t*) &r
 Functions with no stack information
 </H3><UL>
  <LI><a href="#[a4]">__user_initial_stackheap</a>
- <LI><a href="#[d1]">std::__1::__vector_base_common&lang;(bool)1&rang;::__throw_length_error() const</a>
- <LI><a href="#[f0]">std::get_new_handler()</a>
- <LI><a href="#[de]">operator delete (void*)</a>
- <LI><a href="#[db]">operator new(unsigned)</a>
- <LI><a href="#[6f]">__cxa_pure_virtual</a>
- <LI><a href="#[f1]">abort_message</a>
 </UL>
 </UL>
 <P>
@@ -1179,7 +1173,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_COM::uart_low_level_init(GPIO_TypeDef*)
 </UL>
 
-<P><STRONG><a name="[70]"></a>BASE_COM_t::poll()</STRONG> (Thumb, 216 bytes, Stack size 128 bytes, base_com.o(.text._ZN10BASE_COM_t4pollEv))
+<P><STRONG><a name="[70]"></a>BASE_COM_t::poll()</STRONG> (Thumb, 246 bytes, Stack size 128 bytes, base_com.o(.text._ZN10BASE_COM_t4pollEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = BASE_COM_t::poll()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1248,10 +1242,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12e]"></a>subject::subject()</STRONG> (Thumb, 66 bytes, Stack size 52 bytes, observer_pattern.o(.text._ZN7subjectC2Ev), UNUSED)
+<P><STRONG><a name="[12e]"></a>subject::subject()</STRONG> (Thumb, 74 bytes, Stack size 64 bytes, observer_pattern.o(.text._ZN7subjectC2Ev), UNUSED)
 
-<P><STRONG><a name="[cd]"></a>subject::subject__sub_object()</STRONG> (Thumb, 66 bytes, Stack size 52 bytes, observer_pattern.o(.text._ZN7subjectC2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = subject::subject__sub_object()
+<P><STRONG><a name="[cd]"></a>subject::subject__sub_object()</STRONG> (Thumb, 74 bytes, Stack size 64 bytes, observer_pattern.o(.text._ZN7subjectC2Ev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = subject::subject__sub_object()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASE_COM_t::BASE_COM_t__sub_object()
 </UL>
@@ -1341,8 +1335,7 @@ Global Symbols
 <P><STRONG><a name="[12f]"></a>UART_COM::UART_COM__sub_object(unsigned, USART_TypeDef*, GPIO_TypeDef*, unsigned, unsigned, unsigned char)</STRONG> (Thumb, 224 bytes, Stack size 80 bytes, uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh), UNUSED)
 
 <P><STRONG><a name="[6d]"></a>UART_COM::~UART_COM()</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, uart_com.o(.text._ZN8UART_COMD2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
- + In Cycle
+<BR><BR>[Stack]<UL><LI>Max Depth = 48 + In Cycle
 <LI>Call Chain = UART_COM::~UART_COM() &rArr;  UART_COM::~UART_COM() (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator delete (void*)
@@ -1362,10 +1355,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;subject::Notify_observers(BASE_COM_t*)
 </UL>
 
-<P><STRONG><a name="[131]"></a>observer::observer()</STRONG> (Thumb, 66 bytes, Stack size 52 bytes, observer_pattern.o(.text._ZN8observerC2Ev), UNUSED)
+<P><STRONG><a name="[131]"></a>observer::observer()</STRONG> (Thumb, 74 bytes, Stack size 64 bytes, observer_pattern.o(.text._ZN8observerC2Ev), UNUSED)
 
-<P><STRONG><a name="[cc]"></a>observer::observer__sub_object()</STRONG> (Thumb, 66 bytes, Stack size 52 bytes, observer_pattern.o(.text._ZN8observerC2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = observer::observer__sub_object()
+<P><STRONG><a name="[cc]"></a>observer::observer__sub_object()</STRONG> (Thumb, 74 bytes, Stack size 64 bytes, observer_pattern.o(.text._ZN8observerC2Ev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = observer::observer__sub_object()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASE_COM_t::BASE_COM_t__sub_object()
 </UL>
@@ -1378,7 +1371,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASE_COM_t::~BASE_COM_t()
 </UL>
 
-<P><STRONG><a name="[d1]"></a>std::__1::__vector_base_common&lang;(bool)1&rang;::__throw_length_error() const</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv))
+<P><STRONG><a name="[d1]"></a>std::__1::__vector_base_common&lang;(bool)1&rang;::__throw_length_error() const</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
 <LI>Call Chain = std::__1::__vector_base_common&lang;(bool)1&rang;::__throw_length_error() const &rArr; abort &rArr; __rt_SIGABRT &rArr; __rt_SIGABRT_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
@@ -1389,22 +1382,21 @@ Global Symbols
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASE_COM_t::BASE_COM_t__sub_object()
 </UL>
 
-<P><STRONG><a name="[d0]"></a>std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::max_size() const</STRONG> (Thumb, 104 bytes, Stack size 84 bytes, base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::max_size() const
+<P><STRONG><a name="[d0]"></a>std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::max_size() const</STRONG> (Thumb, 104 bytes, Stack size 76 bytes, base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::max_size() const
 </UL>
 <BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;subject::attatch(BASE_COM_t*, BASE_COM_t*)
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BASE_COM_t::BASE_COM_t__sub_object()
 </UL>
 
-<P><STRONG><a name="[f4]"></a>std::__1::vector&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&rang;::max_size() const</STRONG> (Thumb, 104 bytes, Stack size 84 bytes, main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = std::__1::vector&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&rang;::max_size() const
+<P><STRONG><a name="[f4]"></a>std::__1::vector&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&rang;::max_size() const</STRONG> (Thumb, 104 bytes, Stack size 76 bytes, main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = std::__1::vector&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&rang;::max_size() const
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[df]"></a>std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object()</STRONG> (Thumb, 244 bytes, Stack size 160 bytes, base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned)
 </UL>
@@ -1419,7 +1411,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d2]"></a>std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator&lang;BASE_COM_t*&rang;&)</STRONG> (Thumb, 230 bytes, Stack size 144 bytes, base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator&lang;BASE_COM_t*&rang;&) &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
@@ -1430,8 +1422,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d4]"></a>std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::~__split_buffer__sub_object()</STRONG> (Thumb, 234 bytes, Stack size 168 bytes, base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
-<LI>Call Chain = std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::~__split_buffer__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::~__split_buffer__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned)
 </UL>
@@ -1440,7 +1431,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[eb]"></a>std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator&lang;send_handle*&rang;&)</STRONG> (Thumb, 230 bytes, Stack size 144 bytes, main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator&lang;send_handle*&rang;&) &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
@@ -1450,8 +1441,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ec]"></a>std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;::~__split_buffer__sub_object()</STRONG> (Thumb, 234 bytes, Stack size 168 bytes, main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
-<LI>Call Chain = std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;::~__split_buffer__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;::~__split_buffer__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned)
 </UL>
@@ -1459,8 +1449,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ea]"></a>std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned)</STRONG> (Thumb, 18 bytes, Stack size 16 bytes, main.o(.text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
-<LI>Call Chain = std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::_DeallocateCaller::__do_call(void*)
 </UL>
@@ -1471,8 +1460,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ed]"></a>std::__1::_DeallocateCaller::__do_call(void*)</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, main.o(.text._ZNSt3__117_DeallocateCaller9__do_callEPv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
-<LI>Call Chain = std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator delete (void*)
 </UL>
@@ -1503,8 +1491,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6e]"></a>std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~vector__sub_object()</STRONG> (Thumb, 200 bytes, Stack size 128 bytes, base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
-<LI>Call Chain = std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~vector__sub_object() &rArr; std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~vector__sub_object() &rArr; std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object() &rArr; std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) &rArr; std::__1::_DeallocateCaller::__do_call(void*) &rArr; operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::__vector_base&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::~__vector_base__sub_object()
 </UL>
@@ -1530,13 +1517,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f0]"></a>std::get_new_handler()</STRONG> (Thumb, 12 bytes, Stack size unknown bytes, cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv))
+<P><STRONG><a name="[f0]"></a>std::get_new_handler()</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv))
 <BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
 </UL>
 
-<P><STRONG><a name="[de]"></a>operator delete (void*)</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, new.cpp.o(.text._ZdlPv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
-<LI>Call Chain = operator delete (void*) &rArr; free
+<P><STRONG><a name="[de]"></a>operator delete (void*)</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, new.cpp.o(.text._ZdlPv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = operator delete (void*) &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 </UL>
@@ -1545,9 +1531,8 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;subject::~subject()
 </UL>
 
-<P><STRONG><a name="[db]"></a>operator new(unsigned)</STRONG> (Thumb, 38 bytes, Stack size unknown bytes, new.cpp.o(.text._Znwj))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
-<LI>Call Chain = operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+<P><STRONG><a name="[db]"></a>operator new(unsigned)</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, new.cpp.o(.text._Znwj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::get_new_handler()
@@ -1558,7 +1543,7 @@ Global Symbols
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator&lang;BASE_COM_t*&rang;&)
 </UL>
 
-<P><STRONG><a name="[6f]"></a>__cxa_pure_virtual</STRONG> (Thumb, 40 bytes, Stack size unknown bytes, cxa_virtual.cpp.o(.text.__cxa_pure_virtual))
+<P><STRONG><a name="[6f]"></a>__cxa_pure_virtual</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, cxa_virtual.cpp.o(.text.__cxa_pure_virtual))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
 <LI>Call Chain = __cxa_pure_virtual &rArr; abort_message &rArr; abort &rArr; __rt_SIGABRT &rArr; __rt_SIGABRT_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
@@ -1566,7 +1551,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> base_com.o(.rodata._ZTV10BASE_COM_t)
 </UL>
-<P><STRONG><a name="[f1]"></a>abort_message</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, abort_message.cpp.o(.text.abort_message))
+<P><STRONG><a name="[f1]"></a>abort_message</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, abort_message.cpp.o(.text.abort_message))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
 <LI>Call Chain = abort_message &rArr; abort &rArr; __rt_SIGABRT &rArr; __rt_SIGABRT_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
@@ -1640,14 +1625,14 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[77]"></a>_GLOBAL__sub_I_BASE_COM.cpp</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, base_com.o(.text._GLOBAL__sub_I_BASE_COM.cpp))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = _GLOBAL__sub_I_BASE_COM.cpp &rArr; __cxx_global_var_init &rArr; __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = _GLOBAL__sub_I_BASE_COM.cpp &rArr; __cxx_global_var_init &rArr; __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxx_global_var_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> base_com.o(.init_array)
 </UL>
-<P><STRONG><a name="[c8]"></a>__cxx_global_var_init</STRONG> (Thumb, 98 bytes, Stack size 64 bytes, base_com.o(.text.__cxx_global_var_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = __cxx_global_var_init &rArr; __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+<P><STRONG><a name="[c8]"></a>__cxx_global_var_init</STRONG> (Thumb, 106 bytes, Stack size 72 bytes, base_com.o(.text.__cxx_global_var_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = __cxx_global_var_init &rArr; __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_atexit
 </UL>

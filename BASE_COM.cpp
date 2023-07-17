@@ -71,7 +71,7 @@ void BASE_COM_t::poll()
 		{
 			if(item->data_to_be_sent_tracker < item->data_received_tracker)
 			{
-				Send((char *)&item->Source_COM->receive_buffer[item->data_to_be_sent_tracker++] , 1);
+				Send((char *)&item->Source_COM->receive_buffer[(item->data_to_be_sent_tracker++)%COM_BUFFER_MAX_LENGTH] , 1);
 				return;
 			}
 		}
