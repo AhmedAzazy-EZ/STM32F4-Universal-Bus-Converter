@@ -3,6 +3,7 @@
 ".\objects\debug.o"
 ".\objects\base_com.o"
 ".\objects\uart_com.o"
+".\objects\i2c_com.o"
 ".\objects\observer_pattern.o"
 ".\objects\stm32f4xx_hal.o"
 ".\objects\stm32f4xx_hal_can.o"

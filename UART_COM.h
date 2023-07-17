@@ -26,9 +26,6 @@ public:
 private :
 	void uart_low_level_init(GPIO_TypeDef * GPIO_contr);
 	UART_HandleTypeDef * uart_handler;
-	uint32_t Tx_pinNumber;
-	uint32_t Rx_pinNumber; 
-  //User has to get this value from the datasheet of the target
 };
 	 
 	 

@@ -1,4 +1,4 @@
-Component: ARM Compiler 6.14 Tool: armlink [5db06800]
+Component: ARM Compiler 6.13.1 Tool: armlink [5d895400]
 
 ==============================================================================
 
@@ -1501,6 +1501,7 @@ Removing Unused input sections from the image.
     Removing uart_com.o(.ARM.exidx.text._ZN8UART_COM7ReceiveEv), (8 bytes).
     Removing uart_com.o(.ARM.exidx.text._ZN8UART_COM16Receive_callbackEv), (8 bytes).
     Removing uart_com.o(.ARM.exidx.text._ZN8UART_COM13Send_callbackEv), (8 bytes).
+    Removing i2c_com.o(.text), (0 bytes).
     Removing observer_pattern.o(.text), (0 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN11send_handleC2EP10BASE_COM_t), (8 bytes).
     Removing observer_pattern.o(.text._ZN11send_handleD2Ev), (10 bytes).
@@ -2441,7 +2442,7 @@ Removing Unused input sections from the image.
     Removing vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv), (4 bytes).
     Removing vector.cpp.o(.ARM.exidx.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv), (8 bytes).
 
-984 unused section(s) (total 91117 bytes) removed from the image.
+985 unused section(s) (total 91117 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2555,6 +2556,7 @@ Image Symbol Table
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     BASE_COM.cpp                             0x00000000   Number         0  base_com.o ABSOLUTE
     Debug.c                                  0x00000000   Number         0  debug.o ABSOLUTE
+    I2C_COM.cpp                              0x00000000   Number         0  i2c_com.o ABSOLUTE
     RTE\Device\STM32F446RETx\startup_stm32f446xx.s 0x00000000   Number         0  startup_stm32f446xx.o ABSOLUTE
     UART_COM.cpp                             0x00000000   Number         0  uart_com.o ABSOLUTE
     _ZNSt3__120__vector_base_commonILb1EEC5Ev 0x00000000   Number         0  vector.cpp.o ABSOLUTE
@@ -2737,67 +2739,67 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08002260   Section        0  observer_pattern.o(.text._ZN7subject16Notify_observersEP10BASE_COM_t)
     [Anonymous Symbol]                       0x08002304   Section        0  observer_pattern.o(.text._ZN7subject7attatchEP10BASE_COM_tS1_)
     [Anonymous Symbol]                       0x08002500   Section        0  observer_pattern.o(.text._ZN7subjectC2Ev)
-    [Anonymous Symbol]                       0x0800254c   Section        0  observer_pattern.o(.text._ZN7subjectD2Ev)
-    [Anonymous Symbol]                       0x08002620   Section        0  uart_com.o(.text._ZN8UART_COM13Send_callbackEv)
-    [Anonymous Symbol]                       0x08002630   Section        0  uart_com.o(.text._ZN8UART_COM16Receive_callbackEv)
-    [Anonymous Symbol]                       0x08002644   Section        0  uart_com.o(.text._ZN8UART_COM17Interrupt_handlerEv)
-    [Anonymous Symbol]                       0x08002658   Section        0  uart_com.o(.text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef)
-    [Anonymous Symbol]                       0x080027d4   Section        0  uart_com.o(.text._ZN8UART_COM22Get_UART_HandleTypeDefEv)
-    [Anonymous Symbol]                       0x080027e4   Section        0  uart_com.o(.text._ZN8UART_COM4SendEPcj)
-    [Anonymous Symbol]                       0x08002818   Section        0  uart_com.o(.text._ZN8UART_COM7ReceiveEv)
-    [Anonymous Symbol]                       0x08002870   Section        0  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
-    [Anonymous Symbol]                       0x08002950   Section        0  uart_com.o(.text._ZN8UART_COMD2Ev)
-    [Anonymous Symbol]                       0x080029a4   Section        0  observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti)
-    [Anonymous Symbol]                       0x08002a50   Section        0  observer_pattern.o(.text._ZN8observerC2Ev)
-    [Anonymous Symbol]                       0x08002a9c   Section        0  observer_pattern.o(.text._ZN8observerD2Ev)
-    [Anonymous Symbol]                       0x08002b54   Section        0  vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv)
-    [Anonymous Symbol]                       0x08002b58   Section        0  base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv)
-    [Anonymous Symbol]                       0x08002bc0   Section        0  main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv)
-    [Anonymous Symbol]                       0x08002c28   Section        0  base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
-    [Anonymous Symbol]                       0x08002d1c   Section        0  observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev)
-    [Anonymous Symbol]                       0x08002e10   Section        0  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_)
-    [Anonymous Symbol]                       0x08002ef8   Section        0  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev)
-    [Anonymous Symbol]                       0x08002fe4   Section        0  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_)
-    [Anonymous Symbol]                       0x080030cc   Section        0  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev)
-    [Anonymous Symbol]                       0x080031b8   Section        0  main.o(.text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj)
-    [Anonymous Symbol]                       0x080031cc   Section        0  main.o(.text._ZNSt3__117_DeallocateCaller9__do_callEPv)
-    [Anonymous Symbol]                       0x080031dc   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
-    [Anonymous Symbol]                       0x08003200   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
-    [Anonymous Symbol]                       0x08003210   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
-    [Anonymous Symbol]                       0x0800348c   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
-    [Anonymous Symbol]                       0x08003554   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
-    [Anonymous Symbol]                       0x08003578   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
-    [Anonymous Symbol]                       0x08003588   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
-    [Anonymous Symbol]                       0x08003802   Section        0  cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv)
-    [Anonymous Symbol]                       0x0800380e   Section        0  new.cpp.o(.text._ZdlPv)
-    [Anonymous Symbol]                       0x08003814   Section        0  new.cpp.o(.text._Znwj)
-    __NVIC_GetPriorityGrouping               0x0800383d   Thumb Code    16  stm32f4xx_hal_cortex.o(.text.__NVIC_GetPriorityGrouping)
-    [Anonymous Symbol]                       0x0800383c   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_GetPriorityGrouping)
-    __NVIC_SetPriority                       0x0800384d   Thumb Code    68  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x0800384c   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriorityGrouping               0x08003891   Thumb Code    60  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
-    [Anonymous Symbol]                       0x08003890   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
-    [Anonymous Symbol]                       0x080038cc   Section        0  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
-    __cxx_global_var_init                    0x080038f5   Thumb Code    76  main.o(.text.__cxx_global_var_init)
-    [Anonymous Symbol]                       0x080038f4   Section        0  main.o(.text.__cxx_global_var_init)
-    __cxx_global_var_init                    0x08003941   Thumb Code   106  base_com.o(.text.__cxx_global_var_init)
-    [Anonymous Symbol]                       0x08003940   Section        0  base_com.o(.text.__cxx_global_var_init)
-    __cxx_global_var_init.1                  0x080039ad   Thumb Code    78  main.o(.text.__cxx_global_var_init.1)
-    [Anonymous Symbol]                       0x080039ac   Section        0  main.o(.text.__cxx_global_var_init.1)
-    [Anonymous Symbol]                       0x080039fa   Section        0  abort_message.cpp.o(.text.abort_message)
-    [Anonymous Symbol]                       0x08003a00   Section        0  main.o(.text.main)
-    $v0                                      0x08003e48   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08003e48   Section       26  fpinit.o(x$fpl$fpinit)
-    .L.str                                   0x08003eac   Data          68  main.o(.rodata.str1.1)
-    .L.str                                   0x08003eac   Data          68  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08003eac   Section        0  main.o(.rodata.str1.1)
-    .init_array                              0x08003f18   Section        0  init_aeabi.o(.init_array)
+    [Anonymous Symbol]                       0x08002544   Section        0  observer_pattern.o(.text._ZN7subjectD2Ev)
+    [Anonymous Symbol]                       0x08002618   Section        0  uart_com.o(.text._ZN8UART_COM13Send_callbackEv)
+    [Anonymous Symbol]                       0x08002628   Section        0  uart_com.o(.text._ZN8UART_COM16Receive_callbackEv)
+    [Anonymous Symbol]                       0x0800263c   Section        0  uart_com.o(.text._ZN8UART_COM17Interrupt_handlerEv)
+    [Anonymous Symbol]                       0x08002650   Section        0  uart_com.o(.text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef)
+    [Anonymous Symbol]                       0x080027cc   Section        0  uart_com.o(.text._ZN8UART_COM22Get_UART_HandleTypeDefEv)
+    [Anonymous Symbol]                       0x080027dc   Section        0  uart_com.o(.text._ZN8UART_COM4SendEPcj)
+    [Anonymous Symbol]                       0x08002810   Section        0  uart_com.o(.text._ZN8UART_COM7ReceiveEv)
+    [Anonymous Symbol]                       0x08002868   Section        0  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
+    [Anonymous Symbol]                       0x08002948   Section        0  uart_com.o(.text._ZN8UART_COMD2Ev)
+    [Anonymous Symbol]                       0x0800299c   Section        0  observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti)
+    [Anonymous Symbol]                       0x08002a48   Section        0  observer_pattern.o(.text._ZN8observerC2Ev)
+    [Anonymous Symbol]                       0x08002a8c   Section        0  observer_pattern.o(.text._ZN8observerD2Ev)
+    [Anonymous Symbol]                       0x08002b44   Section        0  vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv)
+    [Anonymous Symbol]                       0x08002b48   Section        0  base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv)
+    [Anonymous Symbol]                       0x08002bb0   Section        0  main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv)
+    [Anonymous Symbol]                       0x08002c18   Section        0  base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
+    [Anonymous Symbol]                       0x08002d0c   Section        0  observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev)
+    [Anonymous Symbol]                       0x08002e00   Section        0  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_)
+    [Anonymous Symbol]                       0x08002ee8   Section        0  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev)
+    [Anonymous Symbol]                       0x08002fd4   Section        0  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_)
+    [Anonymous Symbol]                       0x080030bc   Section        0  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev)
+    [Anonymous Symbol]                       0x080031a8   Section        0  main.o(.text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj)
+    [Anonymous Symbol]                       0x080031bc   Section        0  main.o(.text._ZNSt3__117_DeallocateCaller9__do_callEPv)
+    [Anonymous Symbol]                       0x080031cc   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
+    [Anonymous Symbol]                       0x080031f0   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
+    [Anonymous Symbol]                       0x08003200   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
+    [Anonymous Symbol]                       0x0800347c   Section        0  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
+    [Anonymous Symbol]                       0x08003544   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
+    [Anonymous Symbol]                       0x08003568   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
+    [Anonymous Symbol]                       0x08003578   Section        0  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
+    [Anonymous Symbol]                       0x080037f2   Section        0  cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv)
+    [Anonymous Symbol]                       0x080037fe   Section        0  new.cpp.o(.text._ZdlPv)
+    [Anonymous Symbol]                       0x08003804   Section        0  new.cpp.o(.text._Znwj)
+    __NVIC_GetPriorityGrouping               0x0800382d   Thumb Code    16  stm32f4xx_hal_cortex.o(.text.__NVIC_GetPriorityGrouping)
+    [Anonymous Symbol]                       0x0800382c   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_GetPriorityGrouping)
+    __NVIC_SetPriority                       0x0800383d   Thumb Code    68  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x0800383c   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriority)
+    __NVIC_SetPriorityGrouping               0x08003881   Thumb Code    60  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
+    [Anonymous Symbol]                       0x08003880   Section        0  stm32f4xx_hal_cortex.o(.text.__NVIC_SetPriorityGrouping)
+    [Anonymous Symbol]                       0x080038bc   Section        0  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
+    __cxx_global_var_init                    0x080038e5   Thumb Code    76  main.o(.text.__cxx_global_var_init)
+    [Anonymous Symbol]                       0x080038e4   Section        0  main.o(.text.__cxx_global_var_init)
+    __cxx_global_var_init                    0x08003931   Thumb Code    98  base_com.o(.text.__cxx_global_var_init)
+    [Anonymous Symbol]                       0x08003930   Section        0  base_com.o(.text.__cxx_global_var_init)
+    __cxx_global_var_init.1                  0x08003995   Thumb Code    78  main.o(.text.__cxx_global_var_init.1)
+    [Anonymous Symbol]                       0x08003994   Section        0  main.o(.text.__cxx_global_var_init.1)
+    [Anonymous Symbol]                       0x080039e2   Section        0  abort_message.cpp.o(.text.abort_message)
+    [Anonymous Symbol]                       0x080039e8   Section        0  main.o(.text.main)
+    $v0                                      0x08003e30   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x08003e30   Section       26  fpinit.o(x$fpl$fpinit)
+    .L.str                                   0x08003e94   Data          68  main.o(.rodata.str1.1)
+    .L.str                                   0x08003e94   Data          68  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08003e94   Section        0  main.o(.rodata.str1.1)
+    .init_array                              0x08003f00   Section        0  init_aeabi.o(.init_array)
     .bss                                     0x20000010   Section       96  libspace.o(.bss)
-    Heap_Mem                                 0x200004e0   Data        2304  startup_stm32f446xx.o(HEAP)
-    HEAP                                     0x200004e0   Section     2304  startup_stm32f446xx.o(HEAP)
-    Stack_Mem                                0x20000de0   Data        1024  startup_stm32f446xx.o(STACK)
-    STACK                                    0x20000de0   Section     1024  startup_stm32f446xx.o(STACK)
-    __initial_sp                             0x200011e0   Data           0  startup_stm32f446xx.o(STACK)
+    Heap_Mem                                 0x200004d0   Data        2304  startup_stm32f446xx.o(HEAP)
+    HEAP                                     0x200004d0   Section     2304  startup_stm32f446xx.o(HEAP)
+    Stack_Mem                                0x20000dd0   Data        1024  startup_stm32f446xx.o(STACK)
+    STACK                                    0x20000dd0   Section     1024  startup_stm32f446xx.o(STACK)
+    __initial_sp                             0x200011d0   Data           0  startup_stm32f446xx.o(STACK)
 
     Global Symbols
 
@@ -3077,71 +3079,71 @@ Image Symbol Table
     send_handle::send_handle__sub_object(BASE_COM_t*) 0x08002245   Thumb Code    28  observer_pattern.o(.text._ZN11send_handleC2EP10BASE_COM_t)
     subject::Notify_observers(BASE_COM_t*)   0x08002261   Thumb Code   164  observer_pattern.o(.text._ZN7subject16Notify_observersEP10BASE_COM_t)
     subject::attatch(BASE_COM_t*, BASE_COM_t*) 0x08002305   Thumb Code   508  observer_pattern.o(.text._ZN7subject7attatchEP10BASE_COM_tS1_)
-    subject::subject()                       0x08002501   Thumb Code    74  observer_pattern.o(.text._ZN7subjectC2Ev)
-    subject::subject__sub_object()           0x08002501   Thumb Code    74  observer_pattern.o(.text._ZN7subjectC2Ev)
-    subject::~subject()                      0x0800254d   Thumb Code   212  observer_pattern.o(.text._ZN7subjectD2Ev)
-    subject::~subject__sub_object()          0x0800254d   Thumb Code   212  observer_pattern.o(.text._ZN7subjectD2Ev)
-    UART_COM::Send_callback()                0x08002621   Thumb Code    16  uart_com.o(.text._ZN8UART_COM13Send_callbackEv)
-    UART_COM::Receive_callback()             0x08002631   Thumb Code    18  uart_com.o(.text._ZN8UART_COM16Receive_callbackEv)
-    UART_COM::Interrupt_handler()            0x08002645   Thumb Code    20  uart_com.o(.text._ZN8UART_COM17Interrupt_handlerEv)
-    UART_COM::uart_low_level_init(GPIO_TypeDef*) 0x08002659   Thumb Code   378  uart_com.o(.text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef)
-    UART_COM::Get_UART_HandleTypeDef()       0x080027d5   Thumb Code    14  uart_com.o(.text._ZN8UART_COM22Get_UART_HandleTypeDefEv)
-    UART_COM::Send(char*, unsigned)          0x080027e5   Thumb Code    50  uart_com.o(.text._ZN8UART_COM4SendEPcj)
-    UART_COM::Receive()                      0x08002819   Thumb Code    88  uart_com.o(.text._ZN8UART_COM7ReceiveEv)
-    UART_COM::UART_COM(unsigned, USART_TypeDef*, GPIO_TypeDef*, unsigned, unsigned, unsigned char) 0x08002871   Thumb Code   224  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
-    UART_COM::UART_COM__sub_object(unsigned, USART_TypeDef*, GPIO_TypeDef*, unsigned, unsigned, unsigned char) 0x08002871   Thumb Code   224  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
-    UART_COM::~UART_COM()                    0x08002951   Thumb Code    82  uart_com.o(.text._ZN8UART_COMD2Ev)
-    UART_COM::~UART_COM__sub_object()        0x08002951   Thumb Code    82  uart_com.o(.text._ZN8UART_COMD2Ev)
-    observer::notify(BASE_COM_t*, int)       0x080029a5   Thumb Code   172  observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti)
-    observer::observer()                     0x08002a51   Thumb Code    74  observer_pattern.o(.text._ZN8observerC2Ev)
-    observer::observer__sub_object()         0x08002a51   Thumb Code    74  observer_pattern.o(.text._ZN8observerC2Ev)
-    observer::~observer()                    0x08002a9d   Thumb Code   184  observer_pattern.o(.text._ZN8observerD2Ev)
-    observer::~observer__sub_object()        0x08002a9d   Thumb Code   184  observer_pattern.o(.text._ZN8observerD2Ev)
-    std::__1::__vector_base_common<(bool)1>::__throw_length_error() const 0x08002b55   Thumb Code     4  vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv)
-    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::max_size() const 0x08002b59   Thumb Code   104  base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv)
-    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::max_size() const 0x08002bc1   Thumb Code   104  main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv)
-    std::__1::__vector_base<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::~__vector_base__sub_object() 0x08002c29   Thumb Code   244  base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
-    std::__1::__vector_base<send_handle*, std::__1::allocator<send_handle*>>::~__vector_base__sub_object() 0x08002d1d   Thumb Code   244  observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev)
-    std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator<BASE_COM_t*>&) 0x08002e11   Thumb Code   230  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_)
-    std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>::~__split_buffer__sub_object() 0x08002ef9   Thumb Code   234  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev)
-    std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator<send_handle*>&) 0x08002fe5   Thumb Code   230  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_)
-    std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>::~__split_buffer__sub_object() 0x080030cd   Thumb Code   234  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev)
-    std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) 0x080031b9   Thumb Code    18  main.o(.text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj)
-    std::__1::_DeallocateCaller::__do_call(void*) 0x080031cd   Thumb Code    16  main.o(.text._ZNSt3__117_DeallocateCaller9__do_callEPv)
-    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::_ConstructTransaction::_ConstructTransaction__sub_object(std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>&, unsigned) 0x080031dd   Thumb Code    36  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
-    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::_ConstructTransaction::~_ConstructTransaction__sub_object() 0x08003201   Thumb Code    16  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
-    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::__swap_out_circular_buffer(std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>&) 0x08003211   Thumb Code   634  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
-    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::~vector__sub_object() 0x0800348d   Thumb Code   200  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
-    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::_ConstructTransaction::_ConstructTransaction__sub_object(std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>&, unsigned) 0x08003555   Thumb Code    36  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
-    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::_ConstructTransaction::~_ConstructTransaction__sub_object() 0x08003579   Thumb Code    16  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
-    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::__swap_out_circular_buffer(std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>&) 0x08003589   Thumb Code   634  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
-    std::get_new_handler()                   0x08003803   Thumb Code    12  cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv)
-    operator delete (void*)                  0x0800380f   Thumb Code     4  new.cpp.o(.text._ZdlPv)
-    operator new(unsigned)                   0x08003815   Thumb Code    38  new.cpp.o(.text._Znwj)
-    __cxa_pure_virtual                       0x080038cd   Thumb Code    40  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
-    abort_message                            0x080039fb   Thumb Code     4  abort_message.cpp.o(.text.abort_message)
-    main                                     0x08003a01   Thumb Code  1096  main.o(.text.main)
-    _fp_init                                 0x08003e49   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08003e61   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08003e61   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    APBPrescTable                            0x08003e62   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
-    vtable for BASE_COM_t                    0x08003e6c   Data          32  base_com.o(.rodata._ZTV10BASE_COM_t)
-    vtable for UART_COM                      0x08003e8c   Data          32  uart_com.o(.rodata._ZTV8UART_COM)
-    Region$$Table$$Base                      0x08003ef0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003f10   Number         0  anon$$obj.o(Region$$Table)
-    SHT$$INIT_ARRAY$$Base                    0x08003f10   Number         0  main.o(.init_array)
-    SHT$$INIT_ARRAY$$Limit                   0x08003f18   Number         0  init_aeabi.o(.init_array)
+    subject::subject()                       0x08002501   Thumb Code    66  observer_pattern.o(.text._ZN7subjectC2Ev)
+    subject::subject__sub_object()           0x08002501   Thumb Code    66  observer_pattern.o(.text._ZN7subjectC2Ev)
+    subject::~subject()                      0x08002545   Thumb Code   212  observer_pattern.o(.text._ZN7subjectD2Ev)
+    subject::~subject__sub_object()          0x08002545   Thumb Code   212  observer_pattern.o(.text._ZN7subjectD2Ev)
+    UART_COM::Send_callback()                0x08002619   Thumb Code    16  uart_com.o(.text._ZN8UART_COM13Send_callbackEv)
+    UART_COM::Receive_callback()             0x08002629   Thumb Code    18  uart_com.o(.text._ZN8UART_COM16Receive_callbackEv)
+    UART_COM::Interrupt_handler()            0x0800263d   Thumb Code    20  uart_com.o(.text._ZN8UART_COM17Interrupt_handlerEv)
+    UART_COM::uart_low_level_init(GPIO_TypeDef*) 0x08002651   Thumb Code   378  uart_com.o(.text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef)
+    UART_COM::Get_UART_HandleTypeDef()       0x080027cd   Thumb Code    14  uart_com.o(.text._ZN8UART_COM22Get_UART_HandleTypeDefEv)
+    UART_COM::Send(char*, unsigned)          0x080027dd   Thumb Code    50  uart_com.o(.text._ZN8UART_COM4SendEPcj)
+    UART_COM::Receive()                      0x08002811   Thumb Code    88  uart_com.o(.text._ZN8UART_COM7ReceiveEv)
+    UART_COM::UART_COM(unsigned, USART_TypeDef*, GPIO_TypeDef*, unsigned, unsigned, unsigned char) 0x08002869   Thumb Code   224  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
+    UART_COM::UART_COM__sub_object(unsigned, USART_TypeDef*, GPIO_TypeDef*, unsigned, unsigned, unsigned char) 0x08002869   Thumb Code   224  uart_com.o(.text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh)
+    UART_COM::~UART_COM()                    0x08002949   Thumb Code    82  uart_com.o(.text._ZN8UART_COMD2Ev)
+    UART_COM::~UART_COM__sub_object()        0x08002949   Thumb Code    82  uart_com.o(.text._ZN8UART_COMD2Ev)
+    observer::notify(BASE_COM_t*, int)       0x0800299d   Thumb Code   172  observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti)
+    observer::observer()                     0x08002a49   Thumb Code    66  observer_pattern.o(.text._ZN8observerC2Ev)
+    observer::observer__sub_object()         0x08002a49   Thumb Code    66  observer_pattern.o(.text._ZN8observerC2Ev)
+    observer::~observer()                    0x08002a8d   Thumb Code   184  observer_pattern.o(.text._ZN8observerD2Ev)
+    observer::~observer__sub_object()        0x08002a8d   Thumb Code   184  observer_pattern.o(.text._ZN8observerD2Ev)
+    std::__1::__vector_base_common<(bool)1>::__throw_length_error() const 0x08002b45   Thumb Code     4  vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv)
+    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::max_size() const 0x08002b49   Thumb Code   104  base_com.o(.text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv)
+    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::max_size() const 0x08002bb1   Thumb Code   104  main.o(.text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv)
+    std::__1::__vector_base<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::~__vector_base__sub_object() 0x08002c19   Thumb Code   244  base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
+    std::__1::__vector_base<send_handle*, std::__1::allocator<send_handle*>>::~__vector_base__sub_object() 0x08002d0d   Thumb Code   244  observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev)
+    std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator<BASE_COM_t*>&) 0x08002e01   Thumb Code   230  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_)
+    std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>::~__split_buffer__sub_object() 0x08002ee9   Thumb Code   234  base_com.o(.text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev)
+    std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>::__split_buffer__sub_object(unsigned, unsigned, std::__1::allocator<send_handle*>&) 0x08002fd5   Thumb Code   230  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_)
+    std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>::~__split_buffer__sub_object() 0x080030bd   Thumb Code   234  main.o(.text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev)
+    std::__1::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned) 0x080031a9   Thumb Code    18  main.o(.text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj)
+    std::__1::_DeallocateCaller::__do_call(void*) 0x080031bd   Thumb Code    16  main.o(.text._ZNSt3__117_DeallocateCaller9__do_callEPv)
+    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::_ConstructTransaction::_ConstructTransaction__sub_object(std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>&, unsigned) 0x080031cd   Thumb Code    36  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
+    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::_ConstructTransaction::~_ConstructTransaction__sub_object() 0x080031f1   Thumb Code    16  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
+    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::__swap_out_circular_buffer(std::__1::__split_buffer<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>&>&) 0x08003201   Thumb Code   634  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
+    std::__1::vector<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::~vector__sub_object() 0x0800347d   Thumb Code   200  base_com.o(.text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev)
+    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::_ConstructTransaction::_ConstructTransaction__sub_object(std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>&, unsigned) 0x08003545   Thumb Code    36  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j)
+    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::_ConstructTransaction::~_ConstructTransaction__sub_object() 0x08003569   Thumb Code    16  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev)
+    std::__1::vector<send_handle*, std::__1::allocator<send_handle*>>::__swap_out_circular_buffer(std::__1::__split_buffer<send_handle*, std::__1::allocator<send_handle*>&>&) 0x08003579   Thumb Code   634  main.o(.text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE)
+    std::get_new_handler()                   0x080037f3   Thumb Code    12  cxa_handlers.cpp.o(.text._ZSt15get_new_handlerv)
+    operator delete (void*)                  0x080037ff   Thumb Code     4  new.cpp.o(.text._ZdlPv)
+    operator new(unsigned)                   0x08003805   Thumb Code    38  new.cpp.o(.text._Znwj)
+    __cxa_pure_virtual                       0x080038bd   Thumb Code    40  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
+    abort_message                            0x080039e3   Thumb Code     4  abort_message.cpp.o(.text.abort_message)
+    main                                     0x080039e9   Thumb Code  1096  main.o(.text.main)
+    _fp_init                                 0x08003e31   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08003e49   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08003e49   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    APBPrescTable                            0x08003e4a   Data           8  system_stm32f4xx.o(.rodata.APBPrescTable)
+    vtable for BASE_COM_t                    0x08003e54   Data          32  base_com.o(.rodata._ZTV10BASE_COM_t)
+    vtable for UART_COM                      0x08003e74   Data          32  uart_com.o(.rodata._ZTV8UART_COM)
+    Region$$Table$$Base                      0x08003ed8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08003ef8   Number         0  anon$$obj.o(Region$$Table)
+    SHT$$INIT_ARRAY$$Base                    0x08003ef8   Number         0  main.o(.init_array)
+    SHT$$INIT_ARRAY$$Limit                   0x08003f00   Number         0  init_aeabi.o(.init_array)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f4xx.o(.data.SystemCoreClock)
     uwTickFreq                               0x20000004   Data           1  stm32f4xx_hal.o(.data.uwTickFreq)
     uwTickPrio                               0x20000008   Data           4  stm32f4xx_hal.o(.data.uwTickPrio)
     __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
     COM_ABSTRACT                             0x20000070   Data          12  base_com.o(.bss.COM_ABSTRACT)
     __temporary_stack_top$libspace           0x20000070   Data           0  libspace.o(.bss)
-    My_UART4                                 0x2000007c   Data         556  main.o(.bss.My_UART4)
-    My_UART5                                 0x200002a8   Data         556  main.o(.bss.My_UART5)
-    BASE_COM_t::Num_of_instances             0x200004d4   Data           4  base_com.o(.bss._ZN10BASE_COM_t16Num_of_instancesE)
-    __cxa_new_handler                        0x200004d8   Data           4  cxa_handlers.cpp.o(.bss.__cxa_new_handler)
-    uwTick                                   0x200004dc   Data           4  stm32f4xx_hal.o(.bss.uwTick)
+    My_UART4                                 0x2000007c   Data         548  main.o(.bss.My_UART4)
+    My_UART5                                 0x200002a0   Data         548  main.o(.bss.My_UART5)
+    BASE_COM_t::Num_of_instances             0x200004c4   Data           4  base_com.o(.bss._ZN10BASE_COM_t16Num_of_instancesE)
+    __cxa_new_handler                        0x200004c8   Data           4  cxa_handlers.cpp.o(.bss.__cxa_new_handler)
+    uwTick                                   0x200004cc   Data           4  stm32f4xx_hal.o(.bss.uwTick)
 
 
 
@@ -3151,267 +3153,267 @@ Memory Map of the image
 
   Image Entry point : 0x080001c5
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003f28, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003f10, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003f18, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003f00, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000001c4   Data   RO         1132    RESET               startup_stm32f446xx.o
-    0x080001c4   0x080001c4   0x00000008   Code   RO         1172  * !!!main             c_w.l(__main.o)
-    0x080001cc   0x080001cc   0x00000034   Code   RO         1570    !!!scatter          c_w.l(__scatter.o)
-    0x08000200   0x08000200   0x0000001a   Code   RO         1572    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x08000000   0x000001c4   Data   RO         1153    RESET               startup_stm32f446xx.o
+    0x080001c4   0x080001c4   0x00000008   Code   RO         1194  * !!!main             c_w.l(__main.o)
+    0x080001cc   0x080001cc   0x00000034   Code   RO         1586    !!!scatter          c_w.l(__scatter.o)
+    0x08000200   0x08000200   0x0000001a   Code   RO         1588    !!handler_copy      c_w.l(__scatter_copy.o)
     0x0800021a   0x0800021a   0x00000002   PAD
-    0x0800021c   0x0800021c   0x0000001c   Code   RO         1574    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x08000238   0x08000238   0x00000002   Code   RO         1512    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x0800023a   0x0800023a   0x00000004   Code   RO         1324    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x0800023e   0x0800023e   0x00000000   Code   RO         1327    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x0800023e   0x0800023e   0x00000008   Code   RO         1328    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1330    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1332    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1334    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1337    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1339    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1341    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1343    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1345    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1347    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1349    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1351    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1353    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1355    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000000   Code   RO         1357    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x08000246   0x08000246   0x00000008   Code   RO         1358    .ARM.Collect$$libinit$$00000026  c_w.l(libinit2.o)
-    0x0800024e   0x0800024e   0x00000000   Code   RO         1363    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0800024e   0x0800024e   0x00000000   Code   RO         1365    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0800024e   0x0800024e   0x00000004   Code   RO         1366    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO         1367    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000002   Code   RO         1368    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x08000254   0x08000254   0x00000002   Code   RO         1568    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000256   0x08000256   0x00000006   Code   RO         1513    .ARM.Collect$$libshutdown$$00000001  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1514    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1516    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1519    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1522    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1524    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000000   Code   RO         1527    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x0800025c   0x0800025c   0x00000002   Code   RO         1528    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x0800025e   0x0800025e   0x00000000   Code   RO         1243    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x0800025e   0x0800025e   0x00000000   Code   RO         1402    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x0800025e   0x0800025e   0x00000006   Code   RO         1414    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x08000264   0x08000264   0x00000000   Code   RO         1404    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x08000264   0x08000264   0x00000004   Code   RO         1405    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000268   0x08000268   0x00000000   Code   RO         1407    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000268   0x08000268   0x00000008   Code   RO         1408    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x08000270   0x08000270   0x00000002   Code   RO         1533    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x08000272   0x08000272   0x00000000   Code   RO         1544    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x08000272   0x08000272   0x00000004   Code   RO         1545    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000276   0x08000276   0x00000006   Code   RO         1546    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
-    0x0800027c   0x0800027c   0x00000004   Code   RO         1457    .emb_text           c_w.l(argv_veneer.o)
-    0x08000280   0x08000280   0x00000040   Code   RO         1133    .text               startup_stm32f446xx.o
-    0x080002c0   0x080002c0   0x000000f0   Code   RO         1154    .text               c_w.l(lludivv7m.o)
-    0x080003b0   0x080003b0   0x00000016   Code   RO         1156    .text               c_w.l(abort.o)
-    0x080003c6   0x080003c6   0x0000000a   Code   RO         1161    .text               c_w.l(cxa_atexit.o)
-    0x080003d0   0x080003d0   0x00000064   Code   RO         1166    .text               c_w.l(rt_memcpy_w.o)
-    0x08000434   0x08000434   0x0000004e   Code   RO         1168    .text               c_w.l(rt_memclr_w.o)
-    0x08000482   0x08000482   0x00000006   Code   RO         1170    .text               c_w.l(heapauxi.o)
-    0x08000488   0x08000488   0x00000024   Code   RO         1177    .text               c_w.l(init_aeabi.o)
-    0x080004ac   0x080004ac   0x0000000c   Code   RO         1239    .text               c_w.l(sys_exit.o)
-    0x080004b8   0x080004b8   0x0000005e   Code   RO         1252    .text               c_w.l(h1_alloc.o)
-    0x08000516   0x08000516   0x0000004e   Code   RO         1254    .text               c_w.l(h1_free.o)
-    0x08000564   0x08000564   0x0000002e   Code   RO         1317    .text               c_w.l(aeabi_atexit.o)
-    0x08000592   0x08000592   0x0000000e   Code   RO         1320    .text               c_w.l(defsig_abrt_outer.o)
-    0x080005a0   0x080005a0   0x00000002   Code   RO         1396    .text               c_w.l(use_no_semi.o)
-    0x080005a2   0x080005a2   0x00000000   Code   RO         1400    .text               c_w.l(indicate_semi.o)
+    0x0800021c   0x0800021c   0x0000001c   Code   RO         1590    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000238   0x08000238   0x00000002   Code   RO         1528    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x0800023a   0x0800023a   0x00000004   Code   RO         1343    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x0800023e   0x0800023e   0x00000000   Code   RO         1346    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x0800023e   0x0800023e   0x00000008   Code   RO         1347    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1349    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1351    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1353    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1356    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1358    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1360    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1362    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1364    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1366    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1368    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1370    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1372    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1374    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000000   Code   RO         1376    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000246   0x08000246   0x00000008   Code   RO         1377    .ARM.Collect$$libinit$$00000026  c_w.l(libinit2.o)
+    0x0800024e   0x0800024e   0x00000000   Code   RO         1382    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0800024e   0x0800024e   0x00000000   Code   RO         1384    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0800024e   0x0800024e   0x00000004   Code   RO         1385    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO         1386    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000002   Code   RO         1387    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x08000254   0x08000254   0x00000002   Code   RO         1584    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000256   0x08000256   0x00000006   Code   RO         1529    .ARM.Collect$$libshutdown$$00000001  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1530    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1532    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1535    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1538    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1540    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000000   Code   RO         1543    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x0800025c   0x0800025c   0x00000002   Code   RO         1544    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x0800025e   0x0800025e   0x00000000   Code   RO         1262    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x0800025e   0x0800025e   0x00000000   Code   RO         1419    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x0800025e   0x0800025e   0x00000006   Code   RO         1431    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x08000264   0x08000264   0x00000000   Code   RO         1421    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x08000264   0x08000264   0x00000004   Code   RO         1422    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000268   0x08000268   0x00000000   Code   RO         1424    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000268   0x08000268   0x00000008   Code   RO         1425    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x08000270   0x08000270   0x00000002   Code   RO         1549    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x08000272   0x08000272   0x00000000   Code   RO         1560    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x08000272   0x08000272   0x00000004   Code   RO         1561    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000276   0x08000276   0x00000006   Code   RO         1562    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x0800027c   0x0800027c   0x00000004   Code   RO         1474    .emb_text           c_w.l(argv_veneer.o)
+    0x08000280   0x08000280   0x00000040   Code   RO         1154    .text               startup_stm32f446xx.o
+    0x080002c0   0x080002c0   0x000000f0   Code   RO         1176    .text               c_w.l(lludivv7m.o)
+    0x080003b0   0x080003b0   0x00000016   Code   RO         1178    .text               c_w.l(abort.o)
+    0x080003c6   0x080003c6   0x0000000a   Code   RO         1183    .text               c_w.l(cxa_atexit.o)
+    0x080003d0   0x080003d0   0x00000064   Code   RO         1188    .text               c_w.l(rt_memcpy_w.o)
+    0x08000434   0x08000434   0x0000004e   Code   RO         1190    .text               c_w.l(rt_memclr_w.o)
+    0x08000482   0x08000482   0x00000006   Code   RO         1192    .text               c_w.l(heapauxi.o)
+    0x08000488   0x08000488   0x00000024   Code   RO         1199    .text               c_w.l(init_aeabi.o)
+    0x080004ac   0x080004ac   0x0000000c   Code   RO         1258    .text               c_w.l(sys_exit.o)
+    0x080004b8   0x080004b8   0x0000005e   Code   RO         1271    .text               c_w.l(h1_alloc.o)
+    0x08000516   0x08000516   0x0000004e   Code   RO         1273    .text               c_w.l(h1_free.o)
+    0x08000564   0x08000564   0x0000002e   Code   RO         1336    .text               c_w.l(aeabi_atexit.o)
+    0x08000592   0x08000592   0x0000000e   Code   RO         1339    .text               c_w.l(defsig_abrt_outer.o)
+    0x080005a0   0x080005a0   0x00000002   Code   RO         1413    .text               c_w.l(use_no_semi.o)
+    0x080005a2   0x080005a2   0x00000000   Code   RO         1417    .text               c_w.l(indicate_semi.o)
     0x080005a2   0x080005a2   0x00000002   PAD
-    0x080005a4   0x080005a4   0x00000008   Code   RO         1423    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
-    0x080005ac   0x080005ac   0x00000008   Code   RO         1428    .text               c_w.l(rt_ddtor_pointer_addr_intlibspace.o)
-    0x080005b4   0x080005b4   0x00000004   Code   RO         1430    .text               c_w.l(hguard.o)
-    0x080005b8   0x080005b8   0x0000008a   Code   RO         1432    .text               c_w.l(init_alloc.o)
-    0x08000642   0x08000642   0x0000000e   Code   RO         1436    .text               c_w.l(h1_init.o)
-    0x08000650   0x08000650   0x00000042   Code   RO         1448    .text               c_w.l(cxa_finalize.o)
-    0x08000692   0x08000692   0x0000000a   Code   RO         1451    .text               c_w.l(defsig_exit.o)
-    0x0800069c   0x0800069c   0x00000030   Code   RO         1453    .text               c_w.l(defsig_abrt_inner.o)
-    0x080006cc   0x080006cc   0x00000108   Code   RO         1455    .text               c_w.l(_get_argv.o)
-    0x080007d4   0x080007d4   0x00000018   Code   RO         1469    .text               c_w.l(sys_command.o)
-    0x080007ec   0x080007ec   0x00000008   Code   RO         1473    .text               c_w.l(libspace.o)
-    0x080007f4   0x080007f4   0x0000004a   Code   RO         1476    .text               c_w.l(sys_stackheap_outer.o)
-    0x0800083e   0x0800083e   0x00000004   Code   RO         1478    .text               c_w.l(hrguard.o)
-    0x08000842   0x08000842   0x00000000   Code   RO         1480    .text               c_w.l(maybetermalloc1.o)
-    0x08000842   0x08000842   0x00000034   Code   RO         1482    .text               c_w.l(h1_extend.o)
-    0x08000876   0x08000876   0x00000012   Code   RO         1486    .text               c_w.l(exit.o)
-    0x08000888   0x08000888   0x00000032   Code   RO         1490    .text               c_w.l(defsig_general.o)
-    0x080008ba   0x080008ba   0x0000000e   Code   RO         1496    .text               c_w.l(defsig_rtmem_outer.o)
-    0x080008c8   0x080008c8   0x0000000e   Code   RO         1529    .text               c_w.l(sys_wrch.o)
+    0x080005a4   0x080005a4   0x00000008   Code   RO         1440    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x080005ac   0x080005ac   0x00000008   Code   RO         1445    .text               c_w.l(rt_ddtor_pointer_addr_intlibspace.o)
+    0x080005b4   0x080005b4   0x00000004   Code   RO         1447    .text               c_w.l(hguard.o)
+    0x080005b8   0x080005b8   0x0000008a   Code   RO         1449    .text               c_w.l(init_alloc.o)
+    0x08000642   0x08000642   0x0000000e   Code   RO         1453    .text               c_w.l(h1_init.o)
+    0x08000650   0x08000650   0x00000042   Code   RO         1465    .text               c_w.l(cxa_finalize.o)
+    0x08000692   0x08000692   0x0000000a   Code   RO         1468    .text               c_w.l(defsig_exit.o)
+    0x0800069c   0x0800069c   0x00000030   Code   RO         1470    .text               c_w.l(defsig_abrt_inner.o)
+    0x080006cc   0x080006cc   0x00000108   Code   RO         1472    .text               c_w.l(_get_argv.o)
+    0x080007d4   0x080007d4   0x00000018   Code   RO         1485    .text               c_w.l(sys_command.o)
+    0x080007ec   0x080007ec   0x00000008   Code   RO         1489    .text               c_w.l(libspace.o)
+    0x080007f4   0x080007f4   0x0000004a   Code   RO         1492    .text               c_w.l(sys_stackheap_outer.o)
+    0x0800083e   0x0800083e   0x00000004   Code   RO         1494    .text               c_w.l(hrguard.o)
+    0x08000842   0x08000842   0x00000000   Code   RO         1496    .text               c_w.l(maybetermalloc1.o)
+    0x08000842   0x08000842   0x00000034   Code   RO         1498    .text               c_w.l(h1_extend.o)
+    0x08000876   0x08000876   0x00000012   Code   RO         1502    .text               c_w.l(exit.o)
+    0x08000888   0x08000888   0x00000032   Code   RO         1506    .text               c_w.l(defsig_general.o)
+    0x080008ba   0x080008ba   0x0000000e   Code   RO         1512    .text               c_w.l(defsig_rtmem_outer.o)
+    0x080008c8   0x080008c8   0x0000000e   Code   RO         1545    .text               c_w.l(sys_wrch.o)
     0x080008d6   0x080008d6   0x00000002   PAD
-    0x080008d8   0x080008d8   0x00000050   Code   RO         1539    .text               c_w.l(defsig_rtmem_inner.o)
-    0x08000928   0x08000928   0x000000f4   Code   RO          398    .text.HAL_DMA_Abort  stm32f4xx_hal_dma.o
-    0x08000a1c   0x08000a1c   0x00000044   Code   RO          400    .text.HAL_DMA_Abort_IT  stm32f4xx_hal_dma.o
-    0x08000a60   0x08000a60   0x00000044   Code   RO          190    .text.HAL_Delay     stm32f4xx_hal.o
-    0x08000aa4   0x08000aa4   0x000003a6   Code   RO          437    .text.HAL_GPIO_Init  stm32f4xx_hal_gpio.o
+    0x080008d8   0x080008d8   0x00000050   Code   RO         1555    .text               c_w.l(defsig_rtmem_inner.o)
+    0x08000928   0x08000928   0x000000f4   Code   RO          407    .text.HAL_DMA_Abort  stm32f4xx_hal_dma.o
+    0x08000a1c   0x08000a1c   0x00000044   Code   RO          409    .text.HAL_DMA_Abort_IT  stm32f4xx_hal_dma.o
+    0x08000a60   0x08000a60   0x00000044   Code   RO          196    .text.HAL_Delay     stm32f4xx_hal.o
+    0x08000aa4   0x08000aa4   0x000003a6   Code   RO          448    .text.HAL_GPIO_Init  stm32f4xx_hal_gpio.o
     0x08000e4a   0x08000e4a   0x00000002   PAD
-    0x08000e4c   0x08000e4c   0x0000000c   Code   RO          182    .text.HAL_GetTick   stm32f4xx_hal.o
-    0x08000e58   0x08000e58   0x0000001a   Code   RO          180    .text.HAL_IncTick   stm32f4xx_hal.o
+    0x08000e4c   0x08000e4c   0x0000000c   Code   RO          188    .text.HAL_GetTick   stm32f4xx_hal.o
+    0x08000e58   0x08000e58   0x0000001a   Code   RO          186    .text.HAL_IncTick   stm32f4xx_hal.o
     0x08000e72   0x08000e72   0x00000002   PAD
-    0x08000e74   0x08000e74   0x00000034   Code   RO          170    .text.HAL_Init      stm32f4xx_hal.o
-    0x08000ea8   0x08000ea8   0x00000072   Code   RO          172    .text.HAL_InitTick  stm32f4xx_hal.o
+    0x08000e74   0x08000e74   0x00000034   Code   RO          176    .text.HAL_Init      stm32f4xx_hal.o
+    0x08000ea8   0x08000ea8   0x00000072   Code   RO          178    .text.HAL_InitTick  stm32f4xx_hal.o
     0x08000f1a   0x08000f1a   0x00000002   PAD
-    0x08000f1c   0x08000f1c   0x00000002   Code   RO          174    .text.HAL_MspInit   stm32f4xx_hal.o
+    0x08000f1c   0x08000f1c   0x00000002   Code   RO          180    .text.HAL_MspInit   stm32f4xx_hal.o
     0x08000f1e   0x08000f1e   0x00000002   PAD
-    0x08000f20   0x08000f20   0x00000040   Code   RO          317    .text.HAL_NVIC_SetPriority  stm32f4xx_hal_cortex.o
-    0x08000f60   0x08000f60   0x00000010   Code   RO          313    .text.HAL_NVIC_SetPriorityGrouping  stm32f4xx_hal_cortex.o
-    0x08000f70   0x08000f70   0x0000000c   Code   RO          720    .text.HAL_RCC_GetHCLKFreq  stm32f4xx_hal_rcc.o
-    0x08000f7c   0x08000f7c   0x00000022   Code   RO          722    .text.HAL_RCC_GetPCLK1Freq  stm32f4xx_hal_rcc.o
+    0x08000f20   0x08000f20   0x00000040   Code   RO          325    .text.HAL_NVIC_SetPriority  stm32f4xx_hal_cortex.o
+    0x08000f60   0x08000f60   0x00000010   Code   RO          321    .text.HAL_NVIC_SetPriorityGrouping  stm32f4xx_hal_cortex.o
+    0x08000f70   0x08000f70   0x0000000c   Code   RO          736    .text.HAL_RCC_GetHCLKFreq  stm32f4xx_hal_rcc.o
+    0x08000f7c   0x08000f7c   0x00000022   Code   RO          738    .text.HAL_RCC_GetPCLK1Freq  stm32f4xx_hal_rcc.o
     0x08000f9e   0x08000f9e   0x00000002   PAD
-    0x08000fa0   0x08000fa0   0x00000022   Code   RO          724    .text.HAL_RCC_GetPCLK2Freq  stm32f4xx_hal_rcc.o
+    0x08000fa0   0x08000fa0   0x00000022   Code   RO          740    .text.HAL_RCC_GetPCLK2Freq  stm32f4xx_hal_rcc.o
     0x08000fc2   0x08000fc2   0x00000002   PAD
-    0x08000fc4   0x08000fc4   0x00000010   Code   RO          337    .text.HAL_SYSTICK_Config  stm32f4xx_hal_cortex.o
-    0x08000fd4   0x08000fd4   0x0000000e   Code   RO          939    .text.HAL_UARTEx_RxEventCallback  stm32f4xx_hal_uart.o
+    0x08000fc4   0x08000fc4   0x00000010   Code   RO          345    .text.HAL_SYSTICK_Config  stm32f4xx_hal_cortex.o
+    0x08000fd4   0x08000fd4   0x0000000e   Code   RO          958    .text.HAL_UARTEx_RxEventCallback  stm32f4xx_hal_uart.o
     0x08000fe2   0x08000fe2   0x00000002   PAD
-    0x08000fe4   0x08000fe4   0x00000008   Code   RO          929    .text.HAL_UART_AbortCpltCallback  stm32f4xx_hal_uart.o
-    0x08000fec   0x08000fec   0x00000008   Code   RO          933    .text.HAL_UART_AbortReceiveCpltCallback  stm32f4xx_hal_uart.o
-    0x08000ff4   0x08000ff4   0x00000008   Code   RO          931    .text.HAL_UART_AbortTransmitCpltCallback  stm32f4xx_hal_uart.o
-    0x08000ffc   0x08000ffc   0x00000008   Code   RO          927    .text.HAL_UART_ErrorCallback  stm32f4xx_hal_uart.o
-    0x08001004   0x08001004   0x0000043e   Code   RO         1001    .text.HAL_UART_IRQHandler  stm32f4xx_hal_uart.o
+    0x08000fe4   0x08000fe4   0x00000008   Code   RO          948    .text.HAL_UART_AbortCpltCallback  stm32f4xx_hal_uart.o
+    0x08000fec   0x08000fec   0x00000008   Code   RO          952    .text.HAL_UART_AbortReceiveCpltCallback  stm32f4xx_hal_uart.o
+    0x08000ff4   0x08000ff4   0x00000008   Code   RO          950    .text.HAL_UART_AbortTransmitCpltCallback  stm32f4xx_hal_uart.o
+    0x08000ffc   0x08000ffc   0x00000008   Code   RO          946    .text.HAL_UART_ErrorCallback  stm32f4xx_hal_uart.o
+    0x08001004   0x08001004   0x0000043e   Code   RO         1020    .text.HAL_UART_IRQHandler  stm32f4xx_hal_uart.o
     0x08001442   0x08001442   0x00000002   PAD
-    0x08001444   0x08001444   0x000000be   Code   RO          897    .text.HAL_UART_Init  stm32f4xx_hal_uart.o
+    0x08001444   0x08001444   0x000000be   Code   RO          916    .text.HAL_UART_Init  stm32f4xx_hal_uart.o
     0x08001502   0x08001502   0x00000002   PAD
-    0x08001504   0x08001504   0x00000008   Code   RO          901    .text.HAL_UART_MspInit  stm32f4xx_hal_uart.o
-    0x0800150c   0x0800150c   0x0000007e   Code   RO          949    .text.HAL_UART_Receive_IT  stm32f4xx_hal_uart.o
+    0x08001504   0x08001504   0x00000008   Code   RO          920    .text.HAL_UART_MspInit  stm32f4xx_hal_uart.o
+    0x0800150c   0x0800150c   0x0000007e   Code   RO          968    .text.HAL_UART_Receive_IT  stm32f4xx_hal_uart.o
     0x0800158a   0x0800158a   0x00000002   PAD
     0x0800158c   0x0800158c   0x0000005c   Code   RO           18    .text.HAL_UART_RxCpltCallback  main.o
-    0x080015e8   0x080015e8   0x00000008   Code   RO          923    .text.HAL_UART_RxHalfCpltCallback  stm32f4xx_hal_uart.o
-    0x080015f0   0x080015f0   0x000000a8   Code   RO          947    .text.HAL_UART_Transmit_IT  stm32f4xx_hal_uart.o
+    0x080015e8   0x080015e8   0x00000008   Code   RO          942    .text.HAL_UART_RxHalfCpltCallback  stm32f4xx_hal_uart.o
+    0x080015f0   0x080015f0   0x000000a8   Code   RO          966    .text.HAL_UART_Transmit_IT  stm32f4xx_hal_uart.o
     0x08001698   0x08001698   0x0000005c   Code   RO           20    .text.HAL_UART_TxCpltCallback  main.o
-    0x080016f4   0x080016f4   0x00000008   Code   RO          919    .text.HAL_UART_TxHalfCpltCallback  stm32f4xx_hal_uart.o
+    0x080016f4   0x080016f4   0x00000008   Code   RO          938    .text.HAL_UART_TxHalfCpltCallback  stm32f4xx_hal_uart.o
     0x080016fc   0x080016fc   0x00000004   Code   RO            8    .text.HardFault_Handler  main.o
-    0x08001700   0x08001700   0x0000006e   Code   RO          323    .text.NVIC_EncodePriority  stm32f4xx_hal_cortex.o
+    0x08001700   0x08001700   0x0000006e   Code   RO          331    .text.NVIC_EncodePriority  stm32f4xx_hal_cortex.o
     0x0800176e   0x0800176e   0x00000002   PAD
-    0x08001770   0x08001770   0x00000052   Code   RO          339    .text.SysTick_Config  stm32f4xx_hal_cortex.o
+    0x08001770   0x08001770   0x00000052   Code   RO          347    .text.SysTick_Config  stm32f4xx_hal_cortex.o
     0x080017c2   0x080017c2   0x00000002   PAD
     0x080017c4   0x080017c4   0x00000008   Code   RO           16    .text.SysTick_Handler  main.o
-    0x080017cc   0x080017cc   0x00000012   Code   RO         1139    .text.SystemInit    system_stm32f4xx.o
+    0x080017cc   0x080017cc   0x00000012   Code   RO         1160    .text.SystemInit    system_stm32f4xx.o
     0x080017de   0x080017de   0x00000002   PAD
     0x080017e0   0x080017e0   0x00000010   Code   RO           12    .text.UART4_IRQHandler  main.o
     0x080017f0   0x080017f0   0x00000010   Code   RO           14    .text.UART5_IRQHandler  main.o
-    0x08001800   0x08001800   0x00000020   Code   RO         1005    .text.UART_DMAAbortOnError  stm32f4xx_hal_uart.o
-    0x08001820   0x08001820   0x00000094   Code   RO          973    .text.UART_EndRxTransfer  stm32f4xx_hal_uart.o
-    0x080018b4   0x080018b4   0x00000026   Code   RO         1009    .text.UART_EndTransmit_IT  stm32f4xx_hal_uart.o
+    0x08001800   0x08001800   0x00000020   Code   RO         1024    .text.UART_DMAAbortOnError  stm32f4xx_hal_uart.o
+    0x08001820   0x08001820   0x00000094   Code   RO          992    .text.UART_EndRxTransfer  stm32f4xx_hal_uart.o
+    0x080018b4   0x080018b4   0x00000026   Code   RO         1028    .text.UART_EndTransmit_IT  stm32f4xx_hal_uart.o
     0x080018da   0x080018da   0x00000002   PAD
-    0x080018dc   0x080018dc   0x00000074   Code   RO          899    .text.UART_InitCallbacksToDefault  stm32f4xx_hal_uart.o
-    0x08001950   0x08001950   0x00000170   Code   RO         1003    .text.UART_Receive_IT  stm32f4xx_hal_uart.o
-    0x08001ac0   0x08001ac0   0x00000156   Code   RO          903    .text.UART_SetConfig  stm32f4xx_hal_uart.o
+    0x080018dc   0x080018dc   0x00000074   Code   RO          918    .text.UART_InitCallbacksToDefault  stm32f4xx_hal_uart.o
+    0x08001950   0x08001950   0x00000170   Code   RO         1022    .text.UART_Receive_IT  stm32f4xx_hal_uart.o
+    0x08001ac0   0x08001ac0   0x00000156   Code   RO          922    .text.UART_SetConfig  stm32f4xx_hal_uart.o
     0x08001c16   0x08001c16   0x00000002   PAD
-    0x08001c18   0x08001c18   0x00000066   Code   RO          951    .text.UART_Start_Receive_IT  stm32f4xx_hal_uart.o
+    0x08001c18   0x08001c18   0x00000066   Code   RO          970    .text.UART_Start_Receive_IT  stm32f4xx_hal_uart.o
     0x08001c7e   0x08001c7e   0x00000002   PAD
-    0x08001c80   0x08001c80   0x00000098   Code   RO         1007    .text.UART_Transmit_IT  stm32f4xx_hal_uart.o
-    0x08001d18   0x08001d18   0x00000008   Code   RO           83    .text._GLOBAL__sub_I_BASE_COM.cpp  base_com.o
+    0x08001c80   0x08001c80   0x00000098   Code   RO         1026    .text.UART_Transmit_IT  stm32f4xx_hal_uart.o
+    0x08001d18   0x08001d18   0x00000008   Code   RO           85    .text._GLOBAL__sub_I_BASE_COM.cpp  base_com.o
     0x08001d20   0x08001d20   0x0000000c   Code   RO           22    .text._GLOBAL__sub_I_main.cpp  main.o
-    0x08001d2c   0x08001d2c   0x00000034   Code   RO          120    .text._ZL16__NVIC_EnableIRQ9IRQn_Type  uart_com.o
+    0x08001d2c   0x08001d2c   0x00000034   Code   RO          123    .text._ZL16__NVIC_EnableIRQ9IRQn_Type  uart_com.o
     0x08001d60   0x08001d60   0x00000026   Code   RO           10    .text._ZL18__NVIC_SystemResetv  main.o
     0x08001d86   0x08001d86   0x00000002   PAD
-    0x08001d88   0x08001d88   0x00000176   Code   RO           77    .text._ZN10BASE_COM_t17GPIO_clock_EnableEP12GPIO_TypeDef  base_com.o
+    0x08001d88   0x08001d88   0x00000176   Code   RO           79    .text._ZN10BASE_COM_t17GPIO_clock_EnableEP12GPIO_TypeDef  base_com.o
     0x08001efe   0x08001efe   0x00000002   PAD
-    0x08001f00   0x08001f00   0x000000f6   Code   RO           79    .text._ZN10BASE_COM_t4pollEv  base_com.o
+    0x08001f00   0x08001f00   0x000000f6   Code   RO           81    .text._ZN10BASE_COM_t4pollEv  base_com.o
     0x08001ff6   0x08001ff6   0x00000002   PAD
-    0x08001ff8   0x08001ff8   0x00000226   Code   RO           71    .text._ZN10BASE_COM_tC2Ev  base_com.o
+    0x08001ff8   0x08001ff8   0x00000226   Code   RO           73    .text._ZN10BASE_COM_tC2Ev  base_com.o
     0x0800221e   0x0800221e   0x00000002   PAD
-    0x08002220   0x08002220   0x00000022   Code   RO           81    .text._ZN10BASE_COM_tD2Ev  base_com.o
+    0x08002220   0x08002220   0x00000022   Code   RO           83    .text._ZN10BASE_COM_tD2Ev  base_com.o
     0x08002242   0x08002242   0x00000002   PAD
-    0x08002244   0x08002244   0x0000001c   Code   RO          142    .text._ZN11send_handleC2EP10BASE_COM_t  observer_pattern.o
-    0x08002260   0x08002260   0x000000a4   Code   RO          156    .text._ZN7subject16Notify_observersEP10BASE_COM_t  observer_pattern.o
-    0x08002304   0x08002304   0x000001fc   Code   RO          154    .text._ZN7subject7attatchEP10BASE_COM_tS1_  observer_pattern.o
-    0x08002500   0x08002500   0x0000004a   Code   RO          150    .text._ZN7subjectC2Ev  observer_pattern.o
-    0x0800254a   0x0800254a   0x00000002   PAD
-    0x0800254c   0x0800254c   0x000000d4   Code   RO          152    .text._ZN7subjectD2Ev  observer_pattern.o
-    0x08002620   0x08002620   0x00000010   Code   RO          132    .text._ZN8UART_COM13Send_callbackEv  uart_com.o
-    0x08002630   0x08002630   0x00000012   Code   RO          130    .text._ZN8UART_COM16Receive_callbackEv  uart_com.o
-    0x08002642   0x08002642   0x00000002   PAD
-    0x08002644   0x08002644   0x00000014   Code   RO          124    .text._ZN8UART_COM17Interrupt_handlerEv  uart_com.o
-    0x08002658   0x08002658   0x0000017a   Code   RO          116    .text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef  uart_com.o
-    0x080027d2   0x080027d2   0x00000002   PAD
-    0x080027d4   0x080027d4   0x0000000e   Code   RO          122    .text._ZN8UART_COM22Get_UART_HandleTypeDefEv  uart_com.o
-    0x080027e2   0x080027e2   0x00000002   PAD
-    0x080027e4   0x080027e4   0x00000032   Code   RO          126    .text._ZN8UART_COM4SendEPcj  uart_com.o
-    0x08002816   0x08002816   0x00000002   PAD
-    0x08002818   0x08002818   0x00000058   Code   RO          128    .text._ZN8UART_COM7ReceiveEv  uart_com.o
-    0x08002870   0x08002870   0x000000e0   Code   RO          114    .text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh  uart_com.o
-    0x08002950   0x08002950   0x00000052   Code   RO          118    .text._ZN8UART_COMD2Ev  uart_com.o
-    0x080029a2   0x080029a2   0x00000002   PAD
-    0x080029a4   0x080029a4   0x000000ac   Code   RO          158    .text._ZN8observer6notifyEP10BASE_COM_ti  observer_pattern.o
-    0x08002a50   0x08002a50   0x0000004a   Code   RO          146    .text._ZN8observerC2Ev  observer_pattern.o
-    0x08002a9a   0x08002a9a   0x00000002   PAD
-    0x08002a9c   0x08002a9c   0x000000b8   Code   RO          148    .text._ZN8observerD2Ev  observer_pattern.o
-    0x08002b54   0x08002b54   0x00000004   Code   RO         1229    .text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv  libcpp_w.l(vector.cpp.o)
-    0x08002b58   0x08002b58   0x00000068   Code   RO          110    .text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv  base_com.o
-    0x08002bc0   0x08002bc0   0x00000068   Code   RO           47    .text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv  main.o
-    0x08002c28   0x08002c28   0x000000f4   Code   RO           98    .text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev  base_com.o
-    0x08002d1c   0x08002d1c   0x000000f4   Code   RO          167    .text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev  observer_pattern.o
-    0x08002e10   0x08002e10   0x000000e6   Code   RO          104    .text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_  base_com.o
-    0x08002ef6   0x08002ef6   0x00000002   PAD
-    0x08002ef8   0x08002ef8   0x000000ea   Code   RO          108    .text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev  base_com.o
-    0x08002fe2   0x08002fe2   0x00000002   PAD
-    0x08002fe4   0x08002fe4   0x000000e6   Code   RO           41    .text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_  main.o
-    0x080030ca   0x080030ca   0x00000002   PAD
-    0x080030cc   0x080030cc   0x000000ea   Code   RO           45    .text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev  main.o
-    0x080031b6   0x080031b6   0x00000002   PAD
-    0x080031b8   0x080031b8   0x00000012   Code   RO           49    .text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj  main.o
-    0x080031ca   0x080031ca   0x00000002   PAD
-    0x080031cc   0x080031cc   0x00000010   Code   RO           51    .text._ZNSt3__117_DeallocateCaller9__do_callEPv  main.o
-    0x080031dc   0x080031dc   0x00000024   Code   RO          100    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j  base_com.o
-    0x08003200   0x08003200   0x00000010   Code   RO          102    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev  base_com.o
-    0x08003210   0x08003210   0x0000027a   Code   RO          106    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE  base_com.o
-    0x0800348a   0x0800348a   0x00000002   PAD
-    0x0800348c   0x0800348c   0x000000c8   Code   RO           96    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev  base_com.o
-    0x08003554   0x08003554   0x00000024   Code   RO           37    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j  main.o
-    0x08003578   0x08003578   0x00000010   Code   RO           39    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev  main.o
-    0x08003588   0x08003588   0x0000027a   Code   RO           43    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE  main.o
-    0x08003802   0x08003802   0x0000000c   Code   RO         1392    .text._ZSt15get_new_handlerv  libcppabi_w.l(cxa_handlers.cpp.o)
-    0x0800380e   0x0800380e   0x00000004   Code   RO         1191    .text._ZdlPv        libcpp_w.l(new.cpp.o)
-    0x08003812   0x08003812   0x00000002   PAD
-    0x08003814   0x08003814   0x00000026   Code   RO         1183    .text._Znwj         libcpp_w.l(new.cpp.o)
-    0x0800383a   0x0800383a   0x00000002   PAD
-    0x0800383c   0x0800383c   0x00000010   Code   RO          319    .text.__NVIC_GetPriorityGrouping  stm32f4xx_hal_cortex.o
-    0x0800384c   0x0800384c   0x00000044   Code   RO          321    .text.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
-    0x08003890   0x08003890   0x0000003c   Code   RO          315    .text.__NVIC_SetPriorityGrouping  stm32f4xx_hal_cortex.o
-    0x080038cc   0x080038cc   0x00000028   Code   RO         1234    .text.__cxa_pure_virtual  libcppabi_w.l(cxa_virtual.cpp.o)
-    0x080038f4   0x080038f4   0x0000004c   Code   RO            2    .text.__cxx_global_var_init  main.o
-    0x08003940   0x08003940   0x0000006a   Code   RO           69    .text.__cxx_global_var_init  base_com.o
-    0x080039aa   0x080039aa   0x00000002   PAD
-    0x080039ac   0x080039ac   0x0000004e   Code   RO            4    .text.__cxx_global_var_init.1  main.o
-    0x080039fa   0x080039fa   0x00000004   Code   RO         1374    .text.abort_message  libcppabi_w.l(abort_message.cpp.o)
-    0x080039fe   0x080039fe   0x00000002   PAD
-    0x08003a00   0x08003a00   0x00000448   Code   RO            6    .text.main          main.o
-    0x08003e48   0x08003e48   0x0000001a   Code   RO         1459    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08003e62   0x08003e62   0x00000008   Data   RO         1145    .rodata.APBPrescTable  system_stm32f4xx.o
-    0x08003e6a   0x08003e6a   0x00000002   PAD
-    0x08003e6c   0x08003e6c   0x00000020   Data   RO           87    .rodata._ZTV10BASE_COM_t  base_com.o
-    0x08003e8c   0x08003e8c   0x00000020   Data   RO          134    .rodata._ZTV8UART_COM  uart_com.o
-    0x08003eac   0x08003eac   0x00000044   Data   RO           28    .rodata.str1.1      main.o
-    0x08003ef0   0x08003ef0   0x00000020   Data   RO         1569    Region$$Table       anon$$obj.o
-    0x08003f10   0x08003f10   0x00000004   Data   RO           29    .init_array         main.o
-    0x08003f14   0x08003f10   0x00000004   Data   RO           89    .init_array         base_com.o
-    0x08003f18   0x08003f10   0x00000000   Data   RO         1175    .init_array         c_w.l(init_aeabi.o)
+    0x08002244   0x08002244   0x0000001c   Code   RO          147    .text._ZN11send_handleC2EP10BASE_COM_t  observer_pattern.o
+    0x08002260   0x08002260   0x000000a4   Code   RO          161    .text._ZN7subject16Notify_observersEP10BASE_COM_t  observer_pattern.o
+    0x08002304   0x08002304   0x000001fc   Code   RO          159    .text._ZN7subject7attatchEP10BASE_COM_tS1_  observer_pattern.o
+    0x08002500   0x08002500   0x00000042   Code   RO          155    .text._ZN7subjectC2Ev  observer_pattern.o
+    0x08002542   0x08002542   0x00000002   PAD
+    0x08002544   0x08002544   0x000000d4   Code   RO          157    .text._ZN7subjectD2Ev  observer_pattern.o
+    0x08002618   0x08002618   0x00000010   Code   RO          135    .text._ZN8UART_COM13Send_callbackEv  uart_com.o
+    0x08002628   0x08002628   0x00000012   Code   RO          133    .text._ZN8UART_COM16Receive_callbackEv  uart_com.o
+    0x0800263a   0x0800263a   0x00000002   PAD
+    0x0800263c   0x0800263c   0x00000014   Code   RO          127    .text._ZN8UART_COM17Interrupt_handlerEv  uart_com.o
+    0x08002650   0x08002650   0x0000017a   Code   RO          119    .text._ZN8UART_COM19uart_low_level_initEP12GPIO_TypeDef  uart_com.o
+    0x080027ca   0x080027ca   0x00000002   PAD
+    0x080027cc   0x080027cc   0x0000000e   Code   RO          125    .text._ZN8UART_COM22Get_UART_HandleTypeDefEv  uart_com.o
+    0x080027da   0x080027da   0x00000002   PAD
+    0x080027dc   0x080027dc   0x00000032   Code   RO          129    .text._ZN8UART_COM4SendEPcj  uart_com.o
+    0x0800280e   0x0800280e   0x00000002   PAD
+    0x08002810   0x08002810   0x00000058   Code   RO          131    .text._ZN8UART_COM7ReceiveEv  uart_com.o
+    0x08002868   0x08002868   0x000000e0   Code   RO          117    .text._ZN8UART_COMC2EjP13USART_TypeDefP12GPIO_TypeDefjjh  uart_com.o
+    0x08002948   0x08002948   0x00000052   Code   RO          121    .text._ZN8UART_COMD2Ev  uart_com.o
+    0x0800299a   0x0800299a   0x00000002   PAD
+    0x0800299c   0x0800299c   0x000000ac   Code   RO          163    .text._ZN8observer6notifyEP10BASE_COM_ti  observer_pattern.o
+    0x08002a48   0x08002a48   0x00000042   Code   RO          151    .text._ZN8observerC2Ev  observer_pattern.o
+    0x08002a8a   0x08002a8a   0x00000002   PAD
+    0x08002a8c   0x08002a8c   0x000000b8   Code   RO          153    .text._ZN8observerD2Ev  observer_pattern.o
+    0x08002b44   0x08002b44   0x00000004   Code   RO         1249    .text._ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv  libcpp_w.l(vector.cpp.o)
+    0x08002b48   0x08002b48   0x00000068   Code   RO          113    .text._ZNKSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE8max_sizeEv  base_com.o
+    0x08002bb0   0x08002bb0   0x00000068   Code   RO           48    .text._ZNKSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE8max_sizeEv  main.o
+    0x08002c18   0x08002c18   0x000000f4   Code   RO          101    .text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev  base_com.o
+    0x08002d0c   0x08002d0c   0x000000f4   Code   RO          173    .text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev  observer_pattern.o
+    0x08002e00   0x08002e00   0x000000e6   Code   RO          107    .text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEEC2EjjS5_  base_com.o
+    0x08002ee6   0x08002ee6   0x00000002   PAD
+    0x08002ee8   0x08002ee8   0x000000ea   Code   RO          111    .text._ZNSt3__114__split_bufferIP10BASE_COM_tRNS_9allocatorIS2_EEED2Ev  base_com.o
+    0x08002fd2   0x08002fd2   0x00000002   PAD
+    0x08002fd4   0x08002fd4   0x000000e6   Code   RO           42    .text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEEC2EjjS5_  main.o
+    0x080030ba   0x080030ba   0x00000002   PAD
+    0x080030bc   0x080030bc   0x000000ea   Code   RO           46    .text._ZNSt3__114__split_bufferIP11send_handleRNS_9allocatorIS2_EEED2Ev  main.o
+    0x080031a6   0x080031a6   0x00000002   PAD
+    0x080031a8   0x080031a8   0x00000012   Code   RO           50    .text._ZNSt3__117_DeallocateCaller27__do_deallocate_handle_sizeEPvj  main.o
+    0x080031ba   0x080031ba   0x00000002   PAD
+    0x080031bc   0x080031bc   0x00000010   Code   RO           52    .text._ZNSt3__117_DeallocateCaller9__do_callEPv  main.o
+    0x080031cc   0x080031cc   0x00000024   Code   RO          103    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j  base_com.o
+    0x080031f0   0x080031f0   0x00000010   Code   RO          105    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev  base_com.o
+    0x08003200   0x08003200   0x0000027a   Code   RO          109    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE  base_com.o
+    0x0800347a   0x0800347a   0x00000002   PAD
+    0x0800347c   0x0800347c   0x000000c8   Code   RO           99    .text._ZNSt3__16vectorIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev  base_com.o
+    0x08003544   0x08003544   0x00000024   Code   RO           38    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionC2ERS5_j  main.o
+    0x08003568   0x08003568   0x00000010   Code   RO           40    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE21_ConstructTransactionD2Ev  main.o
+    0x08003578   0x08003578   0x0000027a   Code   RO           44    .text._ZNSt3__16vectorIP11send_handleNS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE  main.o
+    0x080037f2   0x080037f2   0x0000000c   Code   RO         1410    .text._ZSt15get_new_handlerv  libcppabi_w.l(cxa_handlers.cpp.o)
+    0x080037fe   0x080037fe   0x00000004   Code   RO         1213    .text._ZdlPv        libcpp_w.l(new.cpp.o)
+    0x08003802   0x08003802   0x00000002   PAD
+    0x08003804   0x08003804   0x00000026   Code   RO         1205    .text._Znwj         libcpp_w.l(new.cpp.o)
+    0x0800382a   0x0800382a   0x00000002   PAD
+    0x0800382c   0x0800382c   0x00000010   Code   RO          327    .text.__NVIC_GetPriorityGrouping  stm32f4xx_hal_cortex.o
+    0x0800383c   0x0800383c   0x00000044   Code   RO          329    .text.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
+    0x08003880   0x08003880   0x0000003c   Code   RO          323    .text.__NVIC_SetPriorityGrouping  stm32f4xx_hal_cortex.o
+    0x080038bc   0x080038bc   0x00000028   Code   RO         1254    .text.__cxa_pure_virtual  libcppabi_w.l(cxa_virtual.cpp.o)
+    0x080038e4   0x080038e4   0x0000004c   Code   RO            2    .text.__cxx_global_var_init  main.o
+    0x08003930   0x08003930   0x00000062   Code   RO           71    .text.__cxx_global_var_init  base_com.o
+    0x08003992   0x08003992   0x00000002   PAD
+    0x08003994   0x08003994   0x0000004e   Code   RO            4    .text.__cxx_global_var_init.1  main.o
+    0x080039e2   0x080039e2   0x00000004   Code   RO         1393    .text.abort_message  libcppabi_w.l(abort_message.cpp.o)
+    0x080039e6   0x080039e6   0x00000002   PAD
+    0x080039e8   0x080039e8   0x00000448   Code   RO            6    .text.main          main.o
+    0x08003e30   0x08003e30   0x0000001a   Code   RO         1476    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08003e4a   0x08003e4a   0x00000008   Data   RO         1166    .rodata.APBPrescTable  system_stm32f4xx.o
+    0x08003e52   0x08003e52   0x00000002   PAD
+    0x08003e54   0x08003e54   0x00000020   Data   RO           89    .rodata._ZTV10BASE_COM_t  base_com.o
+    0x08003e74   0x08003e74   0x00000020   Data   RO          137    .rodata._ZTV8UART_COM  uart_com.o
+    0x08003e94   0x08003e94   0x00000044   Data   RO           28    .rodata.str1.1      main.o
+    0x08003ed8   0x08003ed8   0x00000020   Data   RO         1585    Region$$Table       anon$$obj.o
+    0x08003ef8   0x08003ef8   0x00000004   Data   RO           29    .init_array         main.o
+    0x08003efc   0x08003ef8   0x00000004   Data   RO           91    .init_array         base_com.o
+    0x08003f00   0x08003ef8   0x00000000   Data   RO         1197    .init_array         c_w.l(init_aeabi.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003f18, Size: 0x000011e0, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003f00, Size: 0x000011d0, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08003f18   0x00000004   Data   RW         1143    .data.SystemCoreClock  system_stm32f4xx.o
-    0x20000004   0x08003f1c   0x00000001   Data   RW          225    .data.uwTickFreq    stm32f4xx_hal.o
-    0x20000005   0x08003f1d   0x00000003   PAD
-    0x20000008   0x08003f20   0x00000004   Data   RW          224    .data.uwTickPrio    stm32f4xx_hal.o
-    0x2000000c   0x08003f24   0x00000004   PAD
-    0x20000010        -       0x00000060   Zero   RW         1474    .bss                c_w.l(libspace.o)
-    0x20000070        -       0x0000000c   Zero   RW           85    .bss.COM_ABSTRACT   base_com.o
-    0x2000007c        -       0x0000022c   Zero   RW           26    .bss.My_UART4       main.o
-    0x200002a8        -       0x0000022c   Zero   RW           27    .bss.My_UART5       main.o
-    0x200004d4        -       0x00000004   Zero   RW           86    .bss._ZN10BASE_COM_t16Num_of_instancesE  base_com.o
-    0x200004d8        -       0x00000004   Zero   RW         1394    .bss.__cxa_new_handler  libcppabi_w.l(cxa_handlers.cpp.o)
-    0x200004dc        -       0x00000004   Zero   RW          226    .bss.uwTick         stm32f4xx_hal.o
-    0x200004e0        -       0x00000900   Zero   RW         1131    HEAP                startup_stm32f446xx.o
-    0x20000de0        -       0x00000400   Zero   RW         1130    STACK               startup_stm32f446xx.o
+    0x20000000   0x08003f00   0x00000004   Data   RW         1164    .data.SystemCoreClock  system_stm32f4xx.o
+    0x20000004   0x08003f04   0x00000001   Data   RW          231    .data.uwTickFreq    stm32f4xx_hal.o
+    0x20000005   0x08003f05   0x00000003   PAD
+    0x20000008   0x08003f08   0x00000004   Data   RW          230    .data.uwTickPrio    stm32f4xx_hal.o
+    0x2000000c   0x08003f0c   0x00000004   PAD
+    0x20000010        -       0x00000060   Zero   RW         1490    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x0000000c   Zero   RW           87    .bss.COM_ABSTRACT   base_com.o
+    0x2000007c        -       0x00000224   Zero   RW           26    .bss.My_UART4       main.o
+    0x200002a0        -       0x00000224   Zero   RW           27    .bss.My_UART5       main.o
+    0x200004c4        -       0x00000004   Zero   RW           88    .bss._ZN10BASE_COM_t16Num_of_instancesE  base_com.o
+    0x200004c8        -       0x00000004   Zero   RW         1412    .bss.__cxa_new_handler  libcppabi_w.l(cxa_handlers.cpp.o)
+    0x200004cc        -       0x00000004   Zero   RW          232    .bss.uwTick         stm32f4xx_hal.o
+    0x200004d0        -       0x00000900   Zero   RW         1152    HEAP                startup_stm32f446xx.o
+    0x20000dd0        -       0x00000400   Zero   RW         1151    STACK               startup_stm32f446xx.o
 
 
 ==============================================================================
@@ -3421,21 +3423,21 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      3016          0         36          0         16      81515   base_com.o
-      2816          0         72          0       1112      62984   main.o
-      1660          0          0          0          0      81164   observer_pattern.o
+      3008          0         36          0         16      81190   base_com.o
+      2816          0         72          0       1096      62815   main.o
+      1644          0          0          0          0      80793   observer_pattern.o
         64         26        452          0       3328        860   startup_stm32f446xx.o
-       274          0          0          5          4       7605   stm32f4xx_hal.o
-       432          0          0          0          0       9833   stm32f4xx_hal_cortex.o
-       312          0          0          0          0       8680   stm32f4xx_hal_dma.o
-       934          0          0          0          0       5407   stm32f4xx_hal_gpio.o
-        80          0          0          0          0       7923   stm32f4xx_hal_rcc.o
-      2938          0          0          0          0      22959   stm32f4xx_hal_uart.o
-        18          0          8          4          0       2706   system_stm32f4xx.o
-       942          0         32          0          0      29194   uart_com.o
+       274          0          0          5          4       7607   stm32f4xx_hal.o
+       432          0          0          0          0       9835   stm32f4xx_hal_cortex.o
+       312          0          0          0          0       8682   stm32f4xx_hal_dma.o
+       934          0          0          0          0       5409   stm32f4xx_hal_gpio.o
+        80          0          0          0          0       7925   stm32f4xx_hal_rcc.o
+      2938          0          0          0          0      22961   stm32f4xx_hal_uart.o
+        18          0          8          4          0       2710   system_stm32f4xx.o
+       942          0         32          0          0      29134   uart_com.o
 
     ----------------------------------------------------------------------
-     13556         26        634         12       4464     320830   Object Totals
+     13532         26        634         12       4448     319921   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         70          0          2          3          4          0   (incl. Padding)
 
@@ -3492,14 +3494,14 @@ Image component sizes
         14          0          0          0          0         76   sys_wrch.o
          2          0          0          0          0         68   use_no_semi.o
         26          0          0          0          0        116   fpinit.o
-        42          0          0          0          0        380   new.cpp.o
-         4          0          0          0          0         68   vector.cpp.o
-         4          0          0          0          0         36   abort_message.cpp.o
-        12          0          0          0          4        148   cxa_handlers.cpp.o
-        40         32          0          0          0         52   cxa_virtual.cpp.o
+        42          0          0          0          0          0   new.cpp.o
+         4          0          0          0          0          0   vector.cpp.o
+         4          0          0          0          0          0   abort_message.cpp.o
+        12          0          0          0          4          0   cxa_handlers.cpp.o
+        40         32          0          0          0          0   cxa_virtual.cpp.o
 
     ----------------------------------------------------------------------
-      1962        156          0          0        100       3712   Library Totals
+      1962        156          0          0        100       3028   Library Totals
         12          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -3508,11 +3510,11 @@ Image component sizes
 
       1822        124          0          0         96       2912   c_w.l
         26          0          0          0          0        116   fz_wm.l
-        46          0          0          0          0        448   libcpp_w.l
-        56         32          0          0          4        236   libcppabi_w.l
+        46          0          0          0          0          0   libcpp_w.l
+        56         32          0          0          4          0   libcppabi_w.l
 
     ----------------------------------------------------------------------
-      1962        156          0          0        100       3712   Library Totals
+      1962        156          0          0        100       3028   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -3521,15 +3523,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     15518        182        634         12       4564     322638   Grand Totals
-     15518        182        634         12       4564     322638   ELF Image Totals
-     15518        182        634         12          0          0   ROM Totals
+     15494        182        634         12       4548     321125   Grand Totals
+     15494        182        634         12       4548     321125   ELF Image Totals
+     15494        182        634         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                16152 (  15.77kB)
-    Total RW  Size (RW Data + ZI Data)              4576 (   4.47kB)
-    Total ROM Size (Code + RO Data + RW Data)      16164 (  15.79kB)
+    Total RO  Size (Code + RO Data)                16128 (  15.75kB)
+    Total RW  Size (RW Data + ZI Data)              4560 (   4.45kB)
+    Total ROM Size (Code + RO Data + RW Data)      16140 (  15.76kB)
 
 ==============================================================================
 
