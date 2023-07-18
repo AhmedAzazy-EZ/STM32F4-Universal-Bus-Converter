@@ -15,7 +15,7 @@
  {
  
  public:
-	I2C_COM(uint32_t ClockSpeed , uint32_t Own_Add , I2C_TypeDef * I2c_Contr , GPIO_TypeDef * GPIO_contr , uint32_t SCK_PinNum , uint32_t SDA_PinNum , uint32_t AF);
+	I2C_COM(uint32_t ClockSpeed , uint32_t Own_Add , uint16_t My_Slave_Add , I2C_TypeDef * I2c_Contr , GPIO_TypeDef * GPIO_contr , uint32_t SCK_PinNum , uint32_t SDA_PinNum , uint32_t AF);
 	~I2C_COM();
 	I2C_HandleTypeDef * Get_I2c_Handle_TypeDef();
 	STD_Return_t Send(char * data , uint32_t len) override;
@@ -26,7 +26,8 @@
 
 private:
 	void I2C_low_level_init(GPIO_TypeDef * GPIO_contr);
-	I2C_HandleTypeDef * I2C_Handler;	
+	I2C_HandleTypeDef * I2C_Handler;
+	uint16_t Slave_Add;
  }; 
  
  #endif

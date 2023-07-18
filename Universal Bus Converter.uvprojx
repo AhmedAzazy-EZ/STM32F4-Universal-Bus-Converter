@@ -402,11 +402,6 @@
               <FileType>5</FileType>
               <FilePath>.\Debug.h</FilePath>
             </File>
-            <File>
-              <FileName>test.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\test.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
