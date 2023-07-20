@@ -84,7 +84,7 @@ STD_Return_t I2C_COM::Send(char * data , uint32_t len)
 
 STD_Return_t I2C_COM::Receive()
 {
-	HAL_I2C_Slave_Receive(I2C_Handler , (uint8_t *)&receive_buffer[receive_tracker%COM_BUFFER_MAX_LENGTH] , 1 , HAL_MAX_DELAY );
+	HAL_I2C_Slave_Receive_IT(I2C_Handler , (uint8_t *)&receive_buffer[receive_tracker%COM_BUFFER_MAX_LENGTH] , 1 );
 	return true;
 }
 
