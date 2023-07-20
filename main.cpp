@@ -14,6 +14,9 @@
 
 char generic_buffer[500];
 int generic_int;
+I2C_HandleTypeDef i2c2;
+bool I2C_send_trigger;
+static void I2C2_Slave_init(void);
 	 
 UART_COM My_UART4{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 UART_COM My_UART5{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
@@ -24,11 +27,13 @@ int main(void)
 {
 	
 	HAL_Init();
-	HAL_InitTick(0); 		
+	HAL_InitTick(0); 	
+	I2C2_Slave_init();
 	//register observers
 	My_UART4.obsrvables_tracking.push_back(My_UART5.attatch(&My_UART4 , &My_UART5)); //Attach UART4 to UART5
 	My_UART5.obsrvables_tracking.push_back(My_UART4.attatch(&My_UART5 , &My_UART4)); //Attach UART5 to UART4 
 	My_I2C1.obsrvables_tracking.push_back(My_UART4.attatch(&My_I2C1 , &My_UART4));   //Attatch I2C1 to UART4
+	My_UART4.obsrvables_tracking.push_back(My_I2C1.attatch(&My_UART4 , &My_I2C1));    //attach UART4 to I2C1
 	
 	while(1)
 	{
@@ -37,6 +42,19 @@ int main(void)
 		My_UART5.poll();
 		HAL_Delay(1);
 		My_I2C1.poll();
+		
+		
+		
+		if(I2C_send_trigger == true)
+		{
+			memset(generic_buffer , 0 , 500);
+			sprintf(generic_buffer , "Ahmed: %d\r\n" , generic_int++);
+			for(int i = 0 ; i < strlen(generic_buffer) ; i++)
+			{
+				HAL_I2C_Master_Transmit(&i2c2 , 0x25 , (uint8_t *)&generic_buffer[i] , 1 , HAL_MAX_DELAY);	
+			}
+			I2C_send_trigger = false;
+		}
 	}
 
 }
@@ -88,11 +106,6 @@ void UART5_IRQHandler()
 	My_UART5.Interrupt_handler();
 }
 
-void SysTick_Handler()
-{
-	HAL_IncTick();
-}
-
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart == My_UART5.Get_UART_HandleTypeDef())
@@ -120,6 +133,55 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 /************************End of UART Handlers*********************************/
+
+
+
+static void I2C2_Slave_init(void)
+{
+	GPIO_InitTypeDef GPIO;
+	
+	__GPIOB_CLK_ENABLE();
+	__I2C2_CLK_ENABLE();
+	
+	GPIO.Pin = GPIO_PIN_3;
+	GPIO.Mode = GPIO_MODE_AF_OD;
+	GPIO.Pull = GPIO_PULLUP;
+	GPIO.Alternate = GPIO_AF4_I2C1;
+	GPIO.Speed = GPIO_SPEED_HIGH;
+	HAL_GPIO_Init(GPIOB , &GPIO);
+	
+	GPIO.Pin = GPIO_PIN_10;
+	HAL_GPIO_Init(GPIOB , &GPIO);	
+	
+	i2c2.Instance = I2C2;
+	i2c2.Init.ClockSpeed = 100000;
+	i2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+	i2c2.Init.OwnAddress1 = 2;
+	i2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+	i2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+	i2c2.Init.OwnAddress2 = 69;
+	i2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+	i2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+	NVIC_EnableIRQ(I2C2_EV_IRQn);
+	if(HAL_I2C_Init(&i2c2) != HAL_OK)
+	{
+		while(1);
+	}
+}
+
+void SysTick_Handler()
+{
+	HAL_IncTick();
+	if(HAL_GetTick() % 1000 == 0)
+	{
+		I2C_send_trigger = true;
+	}
+}
+
+void I2C2_EV_IRQHandler()
+{
+	HAL_I2C_EV_IRQHandler(&i2c2);
+}
 
 #ifdef __cplusplus
 }
