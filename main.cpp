@@ -27,32 +27,37 @@ static void Clock_Config(void);
 
 
 /***************COMM Ports********************/
-UART_COM My_UART4{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
-UART_COM My_UART5{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
-I2C_COM My_I2C1{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
-
+UART_COM * My_UART4 = nullptr;
+UART_COM * My_UART5 = nullptr;
+I2C_COM * My_I2C1 = nullptr;
 
 int main(void)
 {
 	
 	HAL_Init();
 	HAL_InitTick(0); 	
+	Clock_Config(); //Setting the Core processor to 180 Mhz	
 	I2C2_Slave_init();
-	Clock_Config();
 	
+	UART_COM My_UART4_obj{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
+	UART_COM My_UART5_obj{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
+	I2C_COM My_I2C1_obj{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
+	My_UART4 = &My_UART4_obj;
+	My_UART5 = &My_UART5_obj;
+	My_I2C1 = &My_I2C1_obj;
 	//register observers
-	My_UART4.obsrvables_tracking.push_back(My_UART5.attatch(&My_UART4 , &My_UART5)); //Attach UART4 to UART5
-	My_UART5.obsrvables_tracking.push_back(My_UART4.attatch(&My_UART5 , &My_UART4)); //Attach UART5 to UART4 
-	My_I2C1.obsrvables_tracking.push_back(My_UART4.attatch(&My_I2C1 , &My_UART4));   //Attatch I2C1 to UART4
-	My_UART4.obsrvables_tracking.push_back(My_I2C1.attatch(&My_UART4 , &My_I2C1));    //attach UART4 to I2C1
+	My_UART4->obsrvables_tracking.push_back(My_UART5->attatch(My_UART4 , My_UART5)); //Attach UART4 to UART5
+	My_UART5->obsrvables_tracking.push_back(My_UART4->attatch(My_UART5 , My_UART4)); //Attach UART5 to UART4 
+	My_I2C1->obsrvables_tracking.push_back(My_UART4->attatch(My_I2C1 , My_UART4));   //Attatch I2C1 to UART4
+	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
 	
 	while(1)
 	{
-		My_UART4.poll();
+		My_UART4->poll();
 		HAL_Delay(1);
-		My_UART5.poll();
+		My_UART5->poll();
 		HAL_Delay(1);
-		My_I2C1.poll();
+		My_I2C1->poll();
 		
 		
 		
@@ -83,22 +88,22 @@ void HardFault_Handler (void)
 
 void I2C1_EV_IRQHandler()
 {
-	My_I2C1.Interrupt_handler();
+	My_I2C1->Interrupt_handler();
 }
 
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
-	if(hi2c == My_I2C1.Get_I2c_Handle_TypeDef())
+	if(hi2c == My_I2C1->Get_I2c_Handle_TypeDef())
 	{
-		My_I2C1.Send_callback();
+		My_I2C1->Send_callback();
 	}
 }
 
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
-	if(hi2c == My_I2C1.Get_I2c_Handle_TypeDef())
+	if(hi2c == My_I2C1->Get_I2c_Handle_TypeDef())
 	{
-		My_I2C1.Receive_callback();
+		My_I2C1->Receive_callback();
 	}
 }
 
@@ -109,38 +114,38 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 
 void UART4_IRQHandler()
 {
-	My_UART4.Interrupt_handler();
+	My_UART4->Interrupt_handler();
 }
 
 void UART5_IRQHandler()
 {
-	My_UART5.Interrupt_handler();
+	My_UART5->Interrupt_handler();
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart == My_UART5.Get_UART_HandleTypeDef())
+	if(huart == My_UART5->Get_UART_HandleTypeDef())
 	{
-			My_UART5.Receive_callback();
+			My_UART5->Receive_callback();
 	}
 	
-	else if(huart == My_UART4.Get_UART_HandleTypeDef())
+	else if(huart == My_UART4->Get_UART_HandleTypeDef())
 	{
-		My_UART4.Receive_callback();
+		My_UART4->Receive_callback();
 	}
 }
 
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart == My_UART4.Get_UART_HandleTypeDef())
+	if(huart == My_UART4->Get_UART_HandleTypeDef())
 	{
-		My_UART4.Send_callback();
+		My_UART4->Send_callback();
 	}
 	
-	else if(huart == My_UART5.Get_UART_HandleTypeDef())
+	else if(huart == My_UART5->Get_UART_HandleTypeDef())
 	{
-		My_UART5.Send_callback();
+		My_UART5->Send_callback();
 	}
 }
 /************************End of UART Handlers*********************************/
@@ -226,8 +231,8 @@ static void Clock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_CFGR_PPRE1_DIV8;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_CFGR_PPRE1_DIV8;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_6) != HAL_OK)
   {
