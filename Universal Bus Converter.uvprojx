@@ -442,6 +442,16 @@
               <FileType>8</FileType>
               <FilePath>.\I2C_COM.cpp</FilePath>
             </File>
+            <File>
+              <FileName>CAN_COM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\CAN_COM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CAN_COM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CAN_COM.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

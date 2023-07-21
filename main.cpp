@@ -12,12 +12,21 @@
 
 //extern std::vector<BASE_COM_t *> COM_ABSTRACT;
 
+
+/*************Generic Variables***************/
 char generic_buffer[500];
 int generic_int;
 I2C_HandleTypeDef i2c2;
 bool I2C_send_trigger;
+
+
+
+/************Private functions****************/
 static void I2C2_Slave_init(void);
-	 
+static void Clock_Config(void);
+
+
+/***************COMM Ports********************/
 UART_COM My_UART4{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 UART_COM My_UART5{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
 I2C_COM My_I2C1{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
@@ -29,6 +38,8 @@ int main(void)
 	HAL_Init();
 	HAL_InitTick(0); 	
 	I2C2_Slave_init();
+	Clock_Config();
+	
 	//register observers
 	My_UART4.obsrvables_tracking.push_back(My_UART5.attatch(&My_UART4 , &My_UART5)); //Attach UART4 to UART5
 	My_UART5.obsrvables_tracking.push_back(My_UART4.attatch(&My_UART5 , &My_UART4)); //Attach UART5 to UART4 
@@ -181,6 +192,48 @@ void SysTick_Handler()
 void I2C2_EV_IRQHandler()
 {
 	HAL_I2C_EV_IRQHandler(&i2c2);
+}
+
+static void Clock_Config(void)
+{	
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 180;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLR = 2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    //Error_Handler();
+  }
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_6) != HAL_OK)
+  {
+    //Error_Handler();
+  }
+	SystemCoreClockUpdate();	
 }
 
 #ifdef __cplusplus

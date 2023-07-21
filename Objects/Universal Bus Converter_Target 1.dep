@@ -1,6 +1,6 @@
 Dependencies for Project 'Universal Bus Converter', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6130001::V6.13.1::.\ARMCLANG
-F (.\main.cpp)(0x64B9B078)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
+F (.\main.cpp)(0x64BAD088)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x5CC15814)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x5D8BA2FC)
@@ -401,6 +401,9 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x5DB393F0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__split_buffer)(0x5D52ADE0)
 I (UART_COM.h)(0x64B5AC56)
 I (I2C_COM.h)(0x64B6D85A)
+F (.\CAN_COM.cpp)(0x64BAB310)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/can_com.o -MD)
+I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
+F (.\CAN_COM.h)(0x64BAB410)()
 F (.\observer_pattern.cpp)(0x64B1A832)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/ESLAM/AppData/Local/Arm/Packs/ARM/CMSIS/5.6.0/CMSIS/Core/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/ESLAM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F446xx  -include "Pre_Include_Global.h"-o ./objects/observer_pattern.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (observer_pattern.h)(0x64B1AC90)
