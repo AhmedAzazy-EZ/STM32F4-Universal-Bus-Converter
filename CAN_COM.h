@@ -29,6 +29,8 @@ public :
 
 private :
 	CAN_HandleTypeDef * CAN_handler;
+	uint16_t Receive_ID;
+	uint16_t Send_ID;
 	void CAN_low_level_init(GPIO_TypeDef * GPIO_contr);
 	CAN_RxHeaderTypeDef FIFO0_Rx_header;
 	CAN_RxHeaderTypeDef FIFO1_Rx_header;
