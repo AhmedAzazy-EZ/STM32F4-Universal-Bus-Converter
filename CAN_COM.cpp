@@ -8,7 +8,7 @@
 #include "COM_Generic.h"
 #include "CAN_COM.h"
  
-CAN_COM::	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t tx_pin , uint8_t rx_pin , uint16_t Receive_ID , uint16_t Send_ID)
+CAN_COM::CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t tx_pin , uint8_t rx_pin , uint16_t Receive_ID , uint16_t Send_ID , uint8_t AF)
  {
 	 CAN_handler = new CAN_HandleTypeDef;
 	 memset(CAN_handler , 0 , sizeof(CAN_HandleTypeDef));

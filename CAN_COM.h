@@ -15,7 +15,7 @@ class CAN_COM : public BASE_COM_t
 {
  
 public :
-	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t tx_pin , uint8_t rx_pin , uint16_t Receive_ID , uint16_t Send_ID);
+	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t tx_pin , uint8_t rx_pin , uint16_t Receive_ID , uint16_t Send_ID , uint8_t AF);
 	~CAN_COM();
 	STD_Return_t Send(char * data , uint32_t len) override;
 	STD_Return_t Receive()override;
