@@ -71,6 +71,11 @@ CAN_COM::~CAN_COM()
 	delete CAN_handler;
 	delete this;
 }
+
+CAN_HandleTypeDef * CAN_COM::Get_CAN_HandleTypeDef()
+{
+	return CAN_handler;
+}
  
 void CAN_COM::CAN_low_level_init(GPIO_TypeDef * GPIO_contr)
 {
@@ -98,7 +103,16 @@ void CAN_COM::CAN_low_level_init(GPIO_TypeDef * GPIO_contr)
 
 STD_Return_t CAN_COM::Send(char * data , uint32_t len)    
 {
-	
+	CAN_TxHeaderTypeDef My_TxHeader = {0};
+	uint32_t MailBox_Num = 0;
+	My_TxHeader.DLC = 1;
+	My_TxHeader.StdId = Send_ID;
+	My_TxHeader.ExtId = 0;
+	My_TxHeader.IDE = CAN_ID_STD;
+	My_TxHeader.RTR = CAN_RTR_DATA;
+	My_TxHeader.TransmitGlobalTime = DISABLE;
+	HAL_CAN_AddTxMessage (CAN_handler , &My_TxHeader, (uint8_t *) data , &MailBox_Num);
+	OnGoingTx = true;
 	return true;
 }
 
@@ -141,11 +155,25 @@ void CAN_COM::Receive_FIFO1_cb()
 
 void CAN_COM::Send_callback()
 {
-	
+
+}
+
+void CAN_COM::Send_Mailbox0_Complete_cp()
+{
+	OnGoingTx = false;
+}
+
+void CAN_COM::Send_Mailbox1_Complete_cp()
+{
+	OnGoingTx = false;
+}
+
+void CAN_COM::Send_Mailbox2_Complete_cp()
+{
+	OnGoingTx = false;
 }
 
 void CAN_COM::Interrupt_handler()
 {
 	HAL_CAN_IRQHandler (CAN_handler);
 }
-

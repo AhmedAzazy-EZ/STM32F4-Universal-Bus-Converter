@@ -25,6 +25,9 @@ public :
 	void Interrupt_handler()override;
 	void Receive_FIFO0_cb(); // CAN_RX_FIFO0
 	void Receive_FIFO1_cb(); // CAN_RX_FIFO1
+  void Send_Mailbox0_Complete_cp();
+	void Send_Mailbox1_Complete_cp();
+	void Send_Mailbox2_Complete_cp();
 
 
 private :

@@ -168,6 +168,45 @@ void CAN1_SCE_IRQHandler()
 	My_CAN1->Interrupt_handler();
 }
 
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+	if(hcan == My_CAN1->Get_CAN_HandleTypeDef())
+	{
+		My_CAN1->Receive_FIFO0_cb();
+	}	
+}
+
+void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+	if(hcan == My_CAN1->Get_CAN_HandleTypeDef())
+	{
+		My_CAN1->Receive_FIFO1_cb();
+	}	
+}
+
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
+{
+	if(hcan == My_CAN1->Get_CAN_HandleTypeDef())
+	{
+		My_CAN1->Send_Mailbox0_Complete_cp();
+	}
+}
+
+void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan)
+{
+	if(hcan == My_CAN1->Get_CAN_HandleTypeDef())
+	{
+		My_CAN1->Send_Mailbox1_Complete_cp();
+	}	
+}
+
+void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan)
+{
+	if(hcan == My_CAN1->Get_CAN_HandleTypeDef())
+	{
+		My_CAN1->Send_Mailbox2_Complete_cp();
+	}	
+}
 
 
 /************************End of CAN Handlers*********************************/
