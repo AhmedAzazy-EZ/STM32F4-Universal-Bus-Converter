@@ -4,13 +4,14 @@
 #include <vector>
 #include <stm32f446xx.h>
 #include "stm32f4xx_hal.h"
+#include "Debug.h"
+#include <vector>
 #include "BASE_COM.h"
 #include "UART_COM.h"
 #include "I2C_COM.h"
-#include "Debug.h"
-#include <vector>
+#include "CAN_COM.h"
 
-//extern std::vector<BASE_COM_t *> COM_ABSTRACT;
+
 
 
 /*************Generic Variables***************/
@@ -24,12 +25,14 @@ bool I2C_send_trigger;
 /************Private functions****************/
 static void I2C2_Slave_init(void);
 static void Clock_Config(void);
+static void I2C_obj_trigger(void);
 
 
 /***************COMM Ports********************/
 UART_COM * My_UART4 = nullptr;
 UART_COM * My_UART5 = nullptr;
 I2C_COM * My_I2C1 = nullptr;
+CAN_COM * My_CAN1 = nullptr;
 
 int main(void)
 {
@@ -42,9 +45,11 @@ int main(void)
 	UART_COM My_UART4_obj{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 	UART_COM My_UART5_obj{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
 	I2C_COM My_I2C1_obj{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
+	CAN_COM My_CAN1_obj{CAN1 , GPIOA , 12 , 11 , 8 , 9};
 	My_UART4 = &My_UART4_obj;
 	My_UART5 = &My_UART5_obj;
 	My_I2C1 = &My_I2C1_obj;
+	My_CAN1 = &My_CAN1_obj;
 	//register observers
 	My_UART4->obsrvables_tracking.push_back(My_UART5->attatch(My_UART4 , My_UART5)); //Attach UART4 to UART5
 	My_UART5->obsrvables_tracking.push_back(My_UART4->attatch(My_UART5 , My_UART4)); //Attach UART5 to UART4 
@@ -60,17 +65,7 @@ int main(void)
 		My_I2C1->poll();
 		
 		
-		
-		if(I2C_send_trigger == true)
-		{
-			memset(generic_buffer , 0 , 500);
-			sprintf(generic_buffer , "Ahmed: %d\r\n" , generic_int++);
-			for(int i = 0 ; i < strlen(generic_buffer) ; i++)
-			{
-				HAL_I2C_Master_Transmit(&i2c2 , 0x25 , (uint8_t *)&generic_buffer[i] , 1 , HAL_MAX_DELAY);	
-			}
-			I2C_send_trigger = false;
-		}
+		I2C_obj_trigger(); //I2C2 Sends Data to My_I2C1 
 	}
 
 }
@@ -149,6 +144,33 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
 /************************End of UART Handlers*********************************/
+
+
+/************************CAN Handlers*********************************/
+
+void CAN1_TX_IRQHandler()
+{
+	My_CAN1->Interrupt_handler();
+}
+
+void CAN1_RX0_IRQHandler()
+{
+	My_CAN1->Interrupt_handler();
+}
+
+void CAN1_RX1_IRQHandler()
+{
+	My_CAN1->Interrupt_handler();
+}
+
+void CAN1_SCE_IRQHandler()
+{
+	My_CAN1->Interrupt_handler();
+}
+
+
+
+/************************End of CAN Handlers*********************************/
 
 
 
@@ -239,6 +261,22 @@ static void Clock_Config(void)
     //Error_Handler();
   }
 	SystemCoreClockUpdate();	
+}
+
+
+static void I2C_obj_trigger(void)
+{
+	if(I2C_send_trigger == true)
+	{
+		memset(generic_buffer , 0 , 500);
+		sprintf(generic_buffer , "Ahmed: %d\r\n" , generic_int++);
+		for(int i = 0 ; i < strlen(generic_buffer) ; i++)
+		{
+			HAL_I2C_Master_Transmit(&i2c2 , 0x25 , (uint8_t *)&generic_buffer[i] , 1 , HAL_MAX_DELAY);	
+		}
+		I2C_send_trigger = false;
+	}
+
 }
 
 #ifdef __cplusplus
