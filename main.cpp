@@ -45,7 +45,7 @@ int main(void)
 	UART_COM My_UART4_obj{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 	UART_COM My_UART5_obj{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
 	I2C_COM My_I2C1_obj{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
-	CAN_COM My_CAN1_obj{CAN1 , GPIOA , 12 , 11 , 8 , 9};
+	CAN_COM My_CAN1_obj{CAN1 , GPIOA , 12 , 11 , 8 , 9 , 9};
 	My_UART4 = &My_UART4_obj;
 	My_UART5 = &My_UART5_obj;
 	My_I2C1 = &My_I2C1_obj;
