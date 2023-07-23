@@ -23,10 +23,15 @@ public :
 	void Receive_callback()override;
   void Send_callback() override;
 	void Interrupt_handler()override;
+	void Receive_FIFO0_cb(); // CAN_RX_FIFO0
+	void Receive_FIFO1_cb(); // CAN_RX_FIFO1
+
 
 private :
 	CAN_HandleTypeDef * CAN_handler;
 	void CAN_low_level_init(GPIO_TypeDef * GPIO_contr);
+	CAN_RxHeaderTypeDef FIFO0_Rx_header;
+	CAN_RxHeaderTypeDef FIFO1_Rx_header;
  
 };
  

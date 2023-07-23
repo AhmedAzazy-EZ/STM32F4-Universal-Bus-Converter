@@ -4,7 +4,8 @@
  * 	Created: 21-July-23
  *  Author: Ahmed Azazy
  */
- 
+
+#include "COM_Generic.h"
 #include "CAN_COM.h"
  
 CAN_COM::	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t tx_pin , uint8_t rx_pin , uint16_t Receive_ID , uint16_t Send_ID)
@@ -14,12 +15,12 @@ CAN_COM::	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t 
 	 CAN_handler->Instance = can_contr;
 	 CAN_low_level_init(GPIO_contr);
 	 
-	 /* *APB Clock Source is 22Mhz 
-		  *CAN Prescaler 11 , Seg1 -> 2 tq , seg2 -> 1 tq
-			*then CAN Clock Sourec is 2 Mhz
+	 /* * APB Clock Source is 22Mhz 
+		  * CAN Prescaler 11 , Seg1 -> 2 tq , seg2 -> 1 tq
+			* then CAN Clock Sourec is 2 Mhz
 			* Nominal bit time = (1/2Mhz) + 2 * (1/2Mhz) + (1 / 2Mhz) = (1 / 500000) Sec
 			* then bit rate = 500000
-	    */
+	 */
 	 CAN_handler->Init.Prescaler = 11;
 	 CAN_handler->Init.Mode = CAN_MODE_NORMAL;
 	 CAN_handler->Init.TimeSeg1 = CAN_BS1_2TQ;
@@ -31,15 +32,13 @@ CAN_COM::	CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t 
 	 CAN_handler->Init.ReceiveFifoLocked = DISABLE;
 	 CAN_handler->Init.TransmitFifoPriority = DISABLE;
 	 
-	 HAL_CAN_Init(CAN_handler);
 	 HAL_CAN_ActivateNotification(CAN_handler ,(CAN_IT_RX_FIFO0_MSG_PENDING  | CAN_IT_RX_FIFO0_FULL | CAN_IT_RX_FIFO0_OVERRUN \
 	 | CAN_IT_RX_FIFO1_MSG_PENDING | CAN_IT_RX_FIFO1_FULL | CAN_IT_RX_FIFO1_OVERRUN | CAN_IT_TX_MAILBOX_EMPTY));
+	 HAL_CAN_Init(CAN_handler);
+	 
+//	 HAL_CAN_ConfigFilter (CAN_HandleTypeDef * hcan, const CAN_FilterTypeDef * sFilterConfig);
 	 HAL_CAN_Start (CAN_handler);
 	 
-	 
-//	 HAL_CAN_ConfigFilter (CAN_HandleTypeDef * hcan, const CAN_FilterTypeDef *
-//sFilterConfig);
-//	 Receive();
  }
  
  
@@ -93,6 +92,27 @@ void CAN_COM::Receive_callback()
 {
 //	 HAL_CAN_GetRxMessage (CAN_handler , uint32_t RxFifo,
 //CAN_RxHeaderTypeDef * pHeader, uint8_t aData);
+	
+	//(* RxFifo0MsgPendingCallback)(struct __CAN_HandleTypeDef *hcan)
+}
+
+void CAN_COM::Receive_FIFO0_cb()
+{
+	if(HAL_CAN_GetRxMessage (CAN_handler , CAN_RX_FIFO0, &FIFO0_Rx_header, &receive_buffer[receive_tracker%COM_BUFFER_MAX_LENGTH]) == HAL_OK)
+	{
+		receive_tracker+= FIFO0_Rx_header.DLC;
+		Notify_observers(this);
+	}
+}
+
+
+void CAN_COM::Receive_FIFO1_cb()
+{
+	if(HAL_CAN_GetRxMessage (CAN_handler , CAN_RX_FIFO1, &FIFO1_Rx_header, &receive_buffer[receive_tracker%COM_BUFFER_MAX_LENGTH]) == HAL_OK)
+	{
+		receive_tracker+= FIFO1_Rx_header.DLC;
+		Notify_observers(this);
+	}
 }
 
 void CAN_COM::Send_callback()
