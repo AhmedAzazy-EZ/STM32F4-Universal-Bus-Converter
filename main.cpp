@@ -64,7 +64,8 @@ int main(void)
 	My_UART4->obsrvables_tracking.push_back(My_UART5->attatch(My_UART4 , My_UART5)); //Attach UART4 to UART5
 	My_UART5->obsrvables_tracking.push_back(My_UART4->attatch(My_UART5 , My_UART4)); //Attach UART5 to UART4 
 	My_I2C1->obsrvables_tracking.push_back(My_UART4->attatch(My_I2C1 , My_UART4));   //Attatch I2C1 to UART4
-	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
+	//My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
+	My_UART4->obsrvables_tracking.push_back(My_CAN1->attatch(My_UART4 , My_CAN1));		//attach UART_4 to CAN1
 	
 	
 	CAN2_init();
@@ -75,7 +76,8 @@ int main(void)
 		My_UART5->poll();
 		HAL_Delay(1);
 		My_I2C1->poll();
-		
+		HAL_Delay(1);
+		My_CAN1->poll();		
 		
 		I2C_obj_trigger(); //I2C2 Sends Data to My_I2C1 
 		CAN_obj_trigger(); //CAN2 Sends Data to My_CAN1
@@ -405,7 +407,11 @@ static void CAN_obj_trigger(void)
 		My_TxHeader.IDE = CAN_ID_STD;
 		My_TxHeader.RTR = CAN_RTR_DATA;
 		My_TxHeader.TransmitGlobalTime = DISABLE;
-		HAL_CAN_AddTxMessage (&can2 , &My_TxHeader, &data , &MailBox_Num);
+		if (HAL_CAN_AddTxMessage (&can2 , &My_TxHeader, &data , &MailBox_Num) == HAL_ERROR)
+		{
+			HAL_CAN_AbortTxRequest (&can2, CAN_TX_MAILBOX0 | CAN_TX_MAILBOX1 | CAN_TX_MAILBOX2);
+
+		}
 		CAN_send_trigger = false;
 	}	
 }
