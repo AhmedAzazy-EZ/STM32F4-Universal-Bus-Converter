@@ -20,12 +20,21 @@ int generic_int;
 I2C_HandleTypeDef i2c2;
 bool I2C_send_trigger;
 
+CAN_FilterTypeDef Filter = {0};
+CAN_HandleTypeDef can2;
+bool CAN_send_trigger;
 
 
 /************Private functions****************/
 static void I2C2_Slave_init(void);
+static void CAN2_init();
 static void Clock_Config(void);
 static void I2C_obj_trigger(void);
+static void CAN_obj_trigger(void);
+
+
+
+
 
 
 /***************COMM Ports********************/
@@ -41,6 +50,7 @@ int main(void)
 	HAL_InitTick(0); 	
 	Clock_Config(); //Setting the Core processor to 180 Mhz	
 	I2C2_Slave_init();
+
 	
 	UART_COM My_UART4_obj{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
 	UART_COM My_UART5_obj{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
@@ -56,6 +66,8 @@ int main(void)
 	My_I2C1->obsrvables_tracking.push_back(My_UART4->attatch(My_I2C1 , My_UART4));   //Attatch I2C1 to UART4
 	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
 	
+	
+	CAN2_init();
 	while(1)
 	{
 		My_UART4->poll();
@@ -66,6 +78,7 @@ int main(void)
 		
 		
 		I2C_obj_trigger(); //I2C2 Sends Data to My_I2C1 
+		CAN_obj_trigger(); //CAN2 Sends Data to My_CAN1
 	}
 
 }
@@ -211,41 +224,6 @@ void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan)
 
 /************************End of CAN Handlers*********************************/
 
-
-
-static void I2C2_Slave_init(void)
-{
-	GPIO_InitTypeDef GPIO;
-	
-	__GPIOB_CLK_ENABLE();
-	__I2C2_CLK_ENABLE();
-	
-	GPIO.Pin = GPIO_PIN_3;
-	GPIO.Mode = GPIO_MODE_AF_OD;
-	GPIO.Pull = GPIO_PULLUP;
-	GPIO.Alternate = GPIO_AF4_I2C1;
-	GPIO.Speed = GPIO_SPEED_HIGH;
-	HAL_GPIO_Init(GPIOB , &GPIO);
-	
-	GPIO.Pin = GPIO_PIN_10;
-	HAL_GPIO_Init(GPIOB , &GPIO);	
-	
-	i2c2.Instance = I2C2;
-	i2c2.Init.ClockSpeed = 100000;
-	i2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
-	i2c2.Init.OwnAddress1 = 2;
-	i2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-	i2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-	i2c2.Init.OwnAddress2 = 69;
-	i2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-	i2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-	NVIC_EnableIRQ(I2C2_EV_IRQn);
-	if(HAL_I2C_Init(&i2c2) != HAL_OK)
-	{
-		while(1);
-	}
-}
-
 void SysTick_Handler()
 {
 	HAL_IncTick();
@@ -253,11 +231,11 @@ void SysTick_Handler()
 	{
 		I2C_send_trigger = true;
 	}
-}
-
-void I2C2_EV_IRQHandler()
-{
-	HAL_I2C_EV_IRQHandler(&i2c2);
+	
+	if(HAL_GetTick() % 1500 == 0)
+	{
+		CAN_send_trigger = true;
+	}	
 }
 
 static void Clock_Config(void)
@@ -302,6 +280,38 @@ static void Clock_Config(void)
 	SystemCoreClockUpdate();	
 }
 
+static void I2C2_Slave_init(void)
+{
+	GPIO_InitTypeDef GPIO;
+	
+	__GPIOB_CLK_ENABLE();
+	__I2C2_CLK_ENABLE();
+	
+	GPIO.Pin = GPIO_PIN_3;
+	GPIO.Mode = GPIO_MODE_AF_OD;
+	GPIO.Pull = GPIO_PULLUP;
+	GPIO.Alternate = GPIO_AF4_I2C1;
+	GPIO.Speed = GPIO_SPEED_HIGH;
+	HAL_GPIO_Init(GPIOB , &GPIO);
+	
+	GPIO.Pin = GPIO_PIN_10;
+	HAL_GPIO_Init(GPIOB , &GPIO);	
+	
+	i2c2.Instance = I2C2;
+	i2c2.Init.ClockSpeed = 100000;
+	i2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+	i2c2.Init.OwnAddress1 = 2;
+	i2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+	i2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+	i2c2.Init.OwnAddress2 = 69;
+	i2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+	i2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+	NVIC_EnableIRQ(I2C2_EV_IRQn);
+	if(HAL_I2C_Init(&i2c2) != HAL_OK)
+	{
+		while(1);
+	}
+}
 
 static void I2C_obj_trigger(void)
 {
@@ -317,6 +327,109 @@ static void I2C_obj_trigger(void)
 	}
 
 }
+
+void I2C2_EV_IRQHandler()
+{
+	HAL_I2C_EV_IRQHandler(&i2c2);
+}
+
+static void CAN2_init()
+{ 
+	//PB12 , 13 Rx , Tx
+	 CAN_FilterTypeDef sFilterConfig = {0};
+	 can2.Instance = CAN2;
+	 __GPIOB_CLK_ENABLE();
+	__CAN2_CLK_ENABLE();
+	NVIC_EnableIRQ(CAN2_TX_IRQn);
+	NVIC_EnableIRQ(CAN2_RX0_IRQn); //FIFO0 Receiver
+	NVIC_EnableIRQ(CAN2_RX1_IRQn); //FIFO1 Receiver
+	NVIC_EnableIRQ(CAN2_SCE_IRQn); //Status Change Error Intterupt	 
+	 
+	 
+	GPIO_InitTypeDef _GPIO = {0};
+	_GPIO.Pin=	(1<<12) | (1<<13);
+	_GPIO.Mode = GPIO_MODE_AF_PP  ;
+	_GPIO.Pull = GPIO_NOPULL;
+	_GPIO.Alternate = GPIO_AF9_CAN2;
+	_GPIO.Speed = GPIO_SPEED_HIGH;
+	HAL_GPIO_Init(GPIOB , &_GPIO);
+	
+	 /* * APB Clock Source is 22Mhz 
+		  * CAN Prescaler 11 , Seg1 -> 2 tq , seg2 -> 1 tq
+			* then CAN Clock Sourec is 2 Mhz
+			* Nominal bit time = (1/2Mhz) + 2 * (1/2Mhz) + (1 / 2Mhz) = (1 / 500000) Sec
+			* then bit rate = 500000
+	 */
+	 can2.Init.Prescaler = 11;
+	 can2.Init.Mode = CAN_MODE_NORMAL;
+	 can2.Init.TimeSeg1 = CAN_BS1_2TQ;
+	 can2.Init.TimeSeg2 = CAN_BS2_2TQ;
+	 can2.Init.TimeTriggeredMode = DISABLE;
+	 can2.Init.AutoBusOff = DISABLE;
+	 can2.Init.AutoWakeUp = DISABLE;
+	 can2.Init.AutoRetransmission = DISABLE;
+	 can2.Init.ReceiveFifoLocked = DISABLE;
+	 can2.Init.TransmitFifoPriority = DISABLE;
+	 HAL_CAN_Init(&can2);
+	 
+	 
+	 sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
+	 sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
+	 sFilterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+	 sFilterConfig.FilterBank = 26;
+	 sFilterConfig.FilterIdHigh = 9 << 5; //Shift left 5 bits according to the RM P1057
+	 sFilterConfig.FilterIdLow = 0 ;
+	 sFilterConfig.FilterMaskIdHigh = 0 ;
+	 sFilterConfig.FilterMaskIdLow = 0;
+	 sFilterConfig.SlaveStartFilterBank = 25; //Just 3 Filters  25:27 are assigned to CAN2
+	 sFilterConfig.FilterActivation = CAN_FILTER_ENABLE;
+	 HAL_CAN_ConfigFilter (&can2, &sFilterConfig);
+	 
+	 
+	 HAL_CAN_Start (&can2);
+	 HAL_CAN_ActivateNotification(&can2 ,(CAN_IT_RX_FIFO0_MSG_PENDING  | CAN_IT_RX_FIFO0_FULL | CAN_IT_RX_FIFO0_OVERRUN \
+	 | CAN_IT_RX_FIFO1_MSG_PENDING | CAN_IT_RX_FIFO1_FULL | CAN_IT_RX_FIFO1_OVERRUN | CAN_IT_TX_MAILBOX_EMPTY));
+	
+}
+
+static void CAN_obj_trigger(void)
+{
+	if(CAN_send_trigger == true)
+	{
+		uint8_t data = 0x55;
+		CAN_TxHeaderTypeDef My_TxHeader = {0};
+		uint32_t MailBox_Num = 0;
+		My_TxHeader.DLC = 1;
+		My_TxHeader.StdId = 8;
+		My_TxHeader.ExtId = 0;
+		My_TxHeader.IDE = CAN_ID_STD;
+		My_TxHeader.RTR = CAN_RTR_DATA;
+		My_TxHeader.TransmitGlobalTime = DISABLE;
+		HAL_CAN_AddTxMessage (&can2 , &My_TxHeader, &data , &MailBox_Num);
+		CAN_send_trigger = false;
+	}	
+}
+
+void CAN2_TX_IRQHandler()
+{
+	HAL_CAN_IRQHandler (&can2);
+}
+
+void CAN2_RX0_IRQHandler()
+{
+	HAL_CAN_IRQHandler (&can2);
+}
+
+void CAN2_RX1_IRQHandler()
+{
+	HAL_CAN_IRQHandler (&can2);
+}
+
+void CAN2_SCE_IRQHandler()
+{
+	HAL_CAN_IRQHandler (&can2);
+}
+
 
 #ifdef __cplusplus
 }

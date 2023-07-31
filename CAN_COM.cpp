@@ -21,7 +21,7 @@ CAN_COM::CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t t
 	 
 	GPIO_InitTypeDef _GPIO = {0};
 	_GPIO.Pin=	(1<<tx_pin) | (1<<rx_pin);
-	_GPIO.Mode = GPIO_MODE_AF_OD  ;
+	_GPIO.Mode = GPIO_MODE_AF_PP  ;
 	_GPIO.Pull = GPIO_NOPULL;
 	_GPIO.Alternate = AF;
 	_GPIO.Speed = GPIO_SPEED_HIGH;
@@ -36,32 +36,32 @@ CAN_COM::CAN_COM(CAN_TypeDef * can_contr , GPIO_TypeDef * GPIO_contr , uint8_t t
 	 CAN_handler->Init.Prescaler = 11;
 	 CAN_handler->Init.Mode = CAN_MODE_NORMAL;
 	 CAN_handler->Init.TimeSeg1 = CAN_BS1_2TQ;
-	 CAN_handler->Init.TimeSeg2 = CAN_BS2_1TQ;
+	 CAN_handler->Init.TimeSeg2 = CAN_BS2_2TQ;
 	 CAN_handler->Init.TimeTriggeredMode = DISABLE;
 	 CAN_handler->Init.AutoBusOff = DISABLE;
 	 CAN_handler->Init.AutoWakeUp = DISABLE;
-	 CAN_handler->Init.AutoRetransmission = ENABLE;
+	 CAN_handler->Init.AutoRetransmission = DISABLE;
 	 CAN_handler->Init.ReceiveFifoLocked = DISABLE;
 	 CAN_handler->Init.TransmitFifoPriority = DISABLE;
 	 HAL_CAN_Init(CAN_handler);
 	 
 	 
-	 sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST;
-	 sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;
+	 sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+	 sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
 	 sFilterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO0;
 	 sFilterConfig.FilterBank = 0;
-	 sFilterConfig.FilterIdHigh = My_Receive_ID << 5; //Shift left 5 bits according to the RM P1057
+	 sFilterConfig.FilterIdHigh = 0; //Shift left 5 bits according to the RM P1057
 	 sFilterConfig.FilterIdLow = 0;
-	 sFilterConfig.FilterMaskIdHigh = 0;
-	 sFilterConfig.FilterMaskIdLow = 0;
-	 sFilterConfig.SlaveStartFilterBank = 25; //Just 3 Filters  25:27 are assigned to CAN2
+	 sFilterConfig.FilterMaskIdHigh = 0 ;
+	 sFilterConfig.FilterMaskIdLow = 0 ;
+	 sFilterConfig.SlaveStartFilterBank = 10; //Just 3 Filters  25:27 are assigned to CAN2
 	 sFilterConfig.FilterActivation = CAN_FILTER_ENABLE;
 	 HAL_CAN_ConfigFilter (CAN_handler, &sFilterConfig);
 	 
-	 
+ 
 	 HAL_CAN_Start (CAN_handler);
-	 HAL_CAN_ActivateNotification(CAN_handler ,(CAN_IT_RX_FIFO0_MSG_PENDING  | CAN_IT_RX_FIFO0_FULL | CAN_IT_RX_FIFO0_OVERRUN \
-	 | CAN_IT_RX_FIFO1_MSG_PENDING | CAN_IT_RX_FIFO1_FULL | CAN_IT_RX_FIFO1_OVERRUN | CAN_IT_TX_MAILBOX_EMPTY));
+	 HAL_CAN_ActivateNotification(CAN_handler ,(CAN_IT_RX_FIFO0_MSG_PENDING  | CAN_IT_RX_FIFO0_FULL | CAN_IT_RX_FIFO0_OVERRUN | CAN_IT_RX_FIFO1_MSG_PENDING | CAN_IT_RX_FIFO1_FULL | CAN_IT_RX_FIFO1_OVERRUN | CAN_IT_TX_MAILBOX_EMPTY));	
+//	 HAL_CAN_ActivateNotification(CAN_handler ,CAN_IT_RX_FIFO0_MSG_PENDING);	
 	  
  }
  
