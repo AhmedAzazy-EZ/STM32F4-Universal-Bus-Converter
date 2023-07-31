@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\Universal Bus Converter.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Universal Bus Converter.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Aug  1 01:24:21 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Aug  1 01:30:38 2023
 <BR><P>
-<H3>Maximum Stack Usage =       4608 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       4960 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; CAN_COM::CAN_COM(CAN_TypeDef*, GPIO_TypeDef*, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char) &rArr; BASE_COM_t::BASE_COM_t__sub_object() &rArr; std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::__swap_out_circular_buffer(std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;&) &rArr; __aeabi_memcpy4
 <P>
@@ -502,7 +502,7 @@ Global Symbols
 <P><STRONG><a name="[1bc]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[d6]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4608 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 4960 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; CAN_COM::CAN_COM(CAN_TypeDef*, GPIO_TypeDef*, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char) &rArr; BASE_COM_t::BASE_COM_t__sub_object() &rArr; std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::__swap_out_circular_buffer(std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;&) &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2555,8 +2555,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_pure_virtual
 </UL>
 
-<P><STRONG><a name="[d7]"></a>main</STRONG> (Thumb, 3622 bytes, Stack size 3736 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4608 + Unknown Stack Size
+<P><STRONG><a name="[d7]"></a>main</STRONG> (Thumb, 4434 bytes, Stack size 4088 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4960 + Unknown Stack Size
 <LI>Call Chain = main &rArr; CAN_COM::CAN_COM(CAN_TypeDef*, GPIO_TypeDef*, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char) &rArr; BASE_COM_t::BASE_COM_t__sub_object() &rArr; std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::__swap_out_circular_buffer(std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;&) &rArr; __aeabi_memcpy4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std::__1::vector&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&rang;::__swap_out_circular_buffer(std::__1::__split_buffer&lang;send_handle*, std::__1::allocator&lang;send_handle*&rang;&&rang;&)
