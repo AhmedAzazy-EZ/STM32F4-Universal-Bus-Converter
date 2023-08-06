@@ -6,6 +6,7 @@
 ".\objects\i2c_com.o"
 ".\objects\can_com.o"
 ".\objects\observer_pattern.o"
+".\objects\enc28j60.o"
 ".\objects\stm32f4xx_hal.o"
 ".\objects\stm32f4xx_hal_can.o"
 ".\objects\stm32f4xx_hal_cortex.o"

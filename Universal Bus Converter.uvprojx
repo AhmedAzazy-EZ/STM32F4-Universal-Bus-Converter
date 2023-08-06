@@ -471,6 +471,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>ENC28j60</GroupName>
+          <Files>
+            <File>
+              <FileName>enc28j60.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\enc28j60.c</FilePath>
+            </File>
+            <File>
+              <FileName>enc28j60.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\enc28j60.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
