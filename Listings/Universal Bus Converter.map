@@ -281,6 +281,7 @@ Section Cross References
     can_com.o(.rodata._ZTV7CAN_COM) refers to can_com.o(.text._ZN7CAN_COM17Interrupt_handlerEv) for CAN_COM::Interrupt_handler()
     can_com.o(.rodata._ZTV7CAN_COM) refers to base_com.o(.text._ZN10BASE_COM_t4pollEv) for BASE_COM_t::poll()
     ethernet_com.o(.text._ZN12ETHERNET_COMC2EPhP11SPI_TypeDefP12GPIO_TypeDefhhhhh) refers to base_com.o(.text._ZN10BASE_COM_tC2Ev) for BASE_COM_t::BASE_COM_t__sub_object()
+    ethernet_com.o(.text._ZN12ETHERNET_COMC2EPhP11SPI_TypeDefP12GPIO_TypeDefhhhhh) refers to ethernet_com.o(.rodata._ZTV12ETHERNET_COM) for vtable for ETHERNET_COM
     ethernet_com.o(.text._ZN12ETHERNET_COMC2EPhP11SPI_TypeDefP12GPIO_TypeDefhhhhh) refers to new.cpp.o(.text._Znwj) for operator new(unsigned)
     ethernet_com.o(.text._ZN12ETHERNET_COMC2EPhP11SPI_TypeDefP12GPIO_TypeDefhhhhh) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
     ethernet_com.o(.text._ZN12ETHERNET_COMC2EPhP11SPI_TypeDefP12GPIO_TypeDefhhhhh) refers to ethernet_com.o(.text._ZN12ETHERNET_COM22ETH_SPI_low_level_initEP12GPIO_TypeDef) for ETHERNET_COM::ETH_SPI_low_level_init(GPIO_TypeDef*)
@@ -292,12 +293,21 @@ Section Cross References
     ethernet_com.o(.text._ZN12ETHERNET_COM22ETH_SPI_low_level_initEP12GPIO_TypeDef) refers to ethernet_com.o(.text._ZL16__NVIC_EnableIRQ9IRQn_Type) for _ZL16__NVIC_EnableIRQ9IRQn_Type
     ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM22ETH_SPI_low_level_initEP12GPIO_TypeDef) refers to ethernet_com.o(.text._ZN12ETHERNET_COM22ETH_SPI_low_level_initEP12GPIO_TypeDef) for [Anonymous Symbol]
     ethernet_com.o(.ARM.exidx.text._ZL16__NVIC_EnableIRQ9IRQn_Type) refers to ethernet_com.o(.text._ZL16__NVIC_EnableIRQ9IRQn_Type) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM4SendEPcj) refers to ethernet_com.o(.text._ZN12ETHERNET_COM4SendEPcj) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM7ReceiveEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM7ReceiveEv) for [Anonymous Symbol]
+    ethernet_com.o(.text._ZN12ETHERNET_COM4pollEv) refers to observer_pattern.o(.text._ZN7subject16Notify_observersEP10BASE_COM_t) for subject::Notify_observers(BASE_COM_t*)
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM4pollEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM4pollEv) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM26Get_ETH_SPI_Handle_TypeDefEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM26Get_ETH_SPI_Handle_TypeDefEv) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM16Receive_callbackEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM16Receive_callbackEv) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM13Send_callbackEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM13Send_callbackEv) for [Anonymous Symbol]
+    ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM17Interrupt_handlerEv) refers to ethernet_com.o(.text._ZN12ETHERNET_COM17Interrupt_handlerEv) for [Anonymous Symbol]
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM4SendEPcj) for ETHERNET_COM::Send(char*, unsigned)
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM7ReceiveEv) for ETHERNET_COM::Receive()
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM16Receive_callbackEv) for ETHERNET_COM::Receive_callback()
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM13Send_callbackEv) for ETHERNET_COM::Send_callback()
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM17Interrupt_handlerEv) for ETHERNET_COM::Interrupt_handler()
+    ethernet_com.o(.rodata._ZTV12ETHERNET_COM) refers to ethernet_com.o(.text._ZN12ETHERNET_COM4pollEv) for ETHERNET_COM::poll()
     observer_pattern.o(.ARM.exidx.text._ZN11send_handleC2EP10BASE_COM_t) refers to observer_pattern.o(.text._ZN11send_handleC2EP10BASE_COM_t) for [Anonymous Symbol]
-    observer_pattern.o(.ARM.exidx.text._ZN11send_handleD2Ev) refers to observer_pattern.o(.text._ZN11send_handleD2Ev) for [Anonymous Symbol]
-    observer_pattern.o(.ARM.exidx.text._ZN8observerC2Ev) refers to observer_pattern.o(.text._ZN8observerC2Ev) for [Anonymous Symbol]
-    observer_pattern.o(.text._ZN8observerD2Ev) refers to observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev) for std::__1::__vector_base<send_handle*, std::__1::allocator<send_handle*>>::~__vector_base__sub_object()
-    observer_pattern.o(.ARM.exidx.text._ZN8observerD2Ev) refers to observer_pattern.o(.text._ZN8observerD2Ev) for [Anonymous Symbol]
-    observer_pattern.o(.ARM.exidx.text._ZN7subjectC2Ev) refers to observer_pattern.o(.text._ZN7subjectC2Ev) for [Anonymous Symbol]
     observer_pattern.o(.text._ZN7subjectD2Ev) refers to new.cpp.o(.text._ZdlPv) for operator delete (void*)
     observer_pattern.o(.text._ZN7subjectD2Ev) refers to base_com.o(.text._ZNSt3__113__vector_baseIP10BASE_COM_tNS_9allocatorIS2_EEED2Ev) for std::__1::__vector_base<BASE_COM_t*, std::__1::allocator<BASE_COM_t*>>::~__vector_base__sub_object()
     observer_pattern.o(.ARM.exidx.text._ZN7subjectD2Ev) refers to observer_pattern.o(.text._ZN7subjectD2Ev) for [Anonymous Symbol]
@@ -314,6 +324,11 @@ Section Cross References
     observer_pattern.o(.text._ZN7subject16Notify_observersEP10BASE_COM_t) refers to observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti) for observer::notify(BASE_COM_t*, int)
     observer_pattern.o(.ARM.exidx.text._ZN7subject16Notify_observersEP10BASE_COM_t) refers to observer_pattern.o(.text._ZN7subject16Notify_observersEP10BASE_COM_t) for [Anonymous Symbol]
     observer_pattern.o(.ARM.exidx.text._ZN8observer6notifyEP10BASE_COM_ti) refers to observer_pattern.o(.text._ZN8observer6notifyEP10BASE_COM_ti) for [Anonymous Symbol]
+    observer_pattern.o(.ARM.exidx.text._ZN11send_handleD2Ev) refers to observer_pattern.o(.text._ZN11send_handleD2Ev) for [Anonymous Symbol]
+    observer_pattern.o(.ARM.exidx.text._ZN8observerC2Ev) refers to observer_pattern.o(.text._ZN8observerC2Ev) for [Anonymous Symbol]
+    observer_pattern.o(.text._ZN8observerD2Ev) refers to observer_pattern.o(.text._ZNSt3__113__vector_baseIP11send_handleNS_9allocatorIS2_EEED2Ev) for std::__1::__vector_base<send_handle*, std::__1::allocator<send_handle*>>::~__vector_base__sub_object()
+    observer_pattern.o(.ARM.exidx.text._ZN8observerD2Ev) refers to observer_pattern.o(.text._ZN8observerD2Ev) for [Anonymous Symbol]
+    observer_pattern.o(.ARM.exidx.text._ZN7subjectC2Ev) refers to observer_pattern.o(.text._ZN7subjectC2Ev) for [Anonymous Symbol]
     enc28j60.o(.text.enableChip) refers to stm32f4xx_hal_gpio.o(.text.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
     enc28j60.o(.ARM.exidx.text.enableChip) refers to enc28j60.o(.text.enableChip) for [Anonymous Symbol]
     enc28j60.o(.text.disableChip) refers to stm32f4xx_hal_gpio.o(.text.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
@@ -2033,19 +2048,34 @@ Removing Unused input sections from the image.
     Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM22ETH_SPI_low_level_initEP12GPIO_TypeDef), (8 bytes).
     Removing ethernet_com.o(.text._ZL16__NVIC_EnableIRQ9IRQn_Type), (52 bytes).
     Removing ethernet_com.o(.ARM.exidx.text._ZL16__NVIC_EnableIRQ9IRQn_Type), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM4SendEPcj), (10 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM4SendEPcj), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM7ReceiveEv), (108 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM7ReceiveEv), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM4pollEv), (272 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM4pollEv), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM26Get_ETH_SPI_Handle_TypeDefEv), (14 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM26Get_ETH_SPI_Handle_TypeDefEv), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM16Receive_callbackEv), (8 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM16Receive_callbackEv), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM13Send_callbackEv), (8 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM13Send_callbackEv), (8 bytes).
+    Removing ethernet_com.o(.text._ZN12ETHERNET_COM17Interrupt_handlerEv), (8 bytes).
+    Removing ethernet_com.o(.ARM.exidx.text._ZN12ETHERNET_COM17Interrupt_handlerEv), (8 bytes).
+    Removing ethernet_com.o(.rodata._ZTV12ETHERNET_COM), (32 bytes).
     Removing observer_pattern.o(.text), (0 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN11send_handleC2EP10BASE_COM_t), (8 bytes).
+    Removing observer_pattern.o(.text._ZN7subjectD2Ev), (212 bytes).
+    Removing observer_pattern.o(.ARM.exidx.text._ZN7subjectD2Ev), (8 bytes).
+    Removing observer_pattern.o(.ARM.exidx.text._ZN7subject7attatchEP10BASE_COM_tS1_), (8 bytes).
+    Removing observer_pattern.o(.ARM.exidx.text._ZN7subject16Notify_observersEP10BASE_COM_t), (8 bytes).
+    Removing observer_pattern.o(.ARM.exidx.text._ZN8observer6notifyEP10BASE_COM_ti), (8 bytes).
     Removing observer_pattern.o(.text._ZN11send_handleD2Ev), (10 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN11send_handleD2Ev), (8 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN8observerC2Ev), (8 bytes).
     Removing observer_pattern.o(.text._ZN8observerD2Ev), (184 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN8observerD2Ev), (8 bytes).
     Removing observer_pattern.o(.ARM.exidx.text._ZN7subjectC2Ev), (8 bytes).
-    Removing observer_pattern.o(.text._ZN7subjectD2Ev), (212 bytes).
-    Removing observer_pattern.o(.ARM.exidx.text._ZN7subjectD2Ev), (8 bytes).
-    Removing observer_pattern.o(.ARM.exidx.text._ZN7subject7attatchEP10BASE_COM_tS1_), (8 bytes).
-    Removing observer_pattern.o(.ARM.exidx.text._ZN7subject16Notify_observersEP10BASE_COM_t), (8 bytes).
-    Removing observer_pattern.o(.ARM.exidx.text._ZN8observer6notifyEP10BASE_COM_ti), (8 bytes).
     Removing observer_pattern.o(.rodata.str1.1), (68 bytes).
     Removing enc28j60.o(.text), (0 bytes).
     Removing enc28j60.o(.text.enableChip), (18 bytes).
@@ -2973,4 +3003,4 @@ Removing Unused input sections from the image.
     Removing vector.cpp.o(.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv), (4 bytes).
     Removing vector.cpp.o(.ARM.exidx.text._ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv), (8 bytes).
 
-1041 unused section(s) (total 80985 bytes) removed from the image.
+1056 unused section(s) (total 81501 bytes) removed from the image.

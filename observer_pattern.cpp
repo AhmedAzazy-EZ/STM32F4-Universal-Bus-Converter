@@ -9,26 +9,6 @@ send_handle::send_handle(BASE_COM_t * source)
 	Source_COM = source;
 }
 
-send_handle::~send_handle()
-{
-
-}
-
-observer::observer()
-{
-
-}
-
-observer::~observer()
-{
-
-}
-
-subject::subject()
-{
-	
-}
-
 subject::~subject()
 {
 	delete this;
@@ -62,3 +42,25 @@ void observer::notify(BASE_COM_t * source , int receive_tracker)
 		}
 	}
 }
+
+send_handle::~send_handle()
+{
+
+}
+
+observer::observer()
+{
+
+}
+
+observer::~observer()
+{
+
+}
+
+subject::subject()
+{
+	
+}
+
+
