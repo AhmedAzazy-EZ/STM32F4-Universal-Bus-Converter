@@ -453,6 +453,16 @@
               <FileType>5</FileType>
               <FilePath>.\CAN_COM.h</FilePath>
             </File>
+            <File>
+              <FileName>ETHERNET_COM.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\ETHERNET_COM.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ETHERNET_COM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ETHERNET_COM.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

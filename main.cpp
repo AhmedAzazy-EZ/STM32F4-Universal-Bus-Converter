@@ -49,7 +49,6 @@ int main(void)
 	HAL_Init();
 	HAL_InitTick(0); 	
 	Clock_Config(); //Setting the Core processor to 180 Mhz	
-	I2C2_Slave_init();
 
 	
 	UART_COM My_UART4_obj{115200 , UART4 , GPIOA , 0 , 1 , GPIO_AF8_UART4};
@@ -67,7 +66,7 @@ int main(void)
 	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
 	My_UART4->obsrvables_tracking.push_back(My_CAN1->attatch(My_UART4 , My_CAN1));		//attach UART_4 to CAN1
 	
-	
+	I2C2_Slave_init();
 	CAN2_init();
 	while(1)
 	{
