@@ -8,7 +8,7 @@ Universal Bus Converter is a versatile hardware and software solution designed t
  #### *Peripheral Configuration:* STM32F4 HAL Library
   The STM32F4 HAL (Hardware Abstraction Layer) library is utilized to configure and control microcontroller peripherals, simplifying the development process.
  #### *Ethernet Interface:* ENC28J60 Module
-  An external ENC28J60 module is integrated into the project for Ethernet communication. It is controlled using SPI (Serial Peripheral Interface) to enable communication with other devices over Ethernet.
+  An external ENC28J60 module is integrated into the project for Ethernet communication. It is controlled using SPI to configure the MAC to enable communication with other devices over Ethernet.
 
   ## Software:
  #### *Programming Language:* C and C++
