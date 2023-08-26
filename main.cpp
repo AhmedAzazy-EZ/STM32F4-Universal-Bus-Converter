@@ -65,6 +65,8 @@ int main(void)
 	My_UART5 = &My_UART5_obj;
 	My_I2C1 = &My_I2C1_obj;
 	My_CAN1 = &My_CAN1_obj;
+	
+	
 	//register observers
 	My_UART4->obsrvables_tracking.push_back(My_UART5->attatch(My_UART4 , My_UART5)); //Attach UART4 to UART5
 	My_UART5->obsrvables_tracking.push_back(My_UART4->attatch(My_UART5 , My_UART4)); //Attach UART5 to UART4 
@@ -72,8 +74,10 @@ int main(void)
 	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
 	My_UART4->obsrvables_tracking.push_back(My_CAN1->attatch(My_UART4 , My_CAN1));		//attach UART_4 to CAN1
 	My_ETHERNET->obsrvables_tracking.push_back(My_CAN1->attatch(My_ETHERNET , My_CAN1));  //Attach Ethernet to CAN1
+	My_CAN1->obsrvables_tracking.push_back(My_ETHERNET->attatch(My_CAN1 , My_ETHERNET));  //Attach CAN1 to Ethernet
 	My_ETHERNET->obsrvables_tracking.push_back(My_UART4->attatch(My_ETHERNET , My_UART4));  //Attach Ethernet to UART4
 	My_UART4->obsrvables_tracking.push_back(My_ETHERNET->attatch(My_UART4 , My_ETHERNET));		//attach UART_4 to My_ETHERNET
+	
 	
 	I2C2_Slave_init();
 	CAN2_init();
