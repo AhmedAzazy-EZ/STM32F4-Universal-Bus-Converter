@@ -80,4 +80,4 @@
   C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
   C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h \
   Debug.h BASE_COM.h std_types.h observer_pattern.h UART_COM.h I2C_COM.h \
-  CAN_COM.h
+  CAN_COM.h ETHERNET_COM.h

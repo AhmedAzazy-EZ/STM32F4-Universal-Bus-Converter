@@ -177,6 +177,12 @@
 #define PHIR             0x13
 #define PHLCON           0x14
 
+
+ #ifdef __cplusplus
+ extern "C" {
+#endif
+	 
+	 
 // accessors to HAL GPIO defines
 void enableChip (void);
 void disableChip (void);
@@ -206,6 +212,8 @@ uint16_t ENC28J60_packetLoop(void);
 uint16_t ENC28J60_packetReceive(uint8_t *buf, int max_len);
 void ENC28_packetSend(uint8_t *buf, uint16_t len);
 uint8_t ENC28_Init(const uint8_t *macaddr);
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif

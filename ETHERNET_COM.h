@@ -24,9 +24,8 @@ public:
 		void Send_callback() override;
 		void Interrupt_handler()override;
 		void poll() override;
-
+		SPI_HandleTypeDef * ETH_SPI_Handler;
 private:
-	SPI_HandleTypeDef * ETH_SPI_Handler;
 	void ETH_SPI_low_level_init(GPIO_TypeDef * GPIO_contr);
 };
 

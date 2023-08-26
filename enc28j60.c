@@ -24,13 +24,11 @@ uint16_t delaycnt = 0; //request gateway ARP lookup
 
 //variables
 
-
-SPI_HandleTypeDef hspi1; //dummy for now
-#define hspi				hspi1
+SPI_HandleTypeDef * hspi1;
 #define PORT_CS			GPIOA
 #define PIN_CS			GPIO_PIN_4
 
-extern SPI_HandleTypeDef hspi1;
+
 static uint8_t Enc28_Bank;
 
 void enableChip()
@@ -48,13 +46,13 @@ uint8_t ENC28_readOp(uint8_t oper, uint8_t addr)
    uint8_t spiData[2];
    enableChip();
    spiData[0] = (oper | (addr & ADDR_MASK));
-   HAL_SPI_Transmit(&hspi, spiData, 1, 100);
+   HAL_SPI_Transmit(hspi1, spiData, 1, 100);
    if (addr & 0x80)
    {
       //HAL_SPI_Transmit(&hspi, spiData, 1, 100);
-      HAL_SPI_Receive(&hspi, &spiData[1], 1, 100);
+      HAL_SPI_Receive(hspi1, &spiData[1], 1, 100);
    }
-   HAL_SPI_Receive(&hspi, &spiData[1], 1, 100);
+   HAL_SPI_Receive(hspi1, &spiData[1], 1, 100);
    disableChip();
 
    return spiData[1];
@@ -65,7 +63,7 @@ void ENC28_writeOp(uint8_t oper, uint8_t addr, uint8_t data)
    enableChip();
    spiData[0] = (oper | (addr & ADDR_MASK)); //((oper<<5)&0xE0)|(addr & ADDR_MASK);
    spiData[1] = data;
-   HAL_SPI_Transmit(&hspi, spiData, 2, 100);
+   HAL_SPI_Transmit(hspi1, spiData, 2, 100);
    disableChip();
 }
 uint8_t ENC28_readReg8(uint8_t addr)
@@ -243,12 +241,12 @@ static void ENC28_writeBuf(uint8_t *data, uint16_t len)
    enableChip();
 
    spiData[0] = ENC28J60_WRITE_BUF_MEM;
-   HAL_SPI_Transmit(&hspi, spiData, 1, 100);
+   HAL_SPI_Transmit(hspi1, spiData, 1, 100);
 
    //	spiData[1] = 0xFF;
    //	HAL_SPI_Transmit(&hspi, &spiData[1], 1, 100);
 
-   HAL_SPI_Transmit(&hspi, data, len, 100);
+   HAL_SPI_Transmit(hspi1, data, len, 100);
 
    // disable chip
    disableChip();
@@ -315,8 +313,8 @@ void readBuf(uint8_t *data, uint16_t len)
    if (len != 0)
    {
       spiData[0] = ENC28J60_READ_BUF_MEM;
-      HAL_SPI_Transmit(&hspi, spiData, 1, 100);
-      HAL_SPI_Receive(&hspi, data, len, 100);
+      HAL_SPI_Transmit(hspi1, spiData, 1, 100);
+      HAL_SPI_Receive(hspi1, data, len, 100);
    }
    disableChip();
 }

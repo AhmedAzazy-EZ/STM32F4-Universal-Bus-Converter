@@ -1,6 +1,6 @@
 Dependencies for Project 'Universal Bus Converter', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (.\main.cpp)(0x64E0ECBA)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
+F (.\main.cpp)(0x64E9DB04)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x5E0C0718)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x5E338B32)
@@ -88,6 +88,7 @@ I (observer_pattern.h)(0x64B1AC90)
 I (UART_COM.h)(0x64B5AC56)
 I (I2C_COM.h)(0x64B6D85A)
 I (CAN_COM.h)(0x64BD6A0C)
+I (ETHERNET_COM.h)(0x64E726F4)
 F (.\std_types.h)(0x64B1C742)()
 F (.\Debug.c)(0x64B1C020)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/debug.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
@@ -483,9 +484,9 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__split_buffer)(0x5E0C0718)
 I (UART_COM.h)(0x64B5AC56)
 I (CAN_COM.h)(0x64BD6A0C)
 F (.\CAN_COM.h)(0x64BD6A0C)()
-F (.\ETHERNET_COM.cpp)(0x64E11468)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/ethernet_com.o -MD)
+F (.\ETHERNET_COM.cpp)(0x64EA1318)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/ethernet_com.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
-I (ETHERNET_COM.h)(0x64E109CC)
+I (ETHERNET_COM.h)(0x64E726F4)
 I (BASE_COM.h)(0x64B1A8A0)
 I (std_types.h)(0x64B1C742)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x5E0C0718)
@@ -566,7 +567,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\climits)(0x5E0C0716)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\limits.h)(0x5E0C0718)
 I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x5ED65234)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__split_buffer)(0x5E0C0718)
-I (enc28j60.h)(0x64CFCE2E)
+I (enc28j60.h)(0x64E9DD70)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x5E0C0718)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x5ED65234)
 I (COM_Generic.h)(0x64B1069C)
@@ -574,7 +575,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdio.h)(0x5E0C0718)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5ED65234)
 I (Debug.h)(0x64B1B892)
 I (UART_COM.h)(0x64B5AC56)
-F (.\ETHERNET_COM.h)(0x64E109CC)()
+F (.\ETHERNET_COM.h)(0x64E726F4)()
 F (.\observer_pattern.cpp)(0x64E3C12C)(-xc++ -std=gnu++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/observer_pattern.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (observer_pattern.h)(0x64B1AC90)
@@ -658,7 +659,7 @@ I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM3
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x61110710)
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h)(0x61110710)
 F (.\observer_pattern.h)(0x64B1AC90)()
-F (.\enc28j60.c)(0x64CFFD94)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/enc28j60.o -MD)
+F (.\enc28j60.c)(0x64EA148A)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/enc28j60.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x61110710)
 I (RTE\Device\STM32F446RETx\stm32f4xx_hal_conf.h)(0x64BD2064)
@@ -695,10 +696,10 @@ I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM3
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h)(0x61110710)
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h)(0x61110710)
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_usart.h)(0x61110710)
-I (enc28j60.h)(0x64CFCE2E)
+I (enc28j60.h)(0x64E9DD70)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5ED65234)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x5ED65234)
-F (.\enc28j60.h)(0x64CFCE2E)()
+F (.\enc28j60.h)(0x64E9DD70)()
 F (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal.c)(0x61110710)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -w-I./RTE/Device/STM32F446RETx-I./RTE/_Target_1-IC:/Users/RAZER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-IC:/Users/RAZER/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.16.0/Drivers/STM32F4xx_HAL_Driver/Inc-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F446xx -D_RTE_  -include "Pre_Include_Global.h"-o ./objects/stm32f4xx_hal.o -MD)
 I (RTE\_Target_1\Pre_Include_Global.h)(0x64A55D58)
 I (C:\Users\RAZER\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h)(0x61110710)

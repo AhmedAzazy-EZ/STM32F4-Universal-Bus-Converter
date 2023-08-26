@@ -10,6 +10,7 @@
 #include "UART_COM.h"
 #include "I2C_COM.h"
 #include "CAN_COM.h"
+#include "ETHERNET_COM.h"
 
 
 
@@ -23,6 +24,7 @@ bool I2C_send_trigger;
 CAN_FilterTypeDef Filter = {0};
 CAN_HandleTypeDef can2;
 bool CAN_send_trigger;
+uint8_t mac_address[6] = {0x00, 0x12, 0x2d, 0x2d, 0x12, 0x00};
 
 
 /************Private functions****************/
@@ -42,6 +44,7 @@ UART_COM * My_UART4 = nullptr;
 UART_COM * My_UART5 = nullptr;
 I2C_COM * My_I2C1 = nullptr;
 CAN_COM * My_CAN1 = nullptr;
+ETHERNET_COM * My_ETHERNET = nullptr;
 
 int main(void)
 {
@@ -55,16 +58,22 @@ int main(void)
 	UART_COM My_UART5_obj{115200 , UART5 , GPIOC , 12 , 13 ,  GPIO_AF8_UART5};
 	I2C_COM My_I2C1_obj{100000 , 0x25 , 0x26 , I2C1 , GPIOB , 6 , 7 , 4};
 	CAN_COM My_CAN1_obj{CAN1 , GPIOA , 12 , 11 , 8 , 9 , 9};
+	ETHERNET_COM My_ETH_obj{mac_address , SPI1 , GPIOA , 7 , 6 , 5 , 4 , 5};
+	
 	My_UART4 = &My_UART4_obj;
 	My_UART5 = &My_UART5_obj;
 	My_I2C1 = &My_I2C1_obj;
 	My_CAN1 = &My_CAN1_obj;
+	My_ETHERNET = &My_ETH_obj;
 	//register observers
 	My_UART4->obsrvables_tracking.push_back(My_UART5->attatch(My_UART4 , My_UART5)); //Attach UART4 to UART5
 	My_UART5->obsrvables_tracking.push_back(My_UART4->attatch(My_UART5 , My_UART4)); //Attach UART5 to UART4 
 	My_I2C1->obsrvables_tracking.push_back(My_UART4->attatch(My_I2C1 , My_UART4));   //Attatch I2C1 to UART4
 	My_UART4->obsrvables_tracking.push_back(My_I2C1->attatch(My_UART4 , My_I2C1));    //attach UART4 to I2C1
 	My_UART4->obsrvables_tracking.push_back(My_CAN1->attatch(My_UART4 , My_CAN1));		//attach UART_4 to CAN1
+	My_ETHERNET->obsrvables_tracking.push_back(My_CAN1->attatch(My_ETHERNET , My_CAN1));  //Attach Ethernet to CAN1
+	My_ETHERNET->obsrvables_tracking.push_back(My_UART4->attatch(My_ETHERNET , My_UART4));  //Attach Ethernet to UART4
+	My_UART4->obsrvables_tracking.push_back(My_ETHERNET->attatch(My_UART4 , My_ETHERNET));		//attach UART_4 to My_ETHERNET
 	
 	I2C2_Slave_init();
 	CAN2_init();
@@ -77,6 +86,8 @@ int main(void)
 		My_I2C1->poll();
 		HAL_Delay(1);
 		My_CAN1->poll();		
+		HAL_Delay(1);
+		My_ETHERNET->poll();			
 		
 		I2C_obj_trigger(); //I2C2 Sends Data to My_I2C1 
 		CAN_obj_trigger(); //CAN2 Sends Data to My_CAN1
@@ -117,6 +128,14 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 }
 
 /************************End of I2C Handlers*********************************/
+
+
+/************************SPI Handlers*********************************/
+void SPI1_IRQHandler()
+{
+	My_ETHERNET->Interrupt_handler();
+}	
+/************************End of SPI Handlers*********************************/
 
 
 /************************UART Handlers*********************************/

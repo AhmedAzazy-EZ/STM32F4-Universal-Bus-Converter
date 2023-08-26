@@ -3,6 +3,8 @@
 #include "COM_Generic.h"
 
 
+extern SPI_HandleTypeDef * hspi1;
+
 ETHERNET_COM::ETHERNET_COM(uint8_t * mac , SPI_TypeDef * SPI_contr , GPIO_TypeDef * GPIO_contr , uint8_t MOSI ,  uint8_t MISO , uint8_t SCK , uint8_t CS , uint8_t AF)
 {
 	
@@ -39,10 +41,72 @@ ETHERNET_COM::ETHERNET_COM(uint8_t * mac , SPI_TypeDef * SPI_contr , GPIO_TypeDe
 	HAL_SPI_Init(ETH_SPI_Handler);
 	
 	HAL_Delay(1);
+	hspi1 = ETH_SPI_Handler;
 	ENC28_Init(mac);
 }
 
 
+ETHERNET_COM::~ETHERNET_COM()
+{
+	delete ETH_SPI_Handler;
+}
+
+STD_Return_t ETHERNET_COM::Send(char * data , uint32_t len)
+{
+	ENC28_packetSend((uint8_t *)data, len);
+}
+
+STD_Return_t ETHERNET_COM::Receive()
+{
+	uint16_t len = ENC28J60_packetReceive(receive_buffer ,  COM_BUFFER_MAX_LENGTH - (receive_tracker % COM_BUFFER_MAX_LENGTH));
+	if(len > 0)
+	{
+		receive_tracker += len;
+		return STD_OK;
+	}
+	
+	return STD_NOT_OK;
+}
+
+SPI_HandleTypeDef * ETHERNET_COM::Get_ETH_SPI_Handle_TypeDef()
+{
+	return ETH_SPI_Handler;
+}
+
+void ETHERNET_COM::Receive_callback()
+{
+	
+}
+
+void ETHERNET_COM::Send_callback()
+{
+
+}
+
+void ETHERNET_COM::Interrupt_handler()
+{
+	HAL_SPI_IRQHandler(ETH_SPI_Handler);
+}
+
+void ETHERNET_COM::poll()
+{
+	if(Receive() == STD_OK)
+	{
+			Notify_observers(this);
+	}
+	
+	if(!OnGoingTx)
+	{
+		for(send_handle * item : obsrvables_tracking)
+		{
+			if(item->data_to_be_sent_tracker < item->data_received_tracker)
+			{
+				Send((char *)&item->Source_COM->receive_buffer[(item->data_to_be_sent_tracker++)%COM_BUFFER_MAX_LENGTH] , 1);
+				return;
+			}
+		}
+	}
+}
 
 void ETHERNET_COM::ETH_SPI_low_level_init(GPIO_TypeDef * GPIO_contr)
 {
@@ -66,61 +130,4 @@ void ETHERNET_COM::ETH_SPI_low_level_init(GPIO_TypeDef * GPIO_contr)
 			NVIC_EnableIRQ(SPI4_IRQn);
 			break;
 	}
-}
-
-STD_Return_t ETHERNET_COM::Send(char * data , uint32_t len)
-{
-	
-}
-
-STD_Return_t ETHERNET_COM::Receive()
-{
-	uint16_t len = ENC28J60_packetReceive(receive_buffer ,  COM_BUFFER_MAX_LENGTH - (receive_tracker % COM_BUFFER_MAX_LENGTH));
-	if(len > 0)
-	{
-		receive_tracker += len;
-		return STD_OK;
-	}
-	
-	return STD_NOT_OK;
-}
-
-void ETHERNET_COM::poll()
-{
-	if(Receive() == STD_OK)
-	{
-			Notify_observers(this);
-	}
-	
-	if(!OnGoingTx)
-	{
-		for(send_handle * item : obsrvables_tracking)
-		{
-			if(item->data_to_be_sent_tracker < item->data_received_tracker)
-			{
-				Send((char *)&item->Source_COM->receive_buffer[(item->data_to_be_sent_tracker++)%COM_BUFFER_MAX_LENGTH] , 1);
-				return;
-			}
-		}
-	}
-}
-
-SPI_HandleTypeDef * ETHERNET_COM::Get_ETH_SPI_Handle_TypeDef()
-{
-	return ETH_SPI_Handler;
-}
-
-void ETHERNET_COM::Receive_callback()
-{
-	
-}
-
-void ETHERNET_COM::Send_callback()
-{
-
-}
-
-void ETHERNET_COM::Interrupt_handler()
-{
-	
 }
