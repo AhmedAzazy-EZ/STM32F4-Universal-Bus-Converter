@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Universal Bus Converter.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Universal Bus Converter.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sat Aug 26 18:04:56 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sat Aug 26 19:13:18 2023
 <BR><P>
 <H3>Maximum Stack Usage =       6576 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2340,7 +2340,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ethernet_com.o(.rodata._ZTV12ETHERNET_COM)
 </UL>
-<P><STRONG><a name="[8f]"></a>ETHERNET_COM::Receive()</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, ethernet_com.o(.text._ZN12ETHERNET_COM7ReceiveEv))
+<P><STRONG><a name="[8f]"></a>ETHERNET_COM::Receive()</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, ethernet_com.o(.text._ZN12ETHERNET_COM7ReceiveEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = ETHERNET_COM::Receive() &rArr; ENC28J60_packetReceive &rArr; ENC28_readReg8 &rArr; ENC28_readOp &rArr; HAL_SPI_Receive &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENC28J60_packetReceive
@@ -2854,7 +2854,7 @@ Global Symbols
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENC28_writeBuf
 </UL>
 
-<P><STRONG><a name="[de]"></a>main</STRONG> (Thumb, 7590 bytes, Stack size 5704 bytes, main.o(.text.main))
+<P><STRONG><a name="[de]"></a>main</STRONG> (Thumb, 7592 bytes, Stack size 5704 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 6576 + Unknown Stack Size
 <LI>Call Chain = main &rArr; CAN_COM::CAN_COM(CAN_TypeDef*, GPIO_TypeDef*, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char) &rArr; BASE_COM_t::BASE_COM_t__sub_object() &rArr; std::__1::vector&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&rang;::__swap_out_circular_buffer(std::__1::__split_buffer&lang;BASE_COM_t*, std::__1::allocator&lang;BASE_COM_t*&rang;&&rang;&) &rArr; __aeabi_memcpy4
 </UL>

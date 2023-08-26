@@ -58,7 +58,14 @@ STD_Return_t ETHERNET_COM::Send(char * data , uint32_t len)
 
 STD_Return_t ETHERNET_COM::Receive()
 {
-	uint16_t len = ENC28J60_packetReceive(receive_buffer ,  COM_BUFFER_MAX_LENGTH - (receive_tracker % COM_BUFFER_MAX_LENGTH));
+	
+	int max_len = COM_BUFFER_MAX_LENGTH - (receive_tracker % COM_BUFFER_MAX_LENGTH);
+	if(max_len == 1 || max_len == 0)
+	{
+		max_len = 498;
+		receive_tracker+=2;
+	}
+	uint16_t len = ENC28J60_packetReceive(&receive_buffer[receive_tracker % COM_BUFFER_MAX_LENGTH] , max_len );
 	if(len > 0)
 	{
 		receive_tracker += len;
