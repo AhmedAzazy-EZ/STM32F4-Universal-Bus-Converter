@@ -24,6 +24,6 @@ Universal Bus Converter is a versatile hardware and software solution designed t
 
   ## Tools and Utilities:
  #### Wireshark:
- Wireshark, a popular network protocol analyzer, is employed to monitor Ethernet packets between the project and a connected PC. This facilitates debugging and analysis of network communication.
+ Wireshark, a popular network protocol analyzer, is employed to monitor Ethernet packets between the universal bus converter and a connected PC. This facilitates debugging and analysis of network communication.
  #### Python Scapy Package:
 The Python Scapy package is utilized to send Ethernet frames from a PC to the project's destination, which is the ENC28J60 module. This feature aids in testing and verifying the project's functionality.
