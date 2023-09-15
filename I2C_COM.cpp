@@ -24,7 +24,6 @@ I2C_COM::I2C_COM(uint32_t ClockSpeed , uint32_t Own_Add , uint16_t My_Slave_Add 
 	HAL_GPIO_Init(GPIO_contr , &_GPIO);
 	
 	I2C_Handler->Instance = I2c_Contr;
-	I2C_Handler->Instance = I2C1;
 	I2C_Handler->Init.ClockSpeed = 100000;
 	I2C_Handler->Init.DutyCycle = I2C_DUTYCYCLE_2;
 	I2C_Handler->Init.OwnAddress1 = Own_Add;
